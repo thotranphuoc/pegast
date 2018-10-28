@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      RESTAURANTS
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let RESTAURANT of RESTAURANTS" (click)="go2Restaurant(RESTAURANT)">
+    <img src="http://pegas-smart-app.enablecode.com.vn/upload/{{RESTAURANT.featured_img}}" />
+    <ion-card-content>
+      <ion-card-title>
+        {{RESTAURANT.name_en}}
+      </ion-card-title>
+      <p>
+        {{RESTAURANT.address_en}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

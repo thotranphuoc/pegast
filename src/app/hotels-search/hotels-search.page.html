@@ -1,0 +1,71 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      HOTEL ROOM SEARCH
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+    <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-card>
+              <ion-card-header>
+                <ion-card-subtitle>Checkin</ion-card-subtitle>
+                <ion-card-title>
+                  <ion-datetime display-format="MM/DD"></ion-datetime>
+                </ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+          <ion-col>
+            <ion-card>
+              <ion-card-header>
+                <ion-card-subtitle>Checkout</ion-card-subtitle>
+                <ion-card-title>
+                  <ion-datetime display-format="MM/DD"></ion-datetime>
+                </ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-item>
+        <ion-label>Country</ion-label>
+        <ion-select #ctry ok-text="Okay" cancel-text="Dismiss" (ionChange)="selectCountry(ctry.value)">
+          <ion-select-option *ngFor="let CTRY of COUNTRIES" [value]="CTRY">{{CTRY.Name}}</ion-select-option>
+          <!-- <ion-select-option value="VN">Vietnam</ion-select-option>
+          <ion-select-option value="TH">Thailand</ion-select-option> -->
+        </ion-select>
+      </ion-item>
+      <!-- <ion-item *ngIf="LOCATIONS.length>0">
+        <ion-label>Location</ion-label>
+        <ion-select #item1 (ionChange)="selectLocation1(item1)">
+          <ion-select-option *ngFor="let loc of LOCATIONS" [value]="loc">{{loc.Name}}</ion-select-option>
+        </ion-select>
+      </ion-item> -->
+      <ion-item>
+        <ion-label position="fixed">Adult</ion-label>
+        <ion-input type="number" [(ngModel)]="numOfAdult"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="fixed">ChildAges</ion-label>
+        <ion-input type="number" [(ngModel)]="ChildAges"></ion-input>
+      </ion-item>
+  <ion-button color="secondary" expand="block" (click)="goSearchHotel()">Search</ion-button>
+  <ion-card *ngFor="let RESULT of SEARCH.RESULTS">
+    <ion-card-content>
+      <ion-card-title>
+        {{SEARCH.REF.Hotel.Name}}
+      </ion-card-title>
+      <p>Room: {{RESULT.Room.Name}}</p>
+      <p> Price: {{RESULT.Price}} {{RESULT.PriceCurrency.Code}}</p>
+      <p>Meal: {{RESULT.Meal.Name}}</p>
+      <ion-button color="secondary" size="small" expand="block" (click)="bookRoom(RESULT)">BOOK</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

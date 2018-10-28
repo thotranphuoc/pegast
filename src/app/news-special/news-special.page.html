@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      NEWS/SPECIAL DISCOUNT
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let DEAL of DEALS" (click)="go2Hotdeal(DEAL)">
+    <img src="http://pegas-smart-app.enablecode.com.vn/upload/{{DEAL.feature_img}}" />
+    <ion-card-content>
+      <ion-card-title>
+        {{DEAL.title_en}}
+      </ion-card-title>
+      <p>
+        {{DEAL.title_vn}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

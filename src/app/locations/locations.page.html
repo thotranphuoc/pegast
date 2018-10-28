@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      LOCATIONS
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let LOCATION of LOCATIONS" (click)="go2Location(LOCATION)">
+    <img src="http://pegas-smart-app.enablecode.com.vn/upload/{{LOCATION.feature_img}}" />
+    <ion-card-content>
+      <ion-card-title>
+        {{LOCATION.title_en}}
+      </ion-card-title>
+      <p>
+        {{LOCATION.title_vn}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

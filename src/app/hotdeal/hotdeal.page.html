@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>hotdeal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- <ion-card *ngIf="DEAL">
+    <img src="http://pegas-smart-app.enablecode.com.vn/upload/{{DEAL.feature_img}}" />
+    <ion-card-content>
+      <ion-card-title>
+        {{DEAL.title_en}}
+      </ion-card-title>
+      <p>
+        {{DEAL.title_vn}}
+      </p>
+    </ion-card-content>
+  </ion-card> -->
+  <ion-card *ngIf="DEALINFO">
+    <!-- <img src="http://pegas-smart-app.enablecode.com.vn/upload/{{DEAL.feature_img}}" /> -->
+    <ion-card-content>
+      <!-- <ion-card-title>
+        {{DEAL.title_en}}
+      </ion-card-title>
+      <p>
+        {{DEAL.title_vn}}
+      </p> -->
+      <div>
+        <p [innerHTML]="myHTML"> </p>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-button>BOOK THIS TOUR</ion-button>
+</ion-content>

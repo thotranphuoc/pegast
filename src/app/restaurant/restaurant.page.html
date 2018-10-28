@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      RESTAURANT
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="RESTAURANT">
+    <img src="http://pegas-smart-app.enablecode.com.vn/upload/{{RESTAURANT.featured_img}}" />
+    <ion-card-content>
+      <ion-card-title>
+        {{RESTAURANT.name_en}}
+      </ion-card-title>
+      <p>
+        {{RESTAURANT.address_en}}
+      </p>
+      <p>
+        {{RESTAURANT.website}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+  <div *ngIf="RESTAURANT">
+    <div class="cover-img">
+      <img src="http://pegas-smart-app.enablecode.com.vn/upload/{{RESTAURANT.featured_img}}" />
+    </div>
+    <div class="res-name">
+      {{RESTAURANT.name_en}}
+    </div>
+    <div class="res-address">
+      {{RESTAURANT.address_en}}
+    </div>
+    <div class="res-website">
+      {{RESTAURANT.website}}
+    </div>
+    <div class="imgs">
+      <span class="img" *ngFor="let img of RESTAURANT.album">
+        <img src="http://pegas-smart-app.enablecode.com.vn/upload/{{img}}" />
+      </span>
+    </div>
+  </div>
+</ion-content>

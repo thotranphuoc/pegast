@@ -1,0 +1,49 @@
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    loadChildren: './home/home.module#HomePageModule'
+  },
+  {
+    path: 'list',
+    loadChildren: './list/list.module#ListPageModule'
+  },
+  { 
+    path: 'deals', loadChildren: './hot-deals/hot-deals.module#HotDealsPageModule' },
+  { path: 'hotels', loadChildren: './hotels/hotels.module#HotelsPageModule' },
+  { path: 'packages', loadChildren: './packages/packages.module#PackagesPageModule' },
+  { path: 'Flights', loadChildren: './flights/flights.module#FlightsPageModule' },
+  { path: 'reservation', loadChildren: './reservation/reservation.module#ReservationPageModule' },
+  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
+  { path: 'my-trip', loadChildren: './my-trip/my-trip.module#MyTripPageModule' },
+  { path: 'account', loadChildren: './account/account.module#AccountPageModule' },
+  { path: 'location', loadChildren: './location/location.module#LocationPageModule' },
+  { path: 'travel-journal', loadChildren: './travel-journal/travel-journal.module#TravelJournalPageModule' },
+  { path: 'news-special', loadChildren: './news-special/news-special.module#NewsSpecialPageModule' },
+  { path: 'language', loadChildren: './language/language.module#LanguagePageModule' },
+  { path: 'booking-policy', loadChildren: './booking-policy/booking-policy.module#BookingPolicyPageModule' },
+  { path: 'hotdeal', loadChildren: './hotdeal/hotdeal.module#HotdealPageModule' },
+  { path: 'deal-detail-view', loadChildren: './deal-detail-view/deal-detail-view.module#DealDetailViewPageModule' },
+  { path: 'test', loadChildren: './test/test.module#TestPageModule' },
+  { path: 'rxjs', loadChildren: './rxjs/rxjs.module#RxjsPageModule' },
+  { path: 'hotels-search', loadChildren: './hotels-search/hotels-search.module#HotelsSearchPageModule' },
+  { path: 'flight-hotel', loadChildren: './flight-hotel/flight-hotel.module#FlightHotelPageModule' },
+  { path: 'locations', loadChildren: './locations/locations.module#LocationsPageModule' },
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+  { path: 'voucher-wallet', loadChildren: './voucher-wallet/voucher-wallet.module#VoucherWalletPageModule' },
+  { path: 'restaurants', loadChildren: './restaurants/restaurants.module#RestaurantsPageModule' },
+  { path: 'restaurant', loadChildren: './restaurant/restaurant.module#RestaurantPageModule' }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}

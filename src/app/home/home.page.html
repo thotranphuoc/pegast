@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div id="pegas-logo" text-center>
+    <img src="http://pegast.vn/Content/Images/pegas_logo.png" alt="">
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Checkin</ion-card-subtitle>
+            <ion-card-title>29/10</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Checkout</ion-card-subtitle>
+            <ion-card-title>30/10</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-button color="primary" expand="block" (click)="go2Page('locations')">Locations</ion-button>
+  <ion-button color="secondary" expand="block" (click)="go2Page('reservation')">Reservation</ion-button>
+  <ion-button color="tertiary" expand="block" (click)="go2Page('travel-journal')">Travel Journal</ion-button>
+  <ion-button color="success" expand="block" (click)="go2Page('my-trip')">My Trip</ion-button>
+  <ion-button color="warning" expand="block" (click)="go2Page('news-special')">HOT DEAL</ion-button>
+
+</ion-content>
