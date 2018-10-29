@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { iHotelSearch } from './interface/pegas.interface';
+import { iHotelSearch, iProfile } from './interface/pegas.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,40 @@ export class LocalService {
     email: '',
     pass: '',
     isSigned: false
+  }
+
+  PROFILE: iProfile = {
+    ID: "",
+    address_en: "",
+    address_vn: "",
+    dob: "",
+    email: "",
+    firstname: "",
+    gender: '',
+    lastname: "",
+    nationality_en: "",
+    nationality_vn: "",
+    passport_number: "",
+    passport_validity: "",
+    phone: "",
+    profile_picture: ""
+  }
+
+  PROFILE_DEFAULT: iProfile = {
+    ID: "",
+    address_en: "",
+    address_vn: "",
+    dob: "",
+    email: "",
+    firstname: "",
+    gender: '',
+    lastname: "",
+    nationality_en: "",
+    nationality_vn: "",
+    passport_number: "",
+    passport_validity: "",
+    phone: "",
+    profile_picture: ""
   }
 
   HOTELSEARCH_DEFAULT: iHotelSearch = {

@@ -117,3 +117,20 @@ export interface iHotelSearch {
     }[]
 }
 
+
+export interface iProfile{
+    ID: string,
+    address_en: string,
+    address_vn: string,
+    dob: string,
+    email: string,
+    firstname: string,
+    gender: string,
+    lastname: string,
+    nationality_en: string,
+    nationality_vn: string,
+    passport_number: string,
+    passport_validity: string,
+    phone: string,
+    profile_picture: string,
+}

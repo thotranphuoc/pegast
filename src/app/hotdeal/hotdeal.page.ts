@@ -24,6 +24,7 @@ export class HotdealPage implements OnInit {
       console.log(data);
       this.DEALINFO = data;
       this.myHTML = this.DEALINFO.data.content_vn;
+      document.getElementById('myHTML').innerHTML = this.myHTML;
     })
   }
 

@@ -4,12 +4,13 @@
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
       <ion-title>
-        BOOKING POLICY
+        DESTINATION GUIDES
       </ion-title>
     </ion-toolbar>
   </ion-header>
 
 <ion-content padding>
-<div id="myHTML_EN"></div>
-<div id="myHTML_VN"></div>
+  <div id="dest-guide" *ngFor="let GUIDE of GUIDES">
+    {{GUIDE | json}}
+  </div>
 </ion-content>

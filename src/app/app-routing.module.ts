@@ -39,7 +39,14 @@ const routes: Routes = [
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'voucher-wallet', loadChildren: './voucher-wallet/voucher-wallet.module#VoucherWalletPageModule' },
   { path: 'restaurants', loadChildren: './restaurants/restaurants.module#RestaurantsPageModule' },
-  { path: 'restaurant', loadChildren: './restaurant/restaurant.module#RestaurantPageModule' }
+  { path: 'restaurant', loadChildren: './restaurant/restaurant.module#RestaurantPageModule' },
+  { path: 'destination-guides', loadChildren: './destination-guides/destination-guides.module#DestinationGuidesPageModule' },
+  { path: 'itinerary', loadChildren: './itinerary/itinerary.module#ItineraryPageModule' },
+  { path: 'premium-seat-allocation', loadChildren: './premium-seat-allocation/premium-seat-allocation.module#PremiumSeatAllocationPageModule' },
+  { path: 'local-map', loadChildren: './local-map/local-map.module#LocalMapPageModule' },
+  { path: 'insurance-document', loadChildren: './insurance-document/insurance-document.module#InsuranceDocumentPageModule' },
+  { path: 'flight-eticket', loadChildren: './flight-eticket/flight-eticket.module#FlightEticketPageModule' },
+  { path: 'hotel-voucher', loadChildren: './hotel-voucher/hotel-voucher.module#HotelVoucherPageModule' }
 ];
 
 @NgModule({

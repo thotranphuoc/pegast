@@ -9,6 +9,10 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-List of vouchers here
+<ion-content>
+<!-- List of vouchers here -->
+<div class="voucher" *ngFor="let V of VOUCHERS">
+  <!-- {{V.name_voucher}} -->
+  <img src="http://pegas-smart-app.enablecode.com.vn/upload/{{V.img}}" />
+</div>
 </ion-content>

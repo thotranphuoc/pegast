@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { iHotelSearch } from './interface/pegas.interface';
+import { iHotelSearch, iProfile } from './interface/pegas.interface';
 import { LocalService } from './local.service';
 @Injectable({
     providedIn: 'root'
@@ -371,5 +371,62 @@ export class PegasService {
         })
         return this.httpClient.post(url, body)
     }
+
+    profileGet(userID: string){
+        let url = "http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php";
+        let body = new HttpParams({
+            fromObject: {
+                act: 'get_profile_user',
+                id: userID
+            }
+        })
+        return this.httpClient.post(url, body)
+    }
+
+    profileUpdate(PROFILE){
+        let url = "http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php";
+        let object: any = PROFILE;
+        object['act'] = 'edit_profile_user';
+        // let ID = object.ID;
+        // delete object.ID;
+        // object['id'] = ID;
+        let body = new HttpParams({
+            fromObject: object
+        })
+        console.log(object);
+        return this.httpClient.post(url, body)
+    }
+
+    policyGet(){
+        let url = "http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php";
+        let body = new HttpParams({
+            fromObject: {
+                act: 'booking_policy',
+            }
+        })
+        return this.httpClient.post(url, body)
+    }
+
+    voucherWalletGet(){
+        let url = "http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php";
+        let body = new HttpParams({
+            fromObject: {
+                act: 'voucher_wallet',
+            }
+        })
+        return this.httpClient.post(url, body)
+    }
+
+    destinationGuideGet(userID: string){
+        let url = "http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php";
+        let body = new HttpParams({
+            fromObject: {
+                act: 'destination_guide',
+                user_id: userID
+            }
+        })
+        return this.httpClient.post(url, body)
+    }
+
 
 }
