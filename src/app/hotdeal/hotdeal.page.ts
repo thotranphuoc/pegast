@@ -19,7 +19,7 @@ export class HotdealPage implements OnInit {
   ngOnInit() {
     this.DEAL = this.navParService.getter();
     console.log(this.DEAL);
-    this.pegasService.dealDetailGetWithPostMethod(this.DEAL.id)
+    this.pegasService.hotDealDetailGetWithPostMethod(this.DEAL.id)
     .subscribe((data)=>{
       console.log(data);
       this.DEALINFO = data;

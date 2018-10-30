@@ -7,18 +7,7 @@ import { iHotelSearch, iProfile } from './interface/pegas.interface';
 export class LocalService {
 
   constructor() { }
-  ACCOUNT = {
-    email: '',
-    pass: '',
-    isSigned: false
-  }
-
-  ACCOUNT_INIT = {
-    email: '',
-    pass: '',
-    isSigned: false
-  }
-
+  
   PROFILE: iProfile = {
     ID: "",
     address_en: "",
@@ -52,6 +41,22 @@ export class LocalService {
     phone: "",
     profile_picture: ""
   }
+  ACCOUNT = {
+    email: '',
+    pass: '',
+    isSigned: false,
+    id: '',
+    profile: this.PROFILE_DEFAULT
+  }
+
+  ACCOUNT_INIT = {
+    email: '',
+    pass: '',
+    isSigned: false,
+    id: '',
+    profile: this.PROFILE_DEFAULT
+  }
+
 
   HOTELSEARCH_DEFAULT: iHotelSearch = {
     REF: {

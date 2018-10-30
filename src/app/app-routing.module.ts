@@ -2,21 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
-  {
-    path: 'home',
-    loadChildren: './home/home.module#HomePageModule'
-  },
-  {
-    path: 'list',
-    loadChildren: './list/list.module#ListPageModule'
-  },
-  { 
-    path: 'deals', loadChildren: './hot-deals/hot-deals.module#HotDealsPageModule' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', loadChildren: './home/home.module#HomePageModule' },
+  { path: 'list', loadChildren: './list/list.module#ListPageModule' },
+  { path: 'hot-deals', loadChildren: './hot-deals/hot-deals.module#HotDealsPageModule' },
   { path: 'hotels', loadChildren: './hotels/hotels.module#HotelsPageModule' },
   { path: 'packages', loadChildren: './packages/packages.module#PackagesPageModule' },
   { path: 'Flights', loadChildren: './flights/flights.module#FlightsPageModule' },
@@ -46,11 +35,12 @@ const routes: Routes = [
   { path: 'local-map', loadChildren: './local-map/local-map.module#LocalMapPageModule' },
   { path: 'insurance-document', loadChildren: './insurance-document/insurance-document.module#InsuranceDocumentPageModule' },
   { path: 'flight-eticket', loadChildren: './flight-eticket/flight-eticket.module#FlightEticketPageModule' },
-  { path: 'hotel-voucher', loadChildren: './hotel-voucher/hotel-voucher.module#HotelVoucherPageModule' }
+  { path: 'hotel-voucher', loadChildren: './hotel-voucher/hotel-voucher.module#HotelVoucherPageModule' },
+  { path: 'news-special-detail', loadChildren: './news-special-detail/news-special-detail.module#NewsSpecialDetailPageModule' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

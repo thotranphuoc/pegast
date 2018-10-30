@@ -1,9 +1,16 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Hot Deals</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      HOT DEALS
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
+  <div *ngFor="let DEAL of DEALS" (click)="go2HotdealDeail(DEAL)">
+    <img src="http://pegas-smart-app.enablecode.com.vn/upload/{{DEAL.feature_img}}" />
+  </div>
 </ion-content>

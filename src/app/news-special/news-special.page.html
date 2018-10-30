@@ -4,13 +4,13 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      NEWS/SPECIAL DISCOUNT
+      SPECIAL DISCOUNTS
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngFor="let DEAL of DEALS" (click)="go2Hotdeal(DEAL)">
+  <!-- <ion-card *ngFor="let DEAL of DEALS" (click)="go2Hotdeal(DEAL)">
     <img src="http://pegas-smart-app.enablecode.com.vn/upload/{{DEAL.feature_img}}" />
     <ion-card-content>
       <ion-card-title>
@@ -20,5 +20,9 @@
         {{DEAL.title_vn}}
       </p>
     </ion-card-content>
-  </ion-card>
+  </ion-card> -->
+  <div *ngFor="let NEWSSPECIAL of NEWSSPECIALS" (click)="go2NewsSpecialDetail(NEWSSPECIAL)">
+    <img src="http://pegas-smart-app.enablecode.com.vn/upload/{{NEWSSPECIAL.feature_img}}" />
+    <!-- <div [innerHTML]="NEWSSPECIAL.content_en"></div> -->
+  </div>
 </ion-content>

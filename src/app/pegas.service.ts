@@ -212,7 +212,7 @@ export class PegasService {
         return this.httpClient.post(url, body)
     }
 
-    dealsGetWithPostMethod(){
+    hotDealsGetWithPostMethod(){
         let url = 'http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php'
         let body = new HttpParams({
             fromObject: {
@@ -223,11 +223,33 @@ export class PegasService {
         return this.httpClient.post(url, body)
     }
 
-    dealDetailGetWithPostMethod(ID: string){
+    hotDealDetailGetWithPostMethod(ID: string){
         let url = 'http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php'
         let body = new HttpParams({
             fromObject: {
                 act: 'hotdeal',
+                id: ID
+            }
+        })
+        return this.httpClient.post(url, body)
+    }
+
+    newsSpecialsGetWithPostMethod(){
+        let url = 'http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php'
+        let body = new HttpParams({
+            fromObject: {
+                act: 'news_special',
+                id: '0'
+            }
+        })
+        return this.httpClient.post(url, body)
+    }
+
+    newsSpecialDetailGetWithPostMethod(ID: string){
+        let url = 'http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php'
+        let body = new HttpParams({
+            fromObject: {
+                act: 'news_special',
                 id: ID
             }
         })
@@ -321,6 +343,8 @@ export class PegasService {
         })
         return this.httpClient.post(url, body)
     }
+
+
 
     accountRegistration(
         firstname: string,

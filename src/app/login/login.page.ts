@@ -27,6 +27,7 @@ export class LoginPage implements OnInit {
       if(res.status ==='Success'){
         this.localService.ACCOUNT.isSigned = true;
         this.localService.ACCOUNT.email = email;
+        this.localService.ACCOUNT.id = res.data.id;
         this.navCtrl.goBack();  
       }
     })

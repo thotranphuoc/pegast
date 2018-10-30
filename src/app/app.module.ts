@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
+import { LoginPage } from './login/login.page';
+import { LoginPageModule } from './login/login.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    LoginPageModule
   ],
   providers: [
     StatusBar,
