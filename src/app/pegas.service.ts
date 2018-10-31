@@ -62,7 +62,7 @@ export class PegasService {
 
     //return: HotelSearchResultItem - list of Room ...
     // hotelSearch() {
-    //     let URL = "http://pegas-smart-app.enablecode.com.vn/webservice/soap_service.php?act=HotelSearch";
+//     let URL = "http://pegas-smart-app.enablecode.com.vn/webservice/soap_service.php?act=HotelSearch";
     //     return this.httpClient.get(URL)
     //     //   .pipe(map(data => {
     //     //     // let res = data[0].HotelSearchResponse.Result.SearchResultItems;

@@ -1,1 +1,82 @@
 
+
+.body{
+    background-image: url('../../assets/imgs/bg.jpg');
+    // background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.container{
+    height: 100vh;
+    padding: 20px;
+}
+
+img{
+    width: 100%;
+    padding-top: 40px;
+}
+#btn0{
+    background-image: url('../../assets/imgs/bt0.png');
+    background-size: 100% 100%;
+}
+
+#btn1{
+    background-image: url('../../assets/imgs/bt1.png');
+    background-size: 100% 100%;
+}
+
+button{
+    background-color: transparent;
+    width: 100%;
+    height: 7vh;
+    margin: 8px 0;
+}
+
+button > span{
+    font-size: 20px;
+    color: grey;
+}
+
+.btn-white{
+    background-image: url('../../assets/imgs/bt-white.png');
+    background-size: 100% 100%;
+}
+
+.btn-red{
+    background-image: url('../../assets/imgs/bt-red.png');
+    background-size: 100% 100%;
+    font-weight: bold;
+}
+
+.btn-red span{
+    color: white;
+}
+
+.dates{
+    margin-top: 40px;
+}
+.from{
+    background-image: url('../../assets/imgs/bt0.png');
+    background-size: 100% 100%;
+    padding: 10px;
+    width: 40vw;
+}
+
+.to{
+    background-image: url('../../assets/imgs/bt1.png');
+    background-size: 100% 100%;
+    padding: 10px;
+    width: 40vw;
+}
+
+.title{
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.value{
+    color: white;
+    font-size: 15px;
+    font-weight: 200;
+}
+

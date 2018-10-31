@@ -4,39 +4,76 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Home
+      CHOOSE YOUR TOUR
     </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="clickedSearch()">
+        <ion-icon slot="icon-only" name="md-notifications"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <div id="pegas-logo" text-center>
-    <img src="http://pegast.vn/Content/Images/pegas_logo.png" alt="">
+<ion-content id="main">
+  <div class="body">
+    <div class="container">
+      <div text-center>
+        <img src="../../assets/imgs/logo.png" alt="">
+        <!-- <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-card>
+                <ion-card-header id="btn0">
+                  <ion-card-subtitle>Checkin</ion-card-subtitle>
+                  <ion-card-title>29/10</ion-card-title>
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+            <ion-col>
+              <ion-card>
+                <ion-card-header id="btn1">
+                  <ion-card-subtitle>Checkout</ion-card-subtitle>
+                  <ion-card-title>30/10</ion-card-title>
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid> -->
+        <div class="dates"></div>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <div class="from">
+                <div class="title">Checkin</div>
+                <div class="value">20/10</div>
+              </div>
+            </ion-col>
+            <ion-col>
+              <div class="to">
+                <div class="title">Checkout</div>
+                <div class="value">25/10</div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <!-- <div class="dates">
+          <div class="from">
+            <div class="title">Checkin</div>
+            <div class="value">20/10</div>
+          </div>
+          <div class="to">
+            <div class="title">Checkout</div>
+            <div class="value">25/10</div>
+          </div>
+        </div> -->
+      </div>
+      
+      <button class="btn-white" (click)="go2Page('locations')"><span>Locations</span></button>
+      <button class="btn-white" (click)="go2Page('reservation')"><span>Reservation</span></button>
+      <button class="btn-white" (click)="go2Page('travel-journal')"><span>Travel Journal</span></button>
+      <button class="btn-white" (click)="go2Page('my-trip')"><span>My Trip</span></button>
+      <button class="btn-red" (click)="go2Page('hot-deals')"><span>HOT DEAL</span></button>
+  
+    </div>
   </div>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-subtitle>Checkin</ion-card-subtitle>
-            <ion-card-title>29/10</ion-card-title>
-          </ion-card-header>
-        </ion-card>
-      </ion-col>
-      <ion-col>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-subtitle>Checkout</ion-card-subtitle>
-            <ion-card-title>30/10</ion-card-title>
-          </ion-card-header>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <ion-button color="primary" expand="block" (click)="go2Page('locations')">Locations</ion-button>
-  <ion-button color="secondary" expand="block" (click)="go2Page('reservation')">Reservation</ion-button>
-  <ion-button color="tertiary" expand="block" (click)="go2Page('travel-journal')">Travel Journal</ion-button>
-  <ion-button color="success" expand="block" (click)="go2Page('my-trip')">My Trip</ion-button>
-  <ion-button color="warning" expand="block" (click)="go2Page('hot-deals')">HOT DEAL</ion-button>
-
 </ion-content>
