@@ -8,6 +8,8 @@ import { LocalService } from './local.service';
     providedIn: 'root'
 })
 export class PegasService {
+    WEBSERVICE_URL = 'https://cluboto.net/webservice/service_post.php';
+    
     constructor(
         private httpClient: HttpClient,
         private localService: LocalService
@@ -177,7 +179,7 @@ export class PegasService {
         const httpOptions = {
             headers: headers
         };
-        const url = 'http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php';
+        const url = this.WEBSERVICE_URL;;
         // const body = { act: "shop", id: 0}
         let body = new HttpParams().set('act', 'shop');    // now it has aaa
         body = body.set('id', '9');
@@ -191,7 +193,7 @@ export class PegasService {
     }
 
     shopsGetWithPostMethod() {
-        let url = 'http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php';
+        let url = this.WEBSERVICE_URL;
         let body = new HttpParams({
             fromObject: {
                 act: 'shop',
@@ -202,7 +204,7 @@ export class PegasService {
     }
 
     shopDetailGetWithPostMethod(shopID: string) {
-        let url = 'http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php';
+        let url = this.WEBSERVICE_URL;
         let body = new HttpParams({
             fromObject: {
                 act: 'shop',
@@ -213,7 +215,7 @@ export class PegasService {
     }
 
     hotDealsGetWithPostMethod(){
-        let url = 'http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php'
+        let url = this.WEBSERVICE_URL;
         let body = new HttpParams({
             fromObject: {
                 act: 'hotdeal',
@@ -224,7 +226,7 @@ export class PegasService {
     }
 
     hotDealDetailGetWithPostMethod(ID: string){
-        let url = 'http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php'
+        let url = this.WEBSERVICE_URL;
         let body = new HttpParams({
             fromObject: {
                 act: 'hotdeal',
@@ -235,7 +237,7 @@ export class PegasService {
     }
 
     newsSpecialsGetWithPostMethod(){
-        let url = 'http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php'
+        let url = this.WEBSERVICE_URL;
         let body = new HttpParams({
             fromObject: {
                 act: 'news_special',
@@ -246,7 +248,7 @@ export class PegasService {
     }
 
     newsSpecialDetailGetWithPostMethod(ID: string){
-        let url = 'http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php'
+        let url = this.WEBSERVICE_URL;
         let body = new HttpParams({
             fromObject: {
                 act: 'news_special',
@@ -257,7 +259,7 @@ export class PegasService {
     }
 
     locationsGetWithPostMethod(){
-        let url = 'http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php'
+        let url = this.WEBSERVICE_URL;
         let body = new HttpParams({
             fromObject: {
                 act: 'location',
@@ -268,7 +270,7 @@ export class PegasService {
     }
 
     locationDetailGetWithPostMethod(ID: string){
-        let url = 'http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php'
+        let url = this.WEBSERVICE_URL;
         let body = new HttpParams({
             fromObject: {
                 act: 'location',
@@ -279,7 +281,7 @@ export class PegasService {
     }
 
     voucherWalletsGetWithPostMethod(UserID: string){
-        let url = 'http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php'
+        let url = this.WEBSERVICE_URL;
         let body = new HttpParams({
             fromObject: {
                 act: 'voucher_wallet',
@@ -290,7 +292,7 @@ export class PegasService {
     }
 
     // voucherWalletDetailGetWithPostMethod(ID: string){
-    //     let url = 'http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php'
+    //     let url = this.WEBSERVICE_URL;
     //     let body = new HttpParams({
     //         fromObject: {
     //             act: 'voucher_wallet',
@@ -301,7 +303,7 @@ export class PegasService {
     // }
 
     restaurantsGetWithPostMethod(){
-        let url = 'http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php'
+        let url = this.WEBSERVICE_URL;
         let body = new HttpParams({
             fromObject: {
                 act: 'restaurant',
@@ -312,7 +314,7 @@ export class PegasService {
     }
 
     restaurantDetailGetWithPostMethod(ID: string){
-        let url = 'http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php'
+        let url = this.WEBSERVICE_URL;
         let body = new HttpParams({
             fromObject: {
                 act: 'restaurant',
@@ -323,7 +325,7 @@ export class PegasService {
     }
 
     drinksGetWithPostMethod(){
-        let url = 'http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php'
+        let url = this.WEBSERVICE_URL;
         let body = new HttpParams({
             fromObject: {
                 act: 'drink',
@@ -334,7 +336,7 @@ export class PegasService {
     }
 
     drinkDetailGetWithPostMethod(ID: string){
-        let url = 'http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php'
+        let url = this.WEBSERVICE_URL;
         let body = new HttpParams({
             fromObject: {
                 act: 'drink',
@@ -361,7 +363,7 @@ export class PegasService {
         nationality_en?: string,
         phone_number?: string,
     ) {
-        let url = 'http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php';
+        let url = this.WEBSERVICE_URL;
         let body = new HttpParams({
             fromObject: {
                 act: 'registeration',
@@ -385,7 +387,7 @@ export class PegasService {
     }
 
     accountLogin(email: string, password: string){
-        let url = "http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php";
+        let url = this.WEBSERVICE_URL;;
         let body = new HttpParams({
             fromObject: {
                 act: 'login',
@@ -397,7 +399,7 @@ export class PegasService {
     }
 
     profileGet(userID: string){
-        let url = "http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php";
+        let url = this.WEBSERVICE_URL;;
         let body = new HttpParams({
             fromObject: {
                 act: 'get_profile_user',
@@ -408,7 +410,7 @@ export class PegasService {
     }
 
     profileUpdate(PROFILE){
-        let url = "http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php";
+        let url = this.WEBSERVICE_URL;;
         let object: any = PROFILE;
         object['act'] = 'edit_profile_user';
         // let ID = object.ID;
@@ -422,7 +424,7 @@ export class PegasService {
     }
 
     policyGet(){
-        let url = "http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php";
+        let url = this.WEBSERVICE_URL;;
         let body = new HttpParams({
             fromObject: {
                 act: 'booking_policy',
@@ -432,7 +434,7 @@ export class PegasService {
     }
 
     voucherWalletGet(){
-        let url = "http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php";
+        let url = this.WEBSERVICE_URL;;
         let body = new HttpParams({
             fromObject: {
                 act: 'voucher_wallet',
@@ -442,7 +444,7 @@ export class PegasService {
     }
 
     destinationGuideGet(userID: string){
-        let url = "http://pegas-smart-app.enablecode.com.vn/webservice/service_post.php";
+        let url = this.WEBSERVICE_URL;;
         let body = new HttpParams({
             fromObject: {
                 act: 'destination_guide',

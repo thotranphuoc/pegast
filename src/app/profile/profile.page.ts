@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PegasService } from '../pegas.service';
 import { LocalService } from '../local.service';
 import { iProfile } from '../interface/pegas.interface';
-import { ModalController, NavController } from '@ionic/angular';
-import { async } from '@angular/core/testing';
+import { ModalController, NavController, AlertController } from '@ionic/angular';
 import { LoginPage } from '../login/login.page';
 
 @Component({
@@ -17,7 +16,8 @@ export class ProfilePage implements OnInit {
     private pegasService: PegasService,
     private localService: LocalService,
     private modalCtrl: ModalController,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private alertController: AlertController
   ) {
     this.PROFILE = this.localService.PROFILE_DEFAULT;
     // this.checkIfLogin();
@@ -45,10 +45,33 @@ export class ProfilePage implements OnInit {
         this.getProfile(ID)
       }   
     } else {
-      alert('Please login first');
-      // this.presentModal();
-      this.doLoginProcess()
+      this.presentAlertConfirm();
     }
+  }
+
+  async presentAlertConfirm() {
+    const alert = await this.alertController.create({
+      // header: 'Confirm!',
+      message: 'Please login first',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'OK',
+          handler: () => {
+            console.log('Confirm Okay');
+            this.doLoginProcess();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
   async presentModal(){

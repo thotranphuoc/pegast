@@ -10,27 +10,32 @@ import { NavController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
-  constructor( 
+  constructor(
     private navCtrl: NavController,
     private pegasService: PegasService,
     private localService: LocalService
-    ) { }
+  ) { }
 
   ngOnInit() {
   }
 
-  login(email: string, pw: string){
+  login(email: string, pw: string) {
     console.log(email, pw);
     this.pegasService.accountLogin(email, pw)
-    .subscribe((res:any)=>{
-      console.log(res);
-      if(res.status ==='Success'){
-        this.localService.ACCOUNT.isSigned = true;
-        this.localService.ACCOUNT.email = email;
-        this.localService.ACCOUNT.id = res.data.id;
-        this.navCtrl.goBack();  
-      }
-    })
+      .subscribe((res: any) => {
+        console.log(res);
+        if (res.status === 'Success') {
+          this.localService.ACCOUNT.isSigned = true;
+          this.localService.ACCOUNT.email = email;
+          this.localService.ACCOUNT.id = res.data.id;
+          this.pegasService.profileGet(res.data.id)
+            .subscribe((res: any) => {
+              console.log(res);
+              this.localService.ACCOUNT.profile = res.data;
+            })
+          this.navCtrl.goBack();
+        }
+      })
   }
 
 }

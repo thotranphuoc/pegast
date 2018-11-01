@@ -4,23 +4,27 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Account
+      LOGIN/REGISTER
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  
- 
-  <div *ngIf="this.ACCOUNT.isSigned">
-    Hi, {{this.ACCOUNT.email}}
-    <ion-button color="secondary" expand="block" (click)="logout()">Logout</ion-button>
-  </div>
-  <div *ngIf="!this.ACCOUNT.isSigned">
-    <div id="message">
-      <p>Please LOGIN or REGISTER an account to book the chosen flight and hotel</p>
+<ion-content>
+  <div class="main" padding>
+    <div class="message" *ngIf="!this.ACCOUNT.isSigned">
+      <p>Please <br> LOGIN or REGISTER <br> an account to continue</p>
     </div>
-    <ion-button color="secondary" expand="block" (click)="go2Page('login')">Login</ion-button>
-    <ion-button color="primary" expand="block" (click)="go2Page('register')">Register</ion-button>
+    <div class="message" *ngIf="this.ACCOUNT.isSigned">
+        Hi, {{this.ACCOUNT.profile.firstname}} {{this.ACCOUNT.profile.lastname}}
+    </div>
+    <div id="btn-group">
+      <div *ngIf="this.ACCOUNT.isSigned">
+        <ion-button color="secondary" expand="block" (click)="logout()">Logout</ion-button>
+      </div>
+      <div *ngIf="!this.ACCOUNT.isSigned">
+        <ion-button color="secondary" expand="block" (click)="go2Page('login')">Login</ion-button>
+        <ion-button color="primary" expand="block" (click)="go2Page('register')">Register</ion-button>
+      </div>
+    </div>
   </div>
 </ion-content>
