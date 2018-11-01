@@ -10,13 +10,22 @@
 </ion-header>
 
 <ion-content >
-  <div class="main" padding>
-    <ion-item>
+  <div class="main" text-center >
+    <!-- <ion-item>
       <ion-input #email required type="text" placeholder="Email"></ion-input>
     </ion-item>
     <ion-item>
       <ion-input #pw required type="password" placeholder="Password"></ion-input>
     </ion-item>
-    <ion-button color="secondary" expand="block" (click)="login(email.value, pw.value)">Login</ion-button>
+    <ion-button color="secondary" expand="block" (click)="login(email.value, pw.value)">Login</ion-button> -->
+    <div class="inputs">
+      <input #email required type="text" placeholder="Email">
+      <input #pw required type="password" placeholder="Password">
+    </div>
+    <div class="btn">
+      <button (click)="login(email.value, pw.value)"></button>
+    </div>
+    <div class="social-btn"></div>
   </div>
+
 </ion-content>

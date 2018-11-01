@@ -26,7 +26,6 @@ export class HotDealsPage implements OnInit {
         console.log(res);
         this.DEALS = [];
         this.DEALS = res.data;
-        this.DEALS = this.DEALS.concat(this.DEALS);
         console.log(this.DEALS);
       })
   }

@@ -10,31 +10,9 @@
 </ion-header>
 
 <ion-content>
-  <!-- <ion-card *ngIf="DEAL">
-    <img src="https://cluboto.net/upload/{{DEAL.feature_img}}" />
-    <ion-card-content>
-      <ion-card-title>
-        {{DEAL.title_en}}
-      </ion-card-title>
-      <p>
-        {{DEAL.title_vn}}
-      </p>
-    </ion-card-content>
-  </ion-card> -->
-  <!-- <ion-card *ngIf="DEALINFO">
-    <img src="https://cluboto.net/upload/{{DEAL.feature_img}}" />
-    <ion-card-content>
-      <ion-card-title>
-        {{DEAL.title_en}}
-      </ion-card-title>
-      <p>
-        {{DEAL.title_vn}}
-      </p>
-      <div>
-        <p [innerHTML]="myHTML"> </p>
-      </div>
-    </ion-card-content>
-  </ion-card> -->
-  <div id="myHTML"></div>
-  <ion-button>BOOK THIS TOUR</ion-button>
+  <div class="main">
+    <div id="myHTML"></div>
+    <button class="btn-red" (click)="doProcessBooking()"><span>BOOK NOW</span></button>
+
+  </div>
 </ion-content>
