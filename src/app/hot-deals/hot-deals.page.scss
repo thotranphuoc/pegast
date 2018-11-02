@@ -1,11 +1,45 @@
+ion-header ion-toolbar {
+    --background: url("../../assets/imgs/header.jpg") center / 100%;
+}
+
 .main{
-    background-image: url('../../assets/imgs/bg.jpg');
-    // background-repeat: no-repeat;
+    background-image: url('../../assets/imgs/bg-profile.png');
+    background-repeat: repeat;
     background-size: 100% 100%;
+    height: 100vh;
+}
+.content
+{
+    width: 90%;
+    text-align: left;
+    margin: 0 auto;
+    padding-top: 5vh;
 }
 .hotdeal{
-    background: #2f6fd6;
-    border-radius: 5px;
-    color: white;
-    margin: 5px 0;
+    background-image: url('../../assets/imgs/item_hotdeals.png');
+    background-size: 100% 100%;
+    height: 15vh;
+    //padding-top:10px;
+    //border-radius: 5px;
+   // color: white;
+   margin: 5px;
+}
+.left-hotdeals
+{
+    width: 33%;
+    float:left;
+    display: inline-block;
+}
+.left-hotdeals img{
+    width: 20vh;
+    height: 15vh;
+    border-radius: 10px 0 0 10px;
+}
+.right-hotdeals
+{
+    width: 67%;
+    float:right;
+    display: inline-block;
+    padding: 20px;
+    color: #ffffff;
 }

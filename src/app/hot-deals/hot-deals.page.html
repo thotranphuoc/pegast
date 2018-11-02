@@ -9,24 +9,18 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <div class="main">
-    <div *ngFor="let DEAL of DEALS" (click)="go2HotdealDeail(DEAL)">
-      <img src="https://cluboto.net/upload/{{DEAL.feature_img}}" />
-    </div>
-    <!-- <div *ngFor="let DEAL of DEALS" (click)="go2HotdealDeail(DEAL)">
-      
-    </div> -->
-    <ion-grid>
-      <ion-row *ngFor="let DEAL of DEALS" (click)="go2HotdealDeail(DEAL)" class="hotdeal">
-        <ion-col size="4">
-          <img src="https://cluboto.net/upload/{{DEAL.feature_img}}" />
-        </ion-col>
-        <ion-col size="8">
-          {{DEAL.title_en}}
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+<ion-content>
+  <div class="main" text-center> 
+    <div class="content">
     
+            <div *ngFor="let DEAL of DEALS" (click)="go2HotdealDeail(DEAL)" class="hotdeal">
+              <div class="left-hotdeals">
+                <img src="https://cluboto.net/upload/{{DEAL.feature_img}}" class="image-hotdeals"/>
+              </div>
+              <div class="right-hotdeals">
+                {{DEAL.title_en}}
+              </div>
+            </div>
+    </div>
   </div>
 </ion-content>
