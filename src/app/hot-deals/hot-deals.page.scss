@@ -1,6 +1,9 @@
 ion-header ion-toolbar {
     --background: url("../../assets/imgs/header.jpg") center / 100%;
 }
+img{
+    padding: 0px !important;
+}
 
 .main{
     background-image: url('../../assets/imgs/bg-profile.png');

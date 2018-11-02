@@ -10,7 +10,13 @@
 </ion-header>
 
 <ion-content>
-  <div class="main">
+  <div class="main" *ngIf="DEALINFO">
+    <div class="title">{{DEALINFO?.data.title_en}}</div>
+    <div class="img">
+      <img src="https://cluboto.net/upload/{{DEALINFO.data.feature_img}}" alt="">
+    </div>
+  </div>
+  <div id="content">
     <div id="myHTML"></div>
     <button class="btn-red" (click)="doProcessBooking()"><span>BOOK NOW</span></button>
 
