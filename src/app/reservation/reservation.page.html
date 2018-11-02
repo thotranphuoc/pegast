@@ -9,12 +9,16 @@
     </ion-toolbar>
   </ion-header>
 
-<ion-content padding>
-  <div class="log">
-    <img src="http://primetour.ua/public/img/partners/pegas-logo.png" alt="">
-  </div>
-  <br>
-  <ion-button color="primary" expand="block" (click)="go2Page('Location')">Fixed Package Tours</ion-button>
-  <ion-button color="secondary" expand="block" (click)="go2Page('reservation')">Flighs & Hotels</ion-button>
-  <ion-button color="tertiary" expand="block" (click)="go2Page('hotels')">Hotels</ion-button>
+<ion-content>
+    <div class="main" text-center> 
+        <div class="content">
+          <div class="log">
+            <img src="../../assets/imgs/logo_pegas.png" alt="">
+          </div>
+          <br>
+          <button color="primary" expand="block" (click)="go2Page('Location')">Fixed Package Tours</button>
+          <button color="secondary" expand="block" (click)="go2Page('reservation')">Flighs & Hotels</button>
+          <button color="tertiary" expand="block" (click)="go2Page('hotels')">Hotels</button>
+        </div>
+      </div>
 </ion-content>
