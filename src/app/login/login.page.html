@@ -18,6 +18,7 @@
       <ion-input #pw required type="password" placeholder="Password"></ion-input>
     </ion-item>
     <ion-button color="secondary" expand="block" (click)="login(email.value, pw.value)">Login</ion-button> -->
+    <div class="login-tittle">Please <br /> LOGIN or REGISTER an account to book the chosen flight and hotel</div>
     <div class="inputs">
       <input #email required type="text" placeholder="Email">
       <input #pw required type="password" placeholder="Password">
@@ -25,7 +26,12 @@
     <div class="btn">
       <button (click)="login(email.value, pw.value)"></button>
     </div>
-    <div class="social-btn"></div>
+
+    <div class="login-tittle-or">Or login with</div>
+    <div class="social-btn">
+      <a href="#" class="icon-facebook" style="height:10px;"><img src="../../assets/imgs/icon-facebook.png"/></a> 
+      <a href="#" class="icon-twitter"> <img src="../../assets/imgs/icon-twitter.png"/></a> 
+      <a href="#" class="icon-email"><img src="../../assets/imgs/icon-email.png"/></a></div>
   </div>
 
 </ion-content>

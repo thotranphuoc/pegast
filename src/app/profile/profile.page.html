@@ -9,39 +9,43 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-<div id="avatar">
-  <img src="https://ionicframework.com/dist/preview-app/www/assets/img/advance-card-bttf.png" alt="">
+<ion-content>
+<div class="main" text-center> 
+  <div class="content">
+      <div id="avatar">
+          <img src="https://ionicframework.com/dist/preview-app/www/assets/img/advance-card-bttf.png" alt="">
+        </div>
+        <div class="inputs">
+          <input type="text" placeholder="First Name" [(ngModel)]="PROFILE.firstname" name="firstname">
+        </div>
+        <div class="inputs">
+          <input type="text" placeholder="Last Name" [(ngModel)]="PROFILE.lastname" name="lastname">
+        </div>
+        <div class="inputs">
+          <input type="text" placeholder="Email" [(ngModel)]="PROFILE.email" name="email">
+        </div>
+        <div class="inputs">
+          <input type="text" placeholder="Phone Number" [(ngModel)]="PROFILE.phone" name="phone">
+        </div>
+        <div class="inputs">
+          <input type="date" placeholder="Date of Birth" [(ngModel)]="PROFILE.dob" name="dob">
+        </div>
+        <div class="inputs">
+          <input type="text" placeholder="Gender" [(ngModel)]="PROFILE.gender" name="gender">
+        </div>
+        <div class="inputs">
+          <input type="text" placeholder="Address" [(ngModel)]="PROFILE.address_en" name="address_en">
+        </div>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <button class="cancel-profile" color="danger" expand="block" [routerLink]="['/home']" routerLinkActive="router-link-active"></button>
+            </ion-col>
+            <ion-col>
+              <button class="save-profile" color="primary" expand="block" (click)="saveProfile()"></button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+  </div>   
 </div>
-<ion-item  lines="none">
-  <ion-input type="text" placeholder="First Name" [(ngModel)]="PROFILE.firstname" name="firstname"></ion-input>
-</ion-item>
-<ion-item>
-  <ion-input type="text" placeholder="Last Name" [(ngModel)]="PROFILE.lastname" name="lastname"></ion-input>
-</ion-item>
-<ion-item>
-  <ion-input type="text" placeholder="Email" [(ngModel)]="PROFILE.email" name="email"></ion-input>
-</ion-item>
-<ion-item>
-  <ion-input type="text" placeholder="Phone Number" [(ngModel)]="PROFILE.phone" name="phone"></ion-input>
-</ion-item>
-<ion-item>
-  <ion-input type="date" placeholder="Date of Birth" [(ngModel)]="PROFILE.dob" name="dob"></ion-input>
-</ion-item>
-<ion-item>
-  <ion-input type="text" placeholder="Gender" [(ngModel)]="PROFILE.gender" name="gender"></ion-input>
-</ion-item>
-<ion-item>
-  <ion-input type="text" placeholder="Address" [(ngModel)]="PROFILE.address_en" name="address_en"></ion-input>
-</ion-item>
-<ion-grid>
-  <ion-row>
-    <ion-col>
-      <ion-button color="danger" expand="block" [routerLink]="['/home']" routerLinkActive="router-link-active"  >Cancel</ion-button>
-    </ion-col>
-    <ion-col>
-      <ion-button color="primary" expand="block" (click)="saveProfile()" >Save</ion-button>
-    </ion-col>
-  </ion-row>
-</ion-grid>
 </ion-content>
