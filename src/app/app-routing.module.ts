@@ -20,7 +20,6 @@ const routes: Routes = [
   { path: 'booking-policy', loadChildren: './booking-policy/booking-policy.module#BookingPolicyPageModule' },
   { path: 'hotdeal', loadChildren: './hotdeal/hotdeal.module#HotdealPageModule' },
   { path: 'deal-detail-view', loadChildren: './deal-detail-view/deal-detail-view.module#DealDetailViewPageModule' },
-  { path: 'test', loadChildren: './test/test.module#TestPageModule' },
   { path: 'rxjs', loadChildren: './rxjs/rxjs.module#RxjsPageModule' },
   { path: 'hotels-search', loadChildren: './hotels-search/hotels-search.module#HotelsSearchPageModule' },
   { path: 'flight-hotel', loadChildren: './flight-hotel/flight-hotel.module#FlightHotelPageModule' },
