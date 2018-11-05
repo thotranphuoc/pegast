@@ -61,6 +61,7 @@ ion-header ion-toolbar {
 .icon-facebook, .icon-twitter, .icon-email
 {
     margin: 20px;
+    width: 40px;
 }
 .icon-facebook
 {
@@ -100,4 +101,7 @@ ion-header ion-toolbar {
 .social-btn
 {
     padding-top: 2vh;
+    img{
+        padding: 0;
+    }
 }
