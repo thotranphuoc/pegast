@@ -1,19 +1,30 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>
-        DETAILS
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      DETAILS
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content>
-  <div class="main">
+  <!-- <div class="main">
     <div *ngIf="NEWSSPECIAL">
       <div [innerHTML]="NEWSSPECIAL.content_en"></div>
     </div>
+    <button class="btn-red" (click)="doProcessBooking()"><span>BOOK NOW</span></button>
+  </div> -->
+
+  <div class="main" *ngIf="NEWSSPECIAL">
+    <div class="title">{{NEWSSPECIAL.title_en}}</div>
+    <div class="img">
+      <img src="https://cluboto.net/upload/{{NEWSSPECIAL.feature_img}}" alt="">
+    </div>
+  </div>
+  <div id="content">
+    <div id="myHTML" [innerHTML]="NEWSSPECIAL.content_en"></div>
     <button class="btn-red" (click)="doProcessBooking()"><span>BOOK NOW</span></button>
   </div>
 </ion-content>

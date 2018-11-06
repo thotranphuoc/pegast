@@ -78,4 +78,23 @@
 
   --ion-color-pegas:#116ee7;
 
+
+  .hydrated {
+    visibility: inherit;
+    
+}
+
+.list-ios:not(.list-inset):not(.list-ios-lines-none) .item:last-child
+{
+  //--background-image: url('../assets/imgs/header.jpg') !important;
+  // background-repeat: no-repeat;
+  //--background-size: 100% 100%;
+  background: #0d67a0;
+  color: white;
+}
+.title-ios,.hydrated ion-menu-button , .button-clear .hydrated
+{
+  text-transform: uppercase;
+  color: white;
+}
 }
