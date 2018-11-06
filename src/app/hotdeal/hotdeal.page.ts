@@ -38,10 +38,10 @@ export class HotdealPage implements OnInit {
     this.ACCOUNT = this.localService.ACCOUNT;
     if (!this.ACCOUNT.isSigned) {
       this.loginAlertConfirm();
-    }else{
+    } else {
       this.bookingAlertConfirm();
     }
-    
+
   }
 
   async loginAlertConfirm() {
@@ -86,9 +86,10 @@ export class HotdealPage implements OnInit {
           handler: () => {
             console.log('Confirm Okay');
             this.doConfirmedBookAlert()
-            .then(()=>{
-              this.navCtrl.navigateRoot('home');
-            })
+              .then(() => {
+                this.bookingDeal();
+
+              })
           }
         }
       ]
@@ -110,11 +111,29 @@ export class HotdealPage implements OnInit {
     const alert = await this.alertController.create({
       header: 'Success',
       subHeader: 'Booking logged',
-      message: 'Hi <strong>'+this.ACCOUNT.profile.firstname+'</strong>. Your booking is now confirmed. Our staff will contact you as soon as possible to proceed your booking. Thank you',
+      message: 'Hi <strong>' + this.ACCOUNT.profile.firstname + '</strong>. Your booking is now confirmed. Our staff will contact you as soon as possible to proceed your booking. Thank you',
       buttons: ['OK']
     });
 
     await alert.present();
+  }
+
+  bookingDeal() {
+    let BOOKING = {
+      booking_id: '0',
+      package_id: this.DEAL.id,
+      user_id: this.localService.ACCOUNT.id,
+      date_start: '2010/10/19',
+      date_end: '2010/10/20',
+      guestno: '2',
+      booking_state: 'BOOKING',
+    }
+  
+    this.pegasService.hotDealBookingMake(BOOKING)
+      .subscribe(data => {
+        console.log(data);
+        this.navCtrl.navigateRoot('home');
+      })
   }
 
 }

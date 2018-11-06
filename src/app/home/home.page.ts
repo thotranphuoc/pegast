@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 
 @Component({
@@ -7,11 +7,16 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class HomePage {
+export class HomePage implements OnInit  {
   constructor(private navCtrl: NavController){
 
   }
   go2Page(url: string){
     this.navCtrl.navigateForward(url);
   }
+
+  ngOnInit(){
+    
+  }
+
 }

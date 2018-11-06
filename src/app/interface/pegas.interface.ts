@@ -100,17 +100,17 @@ export interface iHotelSearch {
         Region: { CountryId: string, Id: string, Name: string, TimeZone: string },
         RoomCategory: { Id: string, Name: string, Code: any }[]
     },
-    RESULTS: { 
-        Accomodations: {Adults: string, ChildAges: any}[], 
+    RESULTS: {
+        Accomodations: { Adults: string, ChildAges: any }[],
         AvailabilityStatus: string,
         HotelEarlyBookingReductionsMinExpirationDate: any,
-        HotelId: string, 
+        HotelId: string,
         HotelSpoMinExpirationDate: any,
         ID: string,
         MandatorySupplements: any,
-        MealId: string, 
-        PaymentCurrencyId: string, 
-        PaymentCurrencyPrice: string, 
+        MealId: string,
+        PaymentCurrencyId: string,
+        PaymentCurrencyPrice: string,
         Price: string,
         PriceCurrencyId: string,
         RoomCategoryId: string
@@ -118,7 +118,7 @@ export interface iHotelSearch {
 }
 
 
-export interface iProfile{
+export interface iProfile {
     ID: string,
     address_en: string,
     address_vn: string,
@@ -133,4 +133,14 @@ export interface iProfile{
     passport_validity: string,
     phone: string,
     profile_picture: string,
+}
+
+export interface iBOOKING {
+    booking_id: string,
+    package_id: string,
+    user_id: string,
+    date_start: string,
+    date_end: string,
+    guestno: string,
+    booking_state: string,
 }

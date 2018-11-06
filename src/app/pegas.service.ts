@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { iHotelSearch, iProfile } from './interface/pegas.interface';
+import { iHotelSearch, iProfile, iBOOKING } from './interface/pegas.interface';
 import { LocalService } from './local.service';
 @Injectable({
     providedIn: 'root'
 })
 export class PegasService {
     WEBSERVICE_URL = 'https://cluboto.net/webservice/service_post.php';
-    
+
     constructor(
         private httpClient: HttpClient,
         private localService: LocalService
@@ -64,7 +64,7 @@ export class PegasService {
 
     //return: HotelSearchResultItem - list of Room ...
     // hotelSearch() {
-//     let URL = "http://pegas-smart-app.enablecode.com.vn/webservice/soap_service.php?act=HotelSearch";
+    //     let URL = "http://pegas-smart-app.enablecode.com.vn/webservice/soap_service.php?act=HotelSearch";
     //     return this.httpClient.get(URL)
     //     //   .pipe(map(data => {
     //     //     // let res = data[0].HotelSearchResponse.Result.SearchResultItems;
@@ -214,7 +214,7 @@ export class PegasService {
         return this.httpClient.post(url, body)
     }
 
-    hotDealsGetWithPostMethod(){
+    hotDealsGetWithPostMethod() {
         let url = this.WEBSERVICE_URL;
         let body = new HttpParams({
             fromObject: {
@@ -225,7 +225,7 @@ export class PegasService {
         return this.httpClient.post(url, body)
     }
 
-    hotDealDetailGetWithPostMethod(ID: string){
+    hotDealDetailGetWithPostMethod(ID: string) {
         let url = this.WEBSERVICE_URL;
         let body = new HttpParams({
             fromObject: {
@@ -236,7 +236,7 @@ export class PegasService {
         return this.httpClient.post(url, body)
     }
 
-    newsSpecialsGetWithPostMethod(){
+    newsSpecialsGetWithPostMethod() {
         let url = this.WEBSERVICE_URL;
         let body = new HttpParams({
             fromObject: {
@@ -247,7 +247,7 @@ export class PegasService {
         return this.httpClient.post(url, body)
     }
 
-    newsSpecialDetailGetWithPostMethod(ID: string){
+    newsSpecialDetailGetWithPostMethod(ID: string) {
         let url = this.WEBSERVICE_URL;
         let body = new HttpParams({
             fromObject: {
@@ -258,7 +258,7 @@ export class PegasService {
         return this.httpClient.post(url, body)
     }
 
-    locationsGetWithPostMethod(){
+    locationsGetWithPostMethod() {
         let url = this.WEBSERVICE_URL;
         let body = new HttpParams({
             fromObject: {
@@ -269,7 +269,7 @@ export class PegasService {
         return this.httpClient.post(url, body)
     }
 
-    locationDetailGetWithPostMethod(ID: string){
+    locationDetailGetWithPostMethod(ID: string) {
         let url = this.WEBSERVICE_URL;
         let body = new HttpParams({
             fromObject: {
@@ -280,7 +280,7 @@ export class PegasService {
         return this.httpClient.post(url, body)
     }
 
-    voucherWalletsGetWithPostMethod(UserID: string){
+    voucherWalletsGetWithPostMethod(UserID: string) {
         let url = this.WEBSERVICE_URL;
         let body = new HttpParams({
             fromObject: {
@@ -302,7 +302,7 @@ export class PegasService {
     //     return this.httpClient.post(url, body)
     // }
 
-    restaurantsGetWithPostMethod(){
+    restaurantsGetWithPostMethod() {
         let url = this.WEBSERVICE_URL;
         let body = new HttpParams({
             fromObject: {
@@ -313,7 +313,7 @@ export class PegasService {
         return this.httpClient.post(url, body)
     }
 
-    restaurantDetailGetWithPostMethod(ID: string){
+    restaurantDetailGetWithPostMethod(ID: string) {
         let url = this.WEBSERVICE_URL;
         let body = new HttpParams({
             fromObject: {
@@ -324,7 +324,7 @@ export class PegasService {
         return this.httpClient.post(url, body)
     }
 
-    drinksGetWithPostMethod(){
+    drinksGetWithPostMethod() {
         let url = this.WEBSERVICE_URL;
         let body = new HttpParams({
             fromObject: {
@@ -335,7 +335,7 @@ export class PegasService {
         return this.httpClient.post(url, body)
     }
 
-    drinkDetailGetWithPostMethod(ID: string){
+    drinkDetailGetWithPostMethod(ID: string) {
         let url = this.WEBSERVICE_URL;
         let body = new HttpParams({
             fromObject: {
@@ -373,20 +373,20 @@ export class PegasService {
                 gender: gender,
                 password: password,
                 passport_number: passport_number,
-                profile_picture : profile_picture? profile_picture: '',
-                address_vn : address_vn? address_vn: '',
-                address_en : address_en? address_en: '',
-                passport_validity : passport_validity? passport_validity: '',
-                nationality_vn : nationality_vn? nationality_vn: '',
-                nationality_en : nationality_en? nationality_en: '',
-                phone_number : phone_number? phone_number: '',
+                profile_picture: profile_picture ? profile_picture : '',
+                address_vn: address_vn ? address_vn : '',
+                address_en: address_en ? address_en : '',
+                passport_validity: passport_validity ? passport_validity : '',
+                nationality_vn: nationality_vn ? nationality_vn : '',
+                nationality_en: nationality_en ? nationality_en : '',
+                phone_number: phone_number ? phone_number : '',
             }
         });
         console.log(body)
         return this.httpClient.post(url, body)
     }
 
-    accountLogin(email: string, password: string){
+    accountLogin(email: string, password: string) {
         let url = this.WEBSERVICE_URL;;
         let body = new HttpParams({
             fromObject: {
@@ -398,7 +398,7 @@ export class PegasService {
         return this.httpClient.post(url, body)
     }
 
-    profileGet(userID: string){
+    profileGet(userID: string) {
         let url = this.WEBSERVICE_URL;;
         let body = new HttpParams({
             fromObject: {
@@ -409,7 +409,7 @@ export class PegasService {
         return this.httpClient.post(url, body)
     }
 
-    profileUpdate(PROFILE){
+    profileUpdate(PROFILE) {
         let url = this.WEBSERVICE_URL;;
         let object: any = PROFILE;
         object['act'] = 'edit_profile_user';
@@ -423,7 +423,7 @@ export class PegasService {
         return this.httpClient.post(url, body)
     }
 
-    policyGet(){
+    policyGet() {
         let url = this.WEBSERVICE_URL;;
         let body = new HttpParams({
             fromObject: {
@@ -433,7 +433,7 @@ export class PegasService {
         return this.httpClient.post(url, body)
     }
 
-    voucherWalletGet(){
+    voucherWalletGet() {
         let url = this.WEBSERVICE_URL;;
         let body = new HttpParams({
             fromObject: {
@@ -443,7 +443,7 @@ export class PegasService {
         return this.httpClient.post(url, body)
     }
 
-    destinationGuideGet(userID: string){
+    destinationGuideGet(userID: string) {
         let url = this.WEBSERVICE_URL;;
         let body = new HttpParams({
             fromObject: {
@@ -452,6 +452,23 @@ export class PegasService {
             }
         })
         return this.httpClient.post(url, body)
+    }
+
+    hotDealBookingMake(BOOKING: iBOOKING) {
+        console.log(BOOKING);
+        let body = new HttpParams({
+            fromObject: {
+                act: 'bookings',
+                booking_id: BOOKING.booking_id,
+                package_id: BOOKING.package_id,
+                user_id: BOOKING.user_id,
+                date_start: BOOKING.date_start,
+                date_end: BOOKING.date_end,
+                guestno: BOOKING.guestno,
+                booking_state: 'BOOKED',
+            }
+        })
+        return this.httpClient.post(this.WEBSERVICE_URL, body)
     }
 
 

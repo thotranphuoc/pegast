@@ -11,6 +11,7 @@
 
 <ion-content padding>
   <div id="dest-guide" *ngFor="let GUIDE of GUIDES">
-    {{GUIDE | json}}
+    <div class="itinerary">{{GUIDE.itinerary_en}}</div>
+    <div id="myHTML" [innerHTML]='GUIDE.destination_guide_en'></div>
   </div>
 </ion-content>
