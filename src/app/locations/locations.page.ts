@@ -10,6 +10,7 @@ import { NavParService } from '../nav-par.service';
 })
 export class LocationsPage implements OnInit {
   LOCATIONS = [];
+  LOCATIONS_ = [];
   constructor(
     private navCtrl: NavController,
     private pegasService: PegasService,
@@ -25,6 +26,7 @@ export class LocationsPage implements OnInit {
       .subscribe((res: any) => {
         console.log(res);
         this.LOCATIONS = res.data;
+        this.LOCATIONS_ = res.data;
       })
   }
 
@@ -32,6 +34,17 @@ export class LocationsPage implements OnInit {
     this.navCtrl.navigateForward('/location')
     this.navParService.setter(LOC
     );
+  }
+
+  search(e){
+    let str = e.detail.value.toLowerCase();
+    console.log(str);
+    if(str.length>0){
+      this.LOCATIONS = this.LOCATIONS.filter(LOC => LOC.title_vn.toLowerCase().indexOf(str)>-1)
+    }else{
+      console.log('str = 0');
+      this.LOCATIONS = this.LOCATIONS_; 
+    }
   }
 
 }

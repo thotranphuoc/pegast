@@ -14,7 +14,7 @@ export class AppComponent {
     { title: 'Profile', url: '/profile', icon: 'home' },
     { title: 'My Trip', url: '/my-trip', icon: 'home' },
     { title: 'Locations', url: '/locations', icon: 'home' },
-    { title: 'Reservation', url: '/reservation', icon: 'home' },
+    // { title: 'Reservation', url: '/reservation', icon: 'home' },
     { title: 'Travel journal', url: '/travel-journal', icon: 'home' },
     { title: 'News/Special', url: '/news-special', icon: 'home' },
     { title: 'Language', url: '/language', icon: 'home' },
@@ -22,8 +22,8 @@ export class AppComponent {
     // { title: 'List', url: '/list', icon: 'list' },
     // { title: 'Hot Deals', url: '/deals', icon: 'list' },
     { title: 'Login/Register', url: '/account', icon: 'list' },
-    { title: 'For Test', url: '/test', icon: 'list' },
-    { title: 'RxJS', url: '/rxjs', icon: 'list' }
+    // { title: 'For Test', url: '/test', icon: 'list' },
+    // { title: 'RxJS', url: '/rxjs', icon: 'list' }
   ];
 
   constructor(
