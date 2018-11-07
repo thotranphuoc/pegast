@@ -1,8 +1,16 @@
 .res-name{
-    font-size: 20px;
+    padding-top: 5px;
+    font-size: 24px;
+    color: #1b75ba;
+    font-weight: bold;
+}
+.res-address
+{
+    padding-top:20px;
+    padding-bottom: 10px;
 }
 .res-website{
-    font-style: italic;
+    padding-bottom: 10px;
 }
 .imgs{
     padding: 5px;
@@ -13,4 +21,9 @@ span > img {
 }
 span {
     padding: 5px;
+}
+
+.res-name, .res-address, .res-website{
+    padding-left: 20px;
+    padding-right: 20px;
 }
