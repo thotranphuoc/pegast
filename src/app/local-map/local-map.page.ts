@@ -30,7 +30,7 @@ export class LocalMapPage implements OnInit {
   }
 
   initMap(mapElement){
-    this.showMap({lat: 0, lng: 0}, mapElement );
+    this.showMap({lng: 106.687988, lat: 10.778073}, mapElement );
   }
   // initMap(mapElement) {
   //   if (this.USER_LOCATION) {
@@ -48,7 +48,7 @@ export class LocalMapPage implements OnInit {
     let latLng = new google.maps.LatLng(position.lat, position.lng);
     let mapOptions = {
       center: latLng,
-      zoom: 10,
+      zoom: 14,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       mapTypeControl: false,
       zoomControl: false,
@@ -72,6 +72,6 @@ export class LocalMapPage implements OnInit {
   }
 
   loadPin(){
-    this.gmapService.addMarkerWithImageToMapWithIDReturnPromiseWithMarker(this.map, {lat: 0.01, lng: 0.01}, 'https://scontent.fsgn5-7.fna.fbcdn.net/v/t1.0-1/c0.0.320.320/p320x320/35549982_2013449092318032_7297222192649994240_n.jpg?_nc_cat=103&_nc_ht=scontent.fsgn5-7.fna&oh=713ee3bfacd10e56490fc6e68e91f1a0&oe=5C440C0D')
+    this.gmapService.addMarkerWithImageToMapWithIDReturnPromiseWithMarker(this.map, {lng: 106.687988, lat: 10.778073}, '../assets/icon/favicon.png')
   }
 }
