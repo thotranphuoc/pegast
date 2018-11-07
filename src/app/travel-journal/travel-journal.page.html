@@ -1,14 +1,16 @@
 <ion-header>
     <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>
-        MY TRAVEL JOURNAL
-      </ion-title>
+      <ion-title>local-map</ion-title>
     </ion-toolbar>
   </ion-header>
-
-<ion-content padding>
-<div id="map">Map Here</div>
-</ion-content>
+  
+  <ion-content padding>
+    <div id="map" #map></div>
+  
+    <!-- <ion-fab left bottom>
+      <button ion-fab color="danger" mini (click)="go2List()">
+        <ion-icon name="md-swap"></ion-icon>
+      </button>
+    </ion-fab>
+    <div class="disable-map"></div> -->
+  </ion-content>
