@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingService } from '../loading.service';
 import { iPosition } from '../interface/position.interface';
 import { GmapService } from '../gmap.service';
+import { PegasService } from '../pegas.service';
+import { LocalService } from '../local.service';
+import { AppService } from '../app.service';
+import { NavController, AlertController } from '@ionic/angular';
 declare var google: any;
 
 @Component({
@@ -15,13 +19,21 @@ export class TravelJournalPage implements OnInit {
   MAP_CENTER: iPosition = { lat: 10.7735686, lng: 106.7733993}
   constructor(
     private loadingService: LoadingService,
-    private gmapService: GmapService
+    private gmapService: GmapService,
+    private pegasService: PegasService,
+    private localService: LocalService,
+    private appService: AppService,
+    private navCtrl: NavController,
+    private alertCtrl: AlertController
   ) { }
 
   ngOnInit() {
     this.startInitMap();
+    console.log('ngOnInit')
   }
 
+
+  
 
   startInitMap() {
     this.loadingService.startLoading();
@@ -69,11 +81,57 @@ export class TravelJournalPage implements OnInit {
         //   this.loadingService.hideLoading();
         //   this.loadShops();
         // })
-        this.loadPin();
+        if(this.localService.ACCOUNT.isSigned){
+          this.getUserTravelJournals(this.localService.ACCOUNT.id)
+        }else{
+          this.presentAlertConfirm();
+          // this.appService.presentAlertPrompt2Login();
+          
+        }
       })
   }
 
-  loadPin(){
-    this.gmapService.addMarkerWithImageToMapWithIDReturnPromiseWithMarker(this.map, this.MAP_CENTER, 'https://scontent.fsgn5-7.fna.fbcdn.net/v/t1.0-1/c0.0.320.320/p320x320/35549982_2013449092318032_7297222192649994240_n.jpg?_nc_cat=103&_nc_ht=scontent.fsgn5-7.fna&oh=713ee3bfacd10e56490fc6e68e91f1a0&oe=5C440C0D')
+  async presentAlertConfirm() {
+    const alert = await this.alertCtrl.create({
+      header: 'Confirm!',
+      message: 'Please login to view',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'OK',
+          handler: () => {
+            console.log('Confirm Okay');
+            this.navCtrl.navigateForward('/login',true);
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  loadPin(POSTITION: iPosition){
+    this.gmapService.addMarkerWithImageToMapWithIDReturnPromiseWithMarker(this.map, POSTITION, 'https://scontent.fsgn5-7.fna.fbcdn.net/v/t1.0-1/c0.0.320.320/p320x320/35549982_2013449092318032_7297222192649994240_n.jpg?_nc_cat=103&_nc_ht=scontent.fsgn5-7.fna&oh=713ee3bfacd10e56490fc6e68e91f1a0&oe=5C440C0D')
+  }
+
+  getUserTravelJournals(USER_ID: string){
+    this.pegasService.travelJournalsUserGet(USER_ID)
+    .subscribe((res: any)=>{
+      console.log(res);
+      if(res.data.length<1){
+        this.appService.presentAlert('Alert','Opps', 'There is no any records', 'OK')
+      }else{
+        let CITIES: any[] = res.data;
+        CITIES.forEach(CITY=>{
+          this.loadPin({lat: CITY.city_lat, lng: CITY.city_lng})
+        })
+      }
+    })
   }
 }

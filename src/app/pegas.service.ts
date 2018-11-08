@@ -471,5 +471,15 @@ export class PegasService {
         return this.httpClient.post(this.WEBSERVICE_URL, body)
     }
 
+    travelJournalsUserGet(USER_ID){
+        let body = new HttpParams({
+            fromObject: {
+                act: 'travel_journal',
+                user_id: USER_ID,
+            }
+        })
+        return this.httpClient.post(this.WEBSERVICE_URL, body)
+    }
+
 
 }
