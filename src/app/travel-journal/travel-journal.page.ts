@@ -91,6 +91,10 @@ export class TravelJournalPage implements OnInit {
       })
   }
 
+<<<<<<< HEAD
+  loadPin(){
+    this.gmapService.addMarkerWithImageToMapWithIDReturnPromiseWithMarker(this.map, this.MAP_CENTER, '../assets/icon/favicon.png')
+=======
   async presentAlertConfirm() {
     const alert = await this.alertCtrl.create({
       header: 'Confirm!',
@@ -133,5 +137,6 @@ export class TravelJournalPage implements OnInit {
         })
       }
     })
+>>>>>>> 4174d3dc1f89dae5b9851b64e16091e24d801676
   }
 }
