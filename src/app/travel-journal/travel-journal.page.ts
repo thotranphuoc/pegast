@@ -74,6 +74,6 @@ export class TravelJournalPage implements OnInit {
   }
 
   loadPin(){
-    this.gmapService.addMarkerWithImageToMapWithIDReturnPromiseWithMarker(this.map, this.MAP_CENTER, 'https://scontent.fsgn5-7.fna.fbcdn.net/v/t1.0-1/c0.0.320.320/p320x320/35549982_2013449092318032_7297222192649994240_n.jpg?_nc_cat=103&_nc_ht=scontent.fsgn5-7.fna&oh=713ee3bfacd10e56490fc6e68e91f1a0&oe=5C440C0D')
+    this.gmapService.addMarkerWithImageToMapWithIDReturnPromiseWithMarker(this.map, this.MAP_CENTER, '../assets/icon/favicon.png')
   }
 }
