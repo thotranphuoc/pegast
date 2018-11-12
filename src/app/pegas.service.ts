@@ -348,7 +348,7 @@ export class PegasService {
 
 
 
-    accountRegistration(
+    accountRegistration1(
         firstname: string,
         lastname: string,
         email: string,
@@ -383,6 +383,18 @@ export class PegasService {
             }
         });
         console.log(body)
+        return this.httpClient.post(url, body)
+    }
+
+    accountRegister(email: string, password: string) {
+        let url = this.WEBSERVICE_URL;;
+        let body = new HttpParams({
+            fromObject: {
+                act: 'register',
+                email: email,
+                password: password
+            }
+        })
         return this.httpClient.post(url, body)
     }
 
@@ -471,7 +483,7 @@ export class PegasService {
         return this.httpClient.post(this.WEBSERVICE_URL, body)
     }
 
-    travelJournalsUserGet(USER_ID){
+    travelJournalsUserGet(USER_ID) {
         let body = new HttpParams({
             fromObject: {
                 act: 'travel_journal',

@@ -25,7 +25,6 @@ import { LoginPageModule } from './login/login.module';
     HttpClientModule,
     FormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    LoginPageModule
   ],
   providers: [
     StatusBar,

@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      REGISTER
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div class="main" text-center>
+  <div class="inputs">
+    <input #email required type="text" placeholder="Username">
+    <input #pw1 required type="password" placeholder="Password">
+    <input #pw2 required type="password" placeholder="Confirm password">
+  </div>
+  <div class="btn">
+    <button (click)="register(email.value, pw1.value, pw2.value)"></button>
+  </div>
+</div>
+</ion-content>
