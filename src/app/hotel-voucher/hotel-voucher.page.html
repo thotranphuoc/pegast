@@ -4,15 +4,21 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <div *ngFor="let ITEM of HOTELVOUCHERS">
-    <!-- <object data='{{FL.FILE}}'>
-      <p>Oops! Your browser doesn't support PDFs!</p>
-      <a href="{{FL.FILE}}">Download Instead</a>
-    </object> -->
-    <button (click)="open_pdf(ITEM)">Open Hotel Voucher</button>
-  </div>
-  <div *ngIf="HOTELVOUCHERS.length<1">
-    Sorry, you don't have any Hotel Voucher yet
-  </div>
+<ion-content>
+    <div class="main">
+        <div class="content">
+            <div *ngFor="let ITEM of HOTELVOUCHERS">
+                <!-- <object data='{{FL.FILE}}'>
+                  <p>Oops! Your browser doesn't support PDFs!</p>
+                  <a href="{{FL.FILE}}">Download Instead</a>
+                </object> -->
+                <button (click)="open_pdf(ITEM)">Open Hotel Voucher</button>
+              </div>
+              <div *ngIf="HOTELVOUCHERS.length<1" class="Alert_none">
+                Sorry, you don't have any Hotel Voucher yet
+              </div>
+        </div>
+      </div>
+      
+  
 </ion-content>
