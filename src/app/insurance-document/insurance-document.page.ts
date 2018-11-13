@@ -12,4 +12,9 @@ export class InsuranceDocumentPage implements OnInit {
   ngOnInit() {
   }
 
+  open_pdf(pdf){
+    window.open(pdf);
+  }
+  
+
 }
