@@ -466,6 +466,18 @@ export class PegasService {
         return this.httpClient.post(url, body)
     }
 
+    itineraryGet(userID: string) {
+        let url = this.WEBSERVICE_URL;;
+        let body = new HttpParams({
+            fromObject: {
+                act: 'itinerary',
+                user_id: userID
+            }
+        })
+        return this.httpClient.post(url, body)
+    }
+
+
     hotDealBookingMake(BOOKING: iBOOKING) {
         console.log(BOOKING);
         let body = new HttpParams({
@@ -487,6 +499,46 @@ export class PegasService {
         let body = new HttpParams({
             fromObject: {
                 act: 'travel_journal',
+                id: USER_ID,
+            }
+        })
+        return this.httpClient.post(this.WEBSERVICE_URL, body)
+    }
+
+    flightTicketGet(USER_ID: string){
+        let body = new HttpParams({
+            fromObject: {
+                act: 'flight_ticket',
+                id: USER_ID,
+            }
+        })
+        return this.httpClient.post(this.WEBSERVICE_URL, body)
+    }
+
+    flightTicketsGet(USER_ID: string){
+        let body = new HttpParams({
+            fromObject: {
+                act: 'flight_ticket',
+                user_id: USER_ID,
+            }
+        })
+        return this.httpClient.post(this.WEBSERVICE_URL, body)
+    }
+
+    hotelVoucherGet(USER_ID: string){
+        let body = new HttpParams({
+            fromObject: {
+                act: 'hotel_voucher',
+                user_id: USER_ID,
+            }
+        })
+        return this.httpClient.post(this.WEBSERVICE_URL, body)
+    }
+
+    insuranceGet(USER_ID: string){
+        let body = new HttpParams({
+            fromObject: {
+                act: 'insurance',
                 user_id: USER_ID,
             }
         })

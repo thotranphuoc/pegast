@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PegasService } from '../pegas.service';
 
 @Component({
   selector: 'app-itinerary',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItineraryPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private pegasService: PegasService
+  ) { }
 
   ngOnInit() {
+    this.pegasService.itineraryGet('0')
+    .subscribe((res)=>{
+      console.log(res);
+    })
+
+   
+    
   }
 
 }

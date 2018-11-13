@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PegasService } from '../pegas.service';
 
 @Component({
   selector: 'app-flight-eticket',
@@ -6,10 +7,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./flight-eticket.page.scss'],
 })
 export class FlightEticketPage implements OnInit {
-
-  constructor() { }
+  FlightTicket: any;
+  constructor(
+    private pegasService: PegasService
+  ) { }
 
   ngOnInit() {
+    this.pegasService.flightTicketGet('0')
+    .subscribe((res)=>{
+      console.log(res);
+    })
+
+    this.pegasService.hotelVoucherGet('0')
+    .subscribe((res)=>{
+      console.log(res);
+    })
+
+    this.pegasService.insuranceGet('0')
+    .subscribe((res)=>{
+      console.log(res);
+    })
+    
   }
 
 }

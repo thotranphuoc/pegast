@@ -14,9 +14,12 @@ import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
 import { LoginPage } from './login/login.page';
 import { LoginPageModule } from './login/login.module';
-
+// import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { PdfViewerComponent } from 'ng2-pdf-viewer'; 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,
+     PdfViewerComponent
+    ],
   entryComponents: [],
   imports: [
     BrowserModule,
@@ -25,6 +28,8 @@ import { LoginPageModule } from './login/login.module';
     HttpClientModule,
     FormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    // PdfViewerModule,
+    // PdfViewerComponent
   ],
   providers: [
     StatusBar,
