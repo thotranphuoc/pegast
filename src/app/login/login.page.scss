@@ -49,13 +49,15 @@ ion-header ion-toolbar {
 
 .btn button{
     background: transparent;
-    background-image: url('../../assets/imgs/17loginbtn.png');
+    background-image: url('../../assets/imgs/bg_login.png');
     background-size: 100% 100%;
     width: 80%;
     height: 50px;
     border: none;
     margin: 10px 0;
     padding: 10px 0;
+    color: #ffffff;
+    font-size: 26px;
     
 }
 .icon-facebook, .icon-twitter, .icon-email
