@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>DRINK</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="DRINK">
+    <div class="cover-img">
+      <img src="https://cluboto.net/upload/{{DRINK.featured_img}}" />
+    </div>
+    <div class="res-name">
+      {{DRINK.name_en}}
+    </div>
+    <div class="res-address">
+      <strong>Address: </strong>{{DRINK.address_en}}
+    </div>
+    <div class="res-website">
+      <strong>Website: </strong>{{DRINK.website}}
+    </div>
+    <div class="imgs">
+      <span class="img" *ngFor="let img of DRINK.album">
+        <img src="https://cluboto.net/upload/{{img}}" />
+      </span>
+    </div>
+  </div>
+</ion-content>

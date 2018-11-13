@@ -7,19 +7,22 @@ import { PegasService } from '../pegas.service';
   styleUrls: ['./itinerary.page.scss'],
 })
 export class ItineraryPage implements OnInit {
-
+  ITINERARIES = [];
   constructor(
     private pegasService: PegasService
   ) { }
 
   ngOnInit() {
-    this.pegasService.itineraryGet('17','0')
-    .subscribe((res)=>{
-      console.log(res);
-    })
+    this.getItineraries();
+  }
 
-   
-    
+  getItineraries(){
+    let UserID = '1';
+    this.pegasService.itineraryGet(UserID,'0')
+    .subscribe((res: any)=>{
+      console.log(res);
+      this.ITINERARIES = res.data;
+    })
   }
 
 }

@@ -1,0 +1,29 @@
+.res-name{
+    padding-top: 5px;
+    font-size: 24px;
+    color: #1b75ba;
+    font-weight: bold;
+}
+.res-address
+{
+    padding-top:20px;
+    padding-bottom: 10px;
+}
+.res-website{
+    padding-bottom: 10px;
+}
+.imgs{
+    padding: 5px;
+}
+span > img {
+    width: auto;
+    height: 80px;
+}
+span {
+    padding: 5px;
+}
+
+.res-name, .res-address, .res-website{
+    padding-left: 20px;
+    padding-right: 20px;
+}

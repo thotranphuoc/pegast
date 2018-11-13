@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>SHOP</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="SHOP">
+    <div class="cover-img">
+      <img src="https://cluboto.net/upload/{{SHOP.featured_img}}" />
+    </div>
+    <div class="res-name">
+      {{SHOP.name_en}}
+    </div>
+    <div class="res-address">
+      <strong>Address: </strong>{{SHOP.address_en}}
+    </div>
+    <div class="res-website">
+      <strong>Website: </strong>{{SHOP.website}}
+    </div>
+    <div class="imgs">
+      <span class="img" *ngFor="let img of SHOP.album">
+        <img src="https://cluboto.net/upload/{{img}}" />
+      </span>
+    </div>
+  </div>
+</ion-content>

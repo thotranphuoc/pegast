@@ -36,7 +36,11 @@ const routes: Routes = [
   { path: 'flight-eticket', loadChildren: './flight-eticket/flight-eticket.module#FlightEticketPageModule' },
   { path: 'hotel-voucher', loadChildren: './hotel-voucher/hotel-voucher.module#HotelVoucherPageModule' },
   { path: 'news-special-detail', loadChildren: './news-special-detail/news-special-detail.module#NewsSpecialDetailPageModule' },
-  { path: 'register', loadChildren: './register/register.module#RegisterPageModule' }
+  { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
+  { path: 'drinks', loadChildren: './drinks/drinks.module#DrinksPageModule' },
+  { path: 'shops', loadChildren: './shops/shops.module#ShopsPageModule' },
+  { path: 'shop', loadChildren: './shop/shop.module#ShopPageModule' },
+  { path: 'drink', loadChildren: './drink/drink.module#DrinkPageModule' }
 ];
 
 @NgModule({

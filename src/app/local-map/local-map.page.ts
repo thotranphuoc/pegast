@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingService } from '../loading.service';
 import { iPosition } from '../interface/position.interface';
 import { GmapService } from '../gmap.service';
+import { PegasService } from '../pegas.service';
+import { NavController } from '@ionic/angular';
 declare var google: any;
 @Component({
   selector: 'app-local-map',
@@ -11,13 +13,21 @@ declare var google: any;
 export class LocalMapPage implements OnInit {
   mapEl: any;
   map: any;
+  RESTAURANTS: any[] =[];
+  DRINKS: any[] = [];
+  SHOPS: any[] = [];
   constructor(
     private loadingService: LoadingService,
-    private gmapService: GmapService
+    private gmapService: GmapService,
+    private pegasService: PegasService,
+    private navCtrl: NavController
   ) { }
 
   ngOnInit() {
     this.startInitMap();
+    this.getRestaurants();
+    this.getShops();
+    this.getDrinks();
   }
 
 
@@ -73,5 +83,31 @@ export class LocalMapPage implements OnInit {
 
   loadPin(){
     this.gmapService.addMarkerWithImageToMapWithIDReturnPromiseWithMarker(this.map, {lng: 106.687988, lat: 10.778073}, '../assets/icon/favicon.png')
+  }
+
+  getRestaurants(){
+    this.pegasService.restaurantsGetWithPostMethod()
+    .subscribe((res: any)=>{
+      console.log(res);
+      this.RESTAURANTS = res.data;
+    })
+  }
+  getDrinks(){
+    this.pegasService.drinksGetWithPostMethod()
+    .subscribe((res: any)=>{
+      console.log(res);
+      this.DRINKS = res.data;
+    })
+  }
+  getShops(){
+    this.pegasService.shopsGetWithPostMethod()
+    .subscribe((res: any)=>{
+      console.log(res);
+      this.SHOPS = res.data;
+    })
+  }
+
+  go2Page(url){
+    this.navCtrl.navigateForward(url);
   }
 }

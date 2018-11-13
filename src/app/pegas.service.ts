@@ -197,7 +197,7 @@ export class PegasService {
         let body = new HttpParams({
             fromObject: {
                 act: 'shop',
-                id: '9'
+                id: '0'
             }
         });
         return this.httpClient.post(url, body)

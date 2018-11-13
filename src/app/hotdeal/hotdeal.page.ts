@@ -125,7 +125,7 @@ export class HotdealPage implements OnInit {
       user_id: this.localService.ACCOUNT.id,
       date_start: '2010/10/19',
       date_end: '2010/10/20',
-      guestno: '2',
+      guestno: '4',
       booking_state: 'BOOKING',
     }
   

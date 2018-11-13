@@ -9,7 +9,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content >
   <ion-card *ngFor="let RESTAURANT of RESTAURANTS" (click)="go2Restaurant(RESTAURANT)">
     <img src="https://cluboto.net/upload/{{RESTAURANT.featured_img}}" />
     <ion-card-content>

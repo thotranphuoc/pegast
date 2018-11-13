@@ -1,9 +1,15 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>itinerary</ion-title>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title>ITINERARY</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
+  <div id="itinerary" *ngFor="let ITINERARY of ITINERARIES">
+    <div class="itinerary">{{ITINERARY.title_en}}</div>
+    <div id="myHTML" [innerHTML]='ITINERARY.itinerary_en'></div>
+  </div>
 </ion-content>

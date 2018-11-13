@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>DRINKS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let DRINK of DRINKS" (click)="go2Drink(DRINK)">
+    <img src="https://cluboto.net/upload/{{DRINK.featured_img}}" />
+    <ion-card-content>
+      <ion-card-title>
+        {{DRINK.name_en}}
+      </ion-card-title>
+      <p>
+        {{DRINK.address_en}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
