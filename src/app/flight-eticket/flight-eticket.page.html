@@ -1,9 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>flight-eticket</ion-title>
+    <ion-title>FLIGHT eTICKET</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
+  <div *ngFor="let ITEM of FlightTickets">
+    <!-- <object data='{{FL.FILE}}'>
+      <p>Oops! Your browser doesn't support PDFs!</p>
+      <a href="{{FL.FILE}}">Download Instead</a>
+    </object> -->
+    <button (click)="open_pdf(ITEM)">Open Flight Ticket</button>
+  </div>
+  <div *ngIf="FlightTickets.length<0">
+    Sorry, you don't have any Flight Ticket yet
+  </div>
 </ion-content>

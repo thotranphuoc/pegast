@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PegasService } from '../pegas.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-flight-eticket',
@@ -7,27 +8,23 @@ import { PegasService } from '../pegas.service';
   styleUrls: ['./flight-eticket.page.scss'],
 })
 export class FlightEticketPage implements OnInit {
-  FlightTicket: any;
+  FlightTickets: any[] = [];
   constructor(
-    private pegasService: PegasService
+    private pegasService: PegasService,
+    private domSanitizer: DomSanitizer
   ) { }
 
   ngOnInit() {
-    this.pegasService.flightTicketGet('0')
-    .subscribe((res)=>{
-      console.log(res);
-    })
-
-    this.pegasService.hotelVoucherGet('0')
-    .subscribe((res)=>{
-      console.log(res);
-    })
-
-    this.pegasService.insuranceGet('0')
-    .subscribe((res)=>{
-      console.log(res);
+    this.pegasService.flightTicketGet('1','0')
+    .subscribe((res: any)=>{
+      this.FlightTickets = res.data;
+      console.log(this.FlightTickets);
     })
     
+  }
+
+  open_pdf(ITEM){
+    window.open(ITEM.file);
   }
 
 }

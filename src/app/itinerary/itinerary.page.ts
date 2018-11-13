@@ -13,7 +13,7 @@ export class ItineraryPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.pegasService.itineraryGet('0')
+    this.pegasService.itineraryGet('17','0')
     .subscribe((res)=>{
       console.log(res);
     })

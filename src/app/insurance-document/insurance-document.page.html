@@ -1,23 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>insurance-document</ion-title>
+    <ion-title>INSURANCE DOC</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <!-- <div>
-    <label>PDF src</label>
-    <input type="text" placeholder="PDF src" [(ngModel)]="pdfSrc">
-  </div> -->
-  <!-- <pdf-viewer [src]="pdfSrc" [render-text]="true" style="display: block;"></pdf-viewer> -->
-  <!-- <pdf-viewer src="https://vadimdez.github.io/ng2-pdf-viewer/pdf-test.pdf"></pdf-viewer> -->
-<!-- 
-  <div>
-    <iframe src="../assets/test.pdf" style="width:100%;height:700px;"></iframe>
-  </div> -->
-
-  <!-- <embed src="../assets/test.pdf" type="application/pdf" width="100%" height="600px" /> -->
-  <!-- <embed src="../assets/test.pdf" width="100%" height="100%" /> -->
- <button (click)="open_pdf('../assets/test.pdf')">Open</button>
-  <!-- <object width="400" height="400" data="../assets/test.pdf" type=”pdf/html”></object> -->
+  <div *ngFor="let ITEM of INSURANCES">
+    <!-- <object data='{{FL.FILE}}'>
+      <p>Oops! Your browser doesn't support PDFs!</p>
+      <a href="{{FL.FILE}}">Download Instead</a>
+    </object> -->
+    <button (click)="open_pdf(ITEM)">Open Insurance Document</button>
+  </div>
+  <div *ngIf="INSURANCES.length<1">
+    Sorry, you don't have any Insurance Document yet
+  </div>
 </ion-content>

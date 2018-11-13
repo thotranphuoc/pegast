@@ -466,12 +466,13 @@ export class PegasService {
         return this.httpClient.post(url, body)
     }
 
-    itineraryGet(userID: string) {
+    itineraryGet(userID: string, IteneraryID: string) {
         let url = this.WEBSERVICE_URL;;
         let body = new HttpParams({
             fromObject: {
                 act: 'itinerary',
-                user_id: userID
+                user_id: userID,
+                id: IteneraryID
             }
         })
         return this.httpClient.post(url, body)
@@ -505,11 +506,12 @@ export class PegasService {
         return this.httpClient.post(this.WEBSERVICE_URL, body)
     }
 
-    flightTicketGet(USER_ID: string){
+    flightTicketGet(USER_ID: string, ID: string){
         let body = new HttpParams({
             fromObject: {
                 act: 'flight_ticket',
-                id: USER_ID,
+                id: ID,
+                user_id: USER_ID
             }
         })
         return this.httpClient.post(this.WEBSERVICE_URL, body)
@@ -525,21 +527,23 @@ export class PegasService {
         return this.httpClient.post(this.WEBSERVICE_URL, body)
     }
 
-    hotelVoucherGet(USER_ID: string){
+    hotelVoucherGet(USER_ID: string, ID: string){
         let body = new HttpParams({
             fromObject: {
                 act: 'hotel_voucher',
                 user_id: USER_ID,
+                id: ID
             }
         })
         return this.httpClient.post(this.WEBSERVICE_URL, body)
     }
 
-    insuranceGet(USER_ID: string){
+    insuranceGet(USER_ID: string, ID: string){
         let body = new HttpParams({
             fromObject: {
                 act: 'insurance',
                 user_id: USER_ID,
+                id: ID
             }
         })
         return this.httpClient.post(this.WEBSERVICE_URL, body)
