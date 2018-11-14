@@ -9,7 +9,7 @@ import { LocalService } from './local.service';
 })
 export class PegasService {
     WEBSERVICE_URL = 'https://cluboto.net/webservice/service_post.php';
-
+    n: number = 0;
     constructor(
         private httpClient: HttpClient,
         private localService: LocalService
@@ -500,7 +500,7 @@ export class PegasService {
         let body = new HttpParams({
             fromObject: {
                 act: 'travel_journal',
-                id: USER_ID,
+                user_id: USER_ID,
             }
         })
         return this.httpClient.post(this.WEBSERVICE_URL, body)
@@ -548,6 +548,8 @@ export class PegasService {
         })
         return this.httpClient.post(this.WEBSERVICE_URL, body)
     }
+
+    
 
 
 }
