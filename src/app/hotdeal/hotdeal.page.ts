@@ -3,6 +3,7 @@ import { NavParService } from '../nav-par.service';
 import { PegasService } from '../pegas.service';
 import { LocalService } from '../local.service';
 import { AlertController, NavController } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-hotdeal',
@@ -10,7 +11,8 @@ import { AlertController, NavController } from '@ionic/angular';
   styleUrls: ['./hotdeal.page.scss'],
 })
 export class HotdealPage implements OnInit {
-  DEAL: any;
+  // DEAL: any;
+  DEAL_ID: any;
   DEALINFO: any;
   myHTML: any;
   ACCOUNT;
@@ -19,13 +21,19 @@ export class HotdealPage implements OnInit {
     private navCtrl: NavController,
     private navParService: NavParService,
     private pegasService: PegasService,
-    private localService: LocalService
+    private localService: LocalService,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.DEAL = this.navParService.getter();
-    console.log(this.DEAL);
-    this.pegasService.hotDealDetailGetWithPostMethod(this.DEAL.id)
+    this.getHotDealDetail();
+  }
+
+  getHotDealDetail(){
+    // this.DEAL = this.navParService.getter();
+    // console.log(this.DEAL);
+    this.DEAL_ID = this.activatedRoute.snapshot.paramMap.get('id');
+    this.pegasService.hotDealDetailGetWithPostMethod(this.DEAL_ID)
       .subscribe((data) => {
         console.log(data);
         this.DEALINFO = data;
@@ -121,7 +129,7 @@ export class HotdealPage implements OnInit {
   bookingDeal() {
     let BOOKING = {
       booking_id: '0',
-      package_id: this.DEAL.id,
+      package_id: this.DEAL_ID,
       user_id: this.localService.ACCOUNT.id,
       date_start: '2010/10/19',
       date_end: '2010/10/20',

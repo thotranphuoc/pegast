@@ -31,7 +31,7 @@ export class HotDealsPage implements OnInit {
   }
 
   go2HotdealDeail(DEAL) {
-    this.navCtrl.navigateForward('/hotdeal');
+    this.navCtrl.navigateForward('/hotdeal/'+DEAL.id);
     this.navPar.setter(DEAL);
   }
 

@@ -3,6 +3,7 @@ import { iDeal } from '../interface/pegas.interface';
 import { NavController } from '@ionic/angular';
 import { PegasService } from '../pegas.service';
 import { NavParService } from '../nav-par.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-location',
@@ -10,16 +11,17 @@ import { NavParService } from '../nav-par.service';
   styleUrls: ['./location.page.scss'],
 })
 export class LocationPage implements OnInit {
-  data;
+  // data;
   LOCATION;
   DEALS: iDeal[] = [];
   constructor( 
     private navCtrl: NavController,
     private pegasService: PegasService,
-    private navParService: NavParService
+    private navParService: NavParService,
+    private activatedRoute: ActivatedRoute
     ) { 
-      this.data = this.navParService.getter();
-      console.log(this.data);
+      // this.data = this.navParService.getter();
+      // console.log(this.data);
     }
 
   ngOnInit() {
@@ -28,7 +30,8 @@ export class LocationPage implements OnInit {
   }
 
   getLocationDetail(){
-    this.pegasService.locationDetailGetWithPostMethod(this.data.id)
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.pegasService.locationDetailGetWithPostMethod(id)
     .subscribe((res: any)=>{
       console.log(res);
       this.LOCATION = res.data;

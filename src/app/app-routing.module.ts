@@ -13,12 +13,12 @@ const routes: Routes = [
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
   { path: 'my-trip', loadChildren: './my-trip/my-trip.module#MyTripPageModule' },
   { path: 'account', loadChildren: './account/account.module#AccountPageModule' },
-  { path: 'location', loadChildren: './location/location.module#LocationPageModule' },
+  { path: 'location/:id', loadChildren: './location/location.module#LocationPageModule' },
   { path: 'travel-journal', loadChildren: './travel-journal/travel-journal.module#TravelJournalPageModule' },
   { path: 'news-special', loadChildren: './news-special/news-special.module#NewsSpecialPageModule' },
   { path: 'language', loadChildren: './language/language.module#LanguagePageModule' },
   { path: 'booking-policy', loadChildren: './booking-policy/booking-policy.module#BookingPolicyPageModule' },
-  { path: 'hotdeal', loadChildren: './hotdeal/hotdeal.module#HotdealPageModule' },
+  { path: 'hotdeal/:id', loadChildren: './hotdeal/hotdeal.module#HotdealPageModule' },
   { path: 'deal-detail-view', loadChildren: './deal-detail-view/deal-detail-view.module#DealDetailViewPageModule' },
   { path: 'rxjs', loadChildren: './rxjs/rxjs.module#RxjsPageModule' },
   { path: 'hotels-search', loadChildren: './hotels-search/hotels-search.module#HotelsSearchPageModule' },
@@ -40,7 +40,8 @@ const routes: Routes = [
   { path: 'drinks', loadChildren: './drinks/drinks.module#DrinksPageModule' },
   { path: 'shops', loadChildren: './shops/shops.module#ShopsPageModule' },
   { path: 'shop', loadChildren: './shop/shop.module#ShopPageModule' },
-  { path: 'drink', loadChildren: './drink/drink.module#DrinkPageModule' }
+  { path: 'drink', loadChildren: './drink/drink.module#DrinkPageModule' },
+  { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({

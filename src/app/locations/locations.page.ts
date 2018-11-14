@@ -31,9 +31,8 @@ export class LocationsPage implements OnInit {
   }
 
   go2Location(LOC) {
-    this.navCtrl.navigateForward('/location')
-    this.navParService.setter(LOC
-    );
+    this.navCtrl.navigateForward('/location/'+LOC.id)
+    // this.navParService.setter(LOC);
   }
 
   search(e){
