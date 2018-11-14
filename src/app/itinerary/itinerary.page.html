@@ -7,9 +7,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <div id="itinerary" *ngFor="let ITINERARY of ITINERARIES">
-    <div class="itinerary">{{ITINERARY.title_en}}</div>
-    <div id="myHTML" [innerHTML]='ITINERARY.itinerary_en'></div>
+<ion-content>
+  <div class="main">
+    <div class="content">
+        <div id="itinerary" *ngFor="let ITINERARY of ITINERARIES">
+            <div class="itinerary">{{ITINERARY.title_en}}</div>
+            <div id="myHTML" [innerHTML]='ITINERARY.itinerary_en'></div>
+          </div>
+    </div>
   </div>
 </ion-content>

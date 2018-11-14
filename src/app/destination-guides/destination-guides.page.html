@@ -9,9 +9,13 @@
     </ion-toolbar>
   </ion-header>
 
-<ion-content padding>
-  <div id="dest-guide" *ngFor="let GUIDE of GUIDES">
-    <div class="itinerary">{{GUIDE.itinerary_en}}</div>
-    <div id="myHTML" [innerHTML]='GUIDE.destination_guide_en'></div>
+<ion-content>
+  <div class="main">
+    <div class="content">
+        <div id="dest-guide" *ngFor="let GUIDE of GUIDES">
+            <div class="itinerary">{{GUIDE.itinerary_en}}</div>
+            <div id="myHTML" [innerHTML]='GUIDE.destination_guide_en'></div>
+          </div>
+    </div>
   </div>
 </ion-content>
