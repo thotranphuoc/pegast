@@ -9,7 +9,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <!-- <ion-card *ngFor="let DEAL of DEALS" (click)="go2Hotdeal(DEAL)">
     <img src="https://cluboto.net/upload/{{DEAL.feature_img}}" />
     <ion-card-content>
@@ -22,7 +22,7 @@
     </ion-card-content>
   </ion-card> -->
 
-  <ion-card *ngIf="LOCATION" (click)="go2Location(LOCATION)">
+  <ion-card *ngIf="LOCATION">
     <img src="https://cluboto.net/upload/{{LOCATION.feature_img}}" />
     <ion-card-content>
       <ion-card-title>
