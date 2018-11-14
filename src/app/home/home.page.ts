@@ -11,6 +11,7 @@ import { updateStyleProp } from '@angular/core/src/render3/styling';
 })
 export class HomePage implements OnInit {
   n: number = 0;
+  isActivated: boolean = false;
   constructor(private navCtrl: NavController) {
     // setTimeout(() => {
     //   this.listPro();
@@ -21,14 +22,23 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
+    this.isActivated = true;
     this.changeImages4Background();
+    
+  }
+
+  ngOnDestroy(){
+    this.isActivated = false;
+    console.log('onDestroy');
   }
 
   changeImages4Background() {
     setInterval(() => {
-      this.changeBackGroundImage()
+      if (this.isActivated) this.changeBackGroundImage()
     }, 5000);
   }
+
+  
 
   changeBackGroundImage() {
     if (this.n < 3) {
