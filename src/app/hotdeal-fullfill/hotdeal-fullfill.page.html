@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Fill Info
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label position="fixed">No of Adults:</ion-label>
+    <ion-input type="number" [(ngModel)]="BOOKING.Adults"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="fixed">No of Childs:</ion-label>
+    <ion-input type="number" [(ngModel)]="BOOKING.Childs"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="fixed">From:</ion-label>
+    <ion-input type="date" [(ngModel)]="BOOKING.DateFrom"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="fixed">To:</ion-label>
+    <ion-input type="date" [(ngModel)]="BOOKING.DateTo"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="fixed">Name:</ion-label>
+    <ion-input type="text" [(ngModel)]="BOOKING.Name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="fixed">Phone:</ion-label>
+    <ion-input type="text" [(ngModel)]="BOOKING.Phone"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="fixed">Email:</ion-label>
+    <ion-input type="text" [(ngModel)]="BOOKING.Email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="fixed">Passport:</ion-label>
+    <ion-input type="text" [(ngModel)]="BOOKING.Passport"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-textarea placeholder="Your note..." [(ngModel)]="BOOKING.Note"></ion-textarea>
+  </ion-item>
+  <ion-button color="success" expand="block" (click)="completeBooking()">Complete Booking</ion-button>
+</ion-content>

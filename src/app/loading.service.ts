@@ -17,7 +17,7 @@ export class LoadingService {
   async startLoading() {
     const loading = await this.loadingCtrl.create({
       message: 'Please wait...',
-      duration: 2000
+      duration: 10000
     });
     return await loading.present();
   }

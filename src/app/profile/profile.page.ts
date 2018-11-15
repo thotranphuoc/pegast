@@ -26,11 +26,13 @@ export class ProfilePage implements OnInit {
 
   ngOnInit() {
     // this.checkIfLogin();
+    let id = this.localService.ACCOUNT.id;
+    this.getProfile(id);
   }
 
   ionViewWillEnter(){
     console.log('ionViewWillEnter');
-    this.checkIfLogin();
+    // this.checkIfLogin();
   }
 
   checkIfLogin(){
@@ -87,6 +89,7 @@ export class ProfilePage implements OnInit {
   }
 
   getProfile(ID) {
+    console.log(ID)
     this.pegasService.profileGet(ID)
       .subscribe((res: any) => {
         console.log(res);

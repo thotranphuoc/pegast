@@ -60,8 +60,8 @@
 
       <button class="btn-white" (click)="go2Page('locations')"><span>Locations</span></button>
       <!-- <button class="btn-white" (click)="go2Page('reservation')"><span>Reservation</span></button> -->
-      <button class="btn-white" (click)="go2Page('travel-journal')"><span>Travel Journal</span></button>
-      <button class="btn-white" (click)="go2Page('my-trip')"><span>My Trip</span></button>
+      <button *ngIf="isSigned" class="btn-white" (click)="go2Page('travel-journal')"><span>Travel Journal</span></button>
+      <button *ngIf="isSigned" class="btn-white" (click)="go2Page('my-trip')"><span>My Trip</span></button>
       <button class="btn-red" (click)="go2Page('hot-deals')"><span>HOT DEAL</span></button>
 
     </div>

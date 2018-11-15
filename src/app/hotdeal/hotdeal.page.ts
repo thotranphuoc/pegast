@@ -29,7 +29,7 @@ export class HotdealPage implements OnInit {
     this.getHotDealDetail();
   }
 
-  getHotDealDetail(){
+  getHotDealDetail() {
     // this.DEAL = this.navParService.getter();
     // console.log(this.DEAL);
     this.DEAL_ID = this.activatedRoute.snapshot.paramMap.get('id');
@@ -93,11 +93,12 @@ export class HotdealPage implements OnInit {
           text: 'OK',
           handler: () => {
             console.log('Confirm Okay');
-            this.doConfirmedBookAlert()
-              .then(() => {
-                this.bookingDeal();
+            this.doHotDealFullFill();
+            // this.doConfirmedBookAlert()
+            //   .then(() => {
+            //     this.bookingDeal();
 
-              })
+            //   })
           }
         }
       ]
@@ -114,6 +115,14 @@ export class HotdealPage implements OnInit {
   //   console.log('alert here');
   // }
 
+  doHotDealFullFill() {
+    let data = {
+      Hotdeal_ID: this.DEAL_ID,
+      ACCOUNT: this.ACCOUNT
+    }
+    this.navParService.setter(data);
+    this.navCtrl.navigateForward('/hotdeal-fullfill');
+  }
 
   async doConfirmedBookAlert() {
     const alert = await this.alertController.create({
@@ -136,12 +145,13 @@ export class HotdealPage implements OnInit {
       guestno: '4',
       booking_state: 'BOOKING',
     }
-  
+
     this.pegasService.hotDealBookingMake(BOOKING)
       .subscribe(data => {
         console.log(data);
         this.navCtrl.navigateRoot('home');
       })
   }
+
 
 }

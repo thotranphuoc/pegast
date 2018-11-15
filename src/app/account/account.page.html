@@ -16,7 +16,7 @@
         <p>Please <br> LOGIN or REGISTER <br> an account to continue</p>
       </div>
       <div class="message" *ngIf="this.ACCOUNT.isSigned">
-          Hi, {{this.ACCOUNT.profile.firstname}} {{this.ACCOUNT.profile.lastname}}
+          Hi, {{this.localService.ACCOUNT.profile.firstname}} {{this.ACCOUNT.profile.lastname}}
       </div>
       <div id="btn-group">
         <div *ngIf="this.ACCOUNT.isSigned">

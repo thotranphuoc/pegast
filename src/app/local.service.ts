@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { iHotelSearch, iProfile } from './interface/pegas.interface';
+import { iHotelSearch, iProfile, iDEALBOOKING } from './interface/pegas.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +7,7 @@ import { iHotelSearch, iProfile } from './interface/pegas.interface';
 export class LocalService {
 
   constructor() { }
-  
+
   PROFILE: iProfile = {
     ID: "",
     address_en: "",
@@ -72,5 +72,31 @@ export class LocalService {
       RoomCategory: []
     },
     RESULTS: []
+  }
+
+  DEAL_BOOKING: iDEALBOOKING = {
+    Adults: '1',
+    Childs: '0',
+    DateFrom: '',
+    DateTo: '',
+    Name: '',
+    Phone: '',
+    Email: '',
+    Passport: '',
+    Note: '',
+    DEAL_ID: ''
+  }
+
+  DEAL_BOOKING_DEFAULT: iDEALBOOKING = {
+    Adults: '1',
+    Childs: '0',
+    DateFrom: '',
+    DateTo: '',
+    Name: '',
+    Phone: '',
+    Email: '',
+    Passport: '',
+    Note: '',
+    DEAL_ID: ''
   }
 }

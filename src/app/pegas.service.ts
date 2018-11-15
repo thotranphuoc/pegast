@@ -479,19 +479,24 @@ export class PegasService {
     }
 
 
-    hotDealBookingMake(BOOKING: iBOOKING) {
-        console.log(BOOKING);
+    hotDealBookingMake(BOOKINGDATA) {
+        // console.log(BOOKING);
         let body = new HttpParams({
-            fromObject: {
-                act: 'bookings',
-                booking_id: BOOKING.booking_id,
-                package_id: BOOKING.package_id,
-                user_id: BOOKING.user_id,
-                date_start: BOOKING.date_start,
-                date_end: BOOKING.date_end,
-                guestno: BOOKING.guestno,
-                booking_state: 'BOOKED',
-            }
+            fromObject: BOOKINGDATA
+            // fromObject: {
+            //     act: 'bookings',
+            //     booking_id: BOOKING.booking_id,
+            //     package_id: BOOKING.package_id,
+            //     user_id: BOOKING.user_id,
+            //     date_start: BOOKING.date_start,
+            //     date_end: BOOKING.date_end,
+            //     guestno: BOOKING.guestno,
+            //     booking_state: 'BOOKED',
+            //     toGuest:'html format to guest',
+            //     emailGuest: 'tho@enablecode.vn',
+            //     toAdmin: 'html for mal to admin',
+            //     emailAdmin: 'tho@enablecode.vn'
+            // }
         })
         return this.httpClient.post(this.WEBSERVICE_URL, body)
     }

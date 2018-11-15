@@ -144,3 +144,16 @@ export interface iBOOKING {
     guestno: string,
     booking_state: string,
 }
+
+export interface iDEALBOOKING {
+    Adults: string;
+    Childs: string;
+    DateFrom: string;
+    DateTo: string;
+    Name: string;
+    Phone: string;
+    Email: string;
+    Passport: string;
+    Note: string,
+    DEAL_ID: string
+}

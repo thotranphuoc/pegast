@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { updateStyleProp } from '@angular/core/src/render3/styling';
+import { LocalService } from '../local.service';
 // import { url } from 'inspector';
 
 @Component({
@@ -12,10 +13,15 @@ import { updateStyleProp } from '@angular/core/src/render3/styling';
 export class HomePage implements OnInit {
   n: number = 0;
   isActivated: boolean = false;
-  constructor(private navCtrl: NavController) {
+  isSigned: boolean = false;
+  constructor(
+    private navCtrl: NavController,
+    private localService: LocalService
+    ) {
     // setTimeout(() => {
     //   this.listPro();
     // }, 2000);
+    this.isSigned = this.localService.ACCOUNT.isSigned;
   }
   go2Page(url: string) {
     this.navCtrl.navigateForward(url);
@@ -26,6 +32,7 @@ export class HomePage implements OnInit {
     this.changeImages4Background();
     
   }
+
 
   ngOnDestroy(){
     this.isActivated = false;
