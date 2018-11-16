@@ -5,6 +5,7 @@ import { iDEALBOOKING } from '../interface/pegas.interface';
 import { PegasService } from '../pegas.service';
 import { NavController } from '@ionic/angular';
 import { LoadingService } from '../loading.service';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-hotdeal-fullfill',
@@ -19,7 +20,8 @@ export class HotdealFullfillPage implements OnInit {
     private navPar: NavParService,
     private localService: LocalService,
     private pegasService: PegasService,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private appService: AppService
   ) {
     this.data = this.navPar.getter();
     let profile = this.data.ACCOUNT.profile;
@@ -91,6 +93,7 @@ export class HotdealFullfillPage implements OnInit {
         console.log(res);
         this.navCtrl.navigateRoot('home');
         this.loadingService.hideLoading();
+        this.appService.presentToast('Success, please check your email', 5000);
       })
       .catch((err)=>{
         console.log(err);

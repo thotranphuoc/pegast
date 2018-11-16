@@ -42,6 +42,8 @@ const routes: Routes = [
   { path: 'shop', loadChildren: './shop/shop.module#ShopPageModule' },
   { path: 'drink', loadChildren: './drink/drink.module#DrinkPageModule' },
   { path: 'hotdeal-fullfill', loadChildren: './hotdeal-fullfill/hotdeal-fullfill.module#HotdealFullfillPageModule' },
+  { path: 'search-destination', loadChildren: './search-destination/search-destination.module#SearchDestinationPageModule' },
+  { path: 'search-date', loadChildren: './search-date/search-date.module#SearchDatePageModule' },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
 

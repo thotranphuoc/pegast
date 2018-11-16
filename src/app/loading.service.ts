@@ -15,22 +15,22 @@ export class LoadingService {
 
 
   async startLoading() {
-    const loading = await this.loadingCtrl.create({
+    this.loading = await this.loadingCtrl.create({
       message: 'Please wait...',
       duration: 10000
     });
-    return await loading.present();
+    return await this.loading.present();
   }
 
   async presentLoadingWithOptions() {
-    const loading = await this.loadingCtrl.create({
+    this.loading = await this.loadingCtrl.create({
       spinner: 'hide',
       duration: 5000,
       message: 'Please wait...',
       translucent: true,
       cssClass: 'custom-class custom-loading'
     });
-    return await loading.present();
+    return await this.loading.present();
   }
 
 

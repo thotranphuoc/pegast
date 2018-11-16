@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 import { PegasService } from './pegas.service';
 import { LocalService } from './local.service';
 
@@ -10,6 +10,7 @@ export class AppService {
 
   constructor(
     public alertController: AlertController,
+    private toastController: ToastController,
     private pegasService: PegasService,
     private localService: LocalService
     ) { }
@@ -98,5 +99,14 @@ export class AppService {
     });
 
     await alert.present();
+  }
+
+
+  async presentToast(MSG: string, DURATION: number) {
+    const toast = await this.toastController.create({
+      message: MSG,
+      duration: DURATION
+    });
+    toast.present();
   }
 }

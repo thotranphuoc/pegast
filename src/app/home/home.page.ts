@@ -24,12 +24,13 @@ export class HomePage implements OnInit {
     this.isSigned = this.localService.ACCOUNT.isSigned;
   }
   go2Page(url: string) {
+    console.log('go2page', url);
     this.navCtrl.navigateForward(url);
   }
 
   ngOnInit() {
     this.isActivated = true;
-    this.changeImages4Background();
+    // this.changeImages4Background();
     
   }
 
@@ -54,7 +55,7 @@ export class HomePage implements OnInit {
       this.n = 0;
     }
     let URL = '../../assets/imgs/bg' + this.n.toString() + '.jpg';
-    let url = "url(\"../../assets/imgs/bg"+this.n.toString()+".jpg\")";
+    let url = "url(\"https://cluboto.net/upload/1542277286img1.jpg"+this.n.toString()+".jpg\")";
     console.log(URL);
     console.log(url);
     let docEl: HTMLElement = document.getElementById('body');
