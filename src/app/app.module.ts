@@ -16,6 +16,11 @@ import { LoginPage } from './login/login.page';
 import { LoginPageModule } from './login/login.module';
 // import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { PdfViewerComponent } from 'ng2-pdf-viewer'; 
+
+// import firebase from 'firebase/app';
+import { firebaseConfig } from '../config/firebase.config';
+
+// firebase.in
 @NgModule({
   declarations: [AppComponent,
      PdfViewerComponent

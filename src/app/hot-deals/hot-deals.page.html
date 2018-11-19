@@ -10,17 +10,16 @@
 </ion-header>
 
 <ion-content>
-  <div class="main" text-center> 
+  <div class="main" text-center>
     <div class="content">
-    
-            <div *ngFor="let DEAL of DEALS" (click)="go2HotdealDeail(DEAL)" class="hotdeal">
-              <div class="left-hotdeals">
-                <img src="https://cluboto.net/upload/{{DEAL.feature_img}}" class="image-hotdeals"/>
-              </div>
-              <div class="right-hotdeals">
-                {{DEAL.title_en}}
-              </div>
-            </div>
+      <div *ngFor="let DEAL of DEALS" (click)="go2HotdealDeail(DEAL)" class="hotdeal">
+        <div class="left-hotdeals">
+          <img src="https://cluboto.net/upload/{{DEAL.feature_img}}" class="image-hotdeals" />
+        </div>
+        <div class="right-hotdeals">
+          {{DEAL.title_en}}
+        </div>
+      </div>
     </div>
   </div>
 </ion-content>

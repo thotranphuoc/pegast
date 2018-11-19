@@ -554,6 +554,28 @@ export class PegasService {
         return this.httpClient.post(this.WEBSERVICE_URL, body)
     }
 
+
+    dealsGet() {
+        let url = this.WEBSERVICE_URL;
+        let body = new HttpParams({
+            fromObject: {
+                act: 'hotdeal',
+                id: '0'
+            }
+        })
+        return this.httpClient.post(url, body)
+    }
+
+    dealDetailGet(ID: string) {
+        let url = this.WEBSERVICE_URL;
+        let body = new HttpParams({
+            fromObject: {
+                act: 'hotdeal',
+                id: ID
+            }
+        })
+        return this.httpClient.post(url, body)
+    }
     
 
 
