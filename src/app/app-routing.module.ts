@@ -6,6 +6,7 @@ const routes: Routes = [
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'list', loadChildren: './list/list.module#ListPageModule' },
   { path: 'hot-deals', loadChildren: './hot-deals/hot-deals.module#HotDealsPageModule' },
+  { path: 'hotdeals', loadChildren: './hotdeals/hotdeals.module#HotdealsPageModule' },
   { path: 'hotels', loadChildren: './hotels/hotels.module#HotelsPageModule' },
   { path: 'packages', loadChildren: './packages/packages.module#PackagesPageModule' },
   { path: 'Flights', loadChildren: './flights/flights.module#FlightsPageModule' },
@@ -15,10 +16,11 @@ const routes: Routes = [
   { path: 'account', loadChildren: './account/account.module#AccountPageModule' },
   { path: 'location/:id', loadChildren: './location/location.module#LocationPageModule' },
   { path: 'travel-journal', loadChildren: './travel-journal/travel-journal.module#TravelJournalPageModule' },
-  { path: 'news-special', loadChildren: './news-special/news-special.module#NewsSpecialPageModule' },
+  // { path: 'news-special', loadChildren: './news-special/news-special.module#NewsSpecialPageModule' },
   { path: 'language', loadChildren: './language/language.module#LanguagePageModule' },
   { path: 'booking-policy', loadChildren: './booking-policy/booking-policy.module#BookingPolicyPageModule' },
-  { path: 'hotdeal/:id', loadChildren: './hotdeal/hotdeal.module#HotdealPageModule' },
+  // { path: 'hotdeal/:id', loadChildren: './hotdeal/hotdeal.module#HotdealPageModule' },
+  { path: 'deal/:id', loadChildren: './deal/deal.module#DealPageModule' },
   { path: 'deal-detail-view', loadChildren: './deal-detail-view/deal-detail-view.module#DealDetailViewPageModule' },
   { path: 'rxjs', loadChildren: './rxjs/rxjs.module#RxjsPageModule' },
   { path: 'hotels-search', loadChildren: './hotels-search/hotels-search.module#HotelsSearchPageModule' },
@@ -44,7 +46,11 @@ const routes: Routes = [
   { path: 'hotdeal-fullfill', loadChildren: './hotdeal-fullfill/hotdeal-fullfill.module#HotdealFullfillPageModule' },
   { path: 'search-destination', loadChildren: './search-destination/search-destination.module#SearchDestinationPageModule' },
   { path: 'search-date', loadChildren: './search-date/search-date.module#SearchDatePageModule' },
+  { path: 'news', loadChildren: './news/news.module#NewsPageModule' },
+  { path: 'notifications', loadChildren: './notifications/notifications.module#NotificationsPageModule' },
+  { path: 'dealbook/:id', loadChildren: './dealbook/dealbook.module#DealbookPageModule' },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
+  
 ];
 
 @NgModule({

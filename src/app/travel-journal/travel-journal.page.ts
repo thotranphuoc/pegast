@@ -6,6 +6,8 @@ import { PegasService } from '../pegas.service';
 import { LocalService } from '../local.service';
 import { AppService } from '../app.service';
 import { NavController, AlertController } from '@ionic/angular';
+import { AuthService } from '../auth.service';
+import { iProfile } from '../interface/profile.interface';
 declare var google: any;
 
 @Component({
@@ -24,7 +26,8 @@ export class TravelJournalPage implements OnInit {
     private localService: LocalService,
     private appService: AppService,
     private navCtrl: NavController,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -81,13 +84,17 @@ export class TravelJournalPage implements OnInit {
         //   this.loadingService.hideLoading();
         //   this.loadShops();
         // })
-        if(this.localService.ACCOUNT.isSigned){
-          this.getUserTravelJournals(this.localService.ACCOUNT.id)
-        }else{
-          this.presentAlertConfirm();
-          // this.appService.presentAlertPrompt2Login();
+
+
+        // if(this.localService.ACCOUNT.isSigned){
+        //   this.getUserTravelJournals(this.localService.ACCOUNT.id)
+        // }else{
+        //   this.presentAlertConfirm();
+        //   // this.appService.presentAlertPrompt2Login();
           
-        }
+        // }
+        
+        this.getUserTravelJournals();
       })
   }
 
@@ -120,9 +127,16 @@ export class TravelJournalPage implements OnInit {
     this.gmapService.addMarkerWithImageToMapWithIDReturnPromiseWithMarker(this.map, POSTITION, '../assets/icon/favicon.png')
   }
 
-  getUserTravelJournals(USER_ID: string){
-    this.pegasService.travelJournalsUserGet(USER_ID)
-    .subscribe((res: any)=>{
+  getUserTravelJournals(){
+    let UID = this.authService.getCurrentUser().uid;
+    this.pegasService.profileGet_FB(UID)
+    .then((res)=>{
+      let PROFILE = <iProfile>res.data();
+      return this.pegasService.travelJournalsUserGet(PROFILE.OTHER.ID).toPromise()
+    })
+    // this.pegasService.travelJournalsUserGet(USER_ID)
+    .then((res: any)=>{
+      this.loadingService.hideLoading();
       console.log(res);
       if(res.data.length<1){
         this.appService.presentAlert('Alert','Opps', 'There is no any records', 'OK')
@@ -132,6 +146,9 @@ export class TravelJournalPage implements OnInit {
           this.loadPin({lat: CITY.city_lat, lng: CITY.city_lng})
         })
       }
+    })
+    .catch((err)=>{
+      console.log(err);
     })
   }
 }

@@ -5,12 +5,12 @@ import { NavController } from '@ionic/angular';
 import { NavParService } from '../nav-par.service';
 
 @Component({
-  selector: 'app-news-special',
-  templateUrl: './news-special.page.html',
-  styleUrls: ['./news-special.page.scss'],
+  selector: 'app-news',
+  templateUrl: './news.page.html',
+  styleUrls: ['./news.page.scss'],
 })
-export class NewsSpecialPage implements OnInit {
-  NEWSSPECIALS: iDeal[] = [];
+export class NewsPage implements OnInit {
+  DEALS: iDeal[] = [];
   constructor(
     private navCtrl: NavController,
     private pegasService: PegasService,
@@ -18,22 +18,38 @@ export class NewsSpecialPage implements OnInit {
 
   ngOnInit() {
     // this.getHotdeals();
-    this.getNewsSpecials();
+    // this.getNewsSpecials();
+    this.getNews();
   }
 
-  getNewsSpecials() {
-    this.pegasService.newsSpecialsGetWithPostMethod()
-      .subscribe((res: any) => {
-        console.log(res);
-        this.NEWSSPECIALS = [];
-        this.NEWSSPECIALS = res.data;
-        console.log(this.NEWSSPECIALS);
-      })
+  // getNewsSpecials() {
+  //   this.pegasService.newsSpecialsGetWithPostMethod()
+  //     .subscribe((res: any) => {
+  //       console.log(res);
+  //       this.NEWSSPECIALS = [];
+  //       this.NEWSSPECIALS = res.data;
+  //       console.log(this.NEWSSPECIALS);
+  //     })
+  // }
+
+  getNews(){
+    this.pegasService.dealsGet().toPromise()
+    .then((res: any)=>{
+      console.log(res);
+        this.DEALS = [];
+        this.DEALS = res.data;
+        console.log(this.DEALS);
+    })
   }
 
-  go2NewsSpecialDetail(NEWSSPECIAL){
-    console.log(NEWSSPECIAL);
-    this.navPar.setter(NEWSSPECIAL);
+  go2HotdealDeail(DEAL) {
+    this.navCtrl.navigateForward('/deal/'+DEAL.id);
+    this.navPar.setter(DEAL);
+  }
+
+  go2NewsSpecialDetail(DEALS){
+    console.log(DEALS);
+    this.navPar.setter(DEALS);
     this.navCtrl.navigateForward('news-special-detail');
   }
 

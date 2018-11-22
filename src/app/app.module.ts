@@ -15,16 +15,16 @@ import { FormsModule } from '@angular/forms';
 import { LoginPage } from './login/login.page';
 import { LoginPageModule } from './login/login.module';
 // import { PdfViewerModule } from 'ng2-pdf-viewer';
-import { PdfViewerComponent } from 'ng2-pdf-viewer'; 
+// import { PdfViewerComponent } from 'ng2-pdf-viewer'; 
 
 // import firebase from 'firebase/app';
 import { firebaseConfig } from '../config/firebase.config';
-
-// firebase.in
+import * as firebase from 'firebase';
+firebase.initializeApp(firebaseConfig);
 @NgModule({
   declarations: [AppComponent,
-     PdfViewerComponent
-    ],
+    //  PdfViewerComponent
+  ],
   entryComponents: [],
   imports: [
     BrowserModule,
@@ -43,4 +43,4 @@ import { firebaseConfig } from '../config/firebase.config';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

@@ -1,9 +1,37 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>search-destination</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>search by destination</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content>
+  <div class="main">
+    <div class="content" text-center>
+      <ion-item>
+        <ion-label>From</ion-label>
+        <ion-select #from (ionChange)="selectFrom(from.value)">
+          <ion-select-option *ngFor="let ROUTE of DEALFROMs" [value]="ROUTE">{{ROUTE.city_name_from}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>To</ion-label>
+        <ion-select #to (ionChange)="selectTo(to.value)">
+          <ion-select-option *ngFor="let ROUTE of uniqRoutesDest" [value]="ROUTE">{{ROUTE.city_name_to}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <br>
+      <br>
+      <div *ngFor="let DEAL of FINAL_DEALS" (click)="go2HotdealDeail(DEAL)" class="hotdeal">
+        <div class="left-hotdeals">
+          <img src="https://cluboto.net/upload/{{DEAL.feature_img}}" class="image-hotdeals" />
+        </div>
+        <div class="right-hotdeals">
+          {{DEAL.title_en}}
+        </div>
+      </div>
+    </div>
+  </div>
 </ion-content>

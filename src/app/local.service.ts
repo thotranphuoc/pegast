@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { iHotelSearch, iProfile, iDEALBOOKING } from './interface/pegas.interface';
+import { iHotelSearch, iDEALBOOKING } from './interface/pegas.interface';
+import { iProfile } from './interface/profile.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -8,45 +9,62 @@ export class LocalService {
 
   constructor() { }
 
-  PROFILE: iProfile = {
-    ID: "",
-    address_en: "",
-    address_vn: "",
-    dob: "",
-    email: "",
-    firstname: "",
-    gender: '',
-    lastname: "",
-    nationality_en: "",
-    nationality_vn: "",
-    passport_number: "",
-    passport_validity: "",
-    phone: "",
-    profile_picture: ""
-  }
+  PROFILE: iProfile = null;
+  
 
   PROFILE_DEFAULT: iProfile = {
-    ID: "",
-    address_en: "",
-    address_vn: "",
-    dob: "",
-    email: "",
-    firstname: "",
-    gender: '',
-    lastname: "",
-    nationality_en: "",
-    nationality_vn: "",
-    passport_number: "",
-    passport_validity: "",
-    phone: "",
-    profile_picture: ""
+    NameF: "",
+    NameL: "",
+    Mail: "",
+    Phone: "",
+    DoB: "",
+    Gender: "",
+    Address: "",
+    Passport: "",
+    UID: "",
+    AVATAR_URL: '',
+    OTHER: {}
   }
+  // PROFILE: iProfile = {
+  //   ID: "",
+  //   address_en: "",
+  //   address_vn: "",
+  //   dob: "",
+  //   email: "",
+  //   firstname: "",
+  //   gender: '',
+  //   lastname: "",
+  //   nationality_en: "",
+  //   nationality_vn: "",
+  //   passport_number: "",
+  //   passport_validity: "",
+  //   phone: "",
+  //   profile_picture: ""
+  // }
+
+  // PROFILE_DEFAULT: iProfile = {
+  //   ID: "",
+  //   address_en: "",
+  //   address_vn: "",
+  //   dob: "",
+  //   email: "",
+  //   firstname: "",
+  //   gender: '',
+  //   lastname: "",
+  //   nationality_en: "",
+  //   nationality_vn: "",
+  //   passport_number: "",
+  //   passport_validity: "",
+  //   phone: "",
+  //   profile_picture: ""
+  // }
   ACCOUNT = {
     email: '',
     pass: '',
     isSigned: false,
     id: '',
-    profile: this.PROFILE_DEFAULT
+    profile: this.PROFILE_DEFAULT,
+    currentUser: null
   }
 
   ACCOUNT_INIT = {
@@ -54,7 +72,8 @@ export class LocalService {
     pass: '',
     isSigned: false,
     id: '',
-    profile: this.PROFILE_DEFAULT
+    profile: this.PROFILE_DEFAULT,
+    currentUser: null
   }
 
 

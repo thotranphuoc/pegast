@@ -17,7 +17,7 @@
             <ion-card (click)="datePicker1.open()">
               <ion-card-header id="btn0">
                 <ion-card-subtitle>Checkin</ion-card-subtitle>
-                <ion-card-title>{{shortDate(date1)}}</ion-card-title>
+                <ion-card-title>{{shortDate(checkinDate)}}</ion-card-title>
               </ion-card-header>
             </ion-card>
           </ion-col>
@@ -25,7 +25,7 @@
             <ion-card (click)="datePicker2.open()">
               <ion-card-header id="btn1">
                 <ion-card-subtitle>Checkout</ion-card-subtitle>
-                <ion-card-title>{{shortDate(date2)}}</ion-card-title>
+                <ion-card-title>{{shortDate(checkoutDate)}}</ion-card-title>
               </ion-card-header>
             </ion-card>
           </ion-col>
@@ -33,7 +33,7 @@
       </ion-grid>
       <button class="btn-red" (click)="getDeals()"><span>Search</span></button>
 
-      <div *ngFor="let DEAL of DEALS" (click)="go2HotdealDeail(DEAL)" class="hotdeal">
+      <div *ngFor="let DEAL of FINAL_DEALS" (click)="go2HotdealDeail(DEAL)" class="hotdeal">
         <div class="left-hotdeals">
           <img src="https://cluboto.net/upload/{{DEAL.feature_img}}" class="image-hotdeals" />
         </div>
@@ -44,7 +44,7 @@
     </div>
   </div>
   <div id="datePicker">
-    <ion-datetime #datePicker1 pickerFormat="DD/MM/YYYY" (ionChange)="changeDate1($event)" placeholder="Date"></ion-datetime>
-    <ion-datetime #datePicker2 pickerFormat="DD/MM/YYYY" (ionChange)="changeDate2($event)" placeholder="Date"></ion-datetime>
+    <ion-datetime #datePicker1 pickerFormat="DD/MM/YYYY"  min="{{minYear}}" max="{{maxYear}}" (ionChange)="changeDate1($event)" placeholder="Date"></ion-datetime>
+    <ion-datetime #datePicker2 pickerFormat="DD/MM/YYYY"  min="{{minYear}}" max="{{maxYear}}" (ionChange)="changeDate2($event)" placeholder="Date"></ion-datetime>
   </div>
 </ion-content>

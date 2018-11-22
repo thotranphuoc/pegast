@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
 import { NavParService } from '../nav-par.service';
 import { LocalService } from '../local.service';
 import { iDEALBOOKING } from '../interface/pegas.interface';
@@ -8,17 +10,16 @@ import { LoadingService } from '../loading.service';
 import { AppService } from '../app.service';
 import { iProfile } from '../interface/profile.interface';
 import { AuthService } from '../auth.service';
-import { ConstantPool } from '@angular/compiler';
-
 @Component({
-  selector: 'app-hotdeal-fullfill',
-  templateUrl: './hotdeal-fullfill.page.html',
-  styleUrls: ['./hotdeal-fullfill.page.scss'],
+  selector: 'app-dealbook',
+  templateUrl: './dealbook.page.html',
+  styleUrls: ['./dealbook.page.scss'],
 })
-export class HotdealFullfillPage implements OnInit {
+export class DealbookPage implements OnInit {
   data: any;
   BOOKING: iDEALBOOKING = this.localService.DEAL_BOOKING_DEFAULT;
-  PROFILE: iProfile
+  PROFILE: iProfile;
+  DEAL_ID;
   constructor(
     private navCtrl: NavController,
     private navPar: NavParService,
@@ -26,18 +27,15 @@ export class HotdealFullfillPage implements OnInit {
     private pegasService: PegasService,
     private loadingService: LoadingService,
     private appService: AppService,
-    private authService: AuthService
-
+    private authService: AuthService,
+    private activatedRoute: ActivatedRoute,
   ) {
-    this.data = this.navPar.getter();
-    console.log(this.data);
-    // this.PROFILE = this.data.PROFILE
-    this.BOOKING.DEAL_ID = this.data.Hotdeal_ID;
-    console.log(this.data);
+    this.BOOKING.DEAL_ID = this.activatedRoute.snapshot.paramMap.get('id');
+    this.getProfile();
   }
 
   ngOnInit() {
-    this.getProfile();
+
   }
 
   getProfile() {
@@ -51,7 +49,7 @@ export class HotdealFullfillPage implements OnInit {
         this.BOOKING.Passport = this.PROFILE.Passport;
         console.log(this.PROFILE);
       })
-      .catch((err)=>{
+      .catch((err) => {
         console.log(err);
       })
   }
@@ -62,7 +60,7 @@ export class HotdealFullfillPage implements OnInit {
       act: 'bookings',
       booking_id: 'BOOKING.booking_id',
       package_id: this.BOOKING.DEAL_ID,
-      user_id: this.data.ACCOUNT.id,
+      user_id: this.PROFILE.OTHER.ID,
       date_start: this.BOOKING.DateFrom,
       date_end: this.BOOKING.DateTo,
       guestno: this.BOOKING.Adults,
@@ -125,6 +123,4 @@ export class HotdealFullfillPage implements OnInit {
     //   this.navCtrl.navigateRoot('home');
     // })
   }
-
-
 }

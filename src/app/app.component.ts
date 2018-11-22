@@ -4,6 +4,7 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { LocalService } from './local.service';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,7 @@ export class AppComponent {
     { title: 'Locations', url: '/locations', icon: 'home' },
     // { title: 'Reservation', url: '/reservation', icon: 'home' },
     // { title: 'Travel journal', url: '/travel-journal', icon: 'home' },
-    { title: 'News', url: '/news-special', icon: 'home' },
+    { title: 'News', url: '/news', icon: 'home' },
     // { title: 'Language', url: '/language', icon: 'home' },
     { title: 'Booking Policy', url: '/booking-policy', icon: 'home' },
     // { title: 'List', url: '/list', icon: 'list' },
@@ -42,7 +43,8 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private localService: LocalService
+    private localService: LocalService,
+    private authService: AuthService
   ) {
     this.initializeApp();
   }
@@ -56,7 +58,10 @@ export class AppComponent {
 
   menuOpen(){
     console.log('menuOpen');
-    this.isSigned = this.localService.ACCOUNT.isSigned
+    // this.isSigned = this.localService.ACCOUNT.isSigned;
+    setTimeout(() => {
+      this.isSigned = this.authService.isSigned()
+    }, 500);
   }
 
 }

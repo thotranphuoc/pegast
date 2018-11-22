@@ -2,8 +2,17 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { iHotelSearch, iProfile, iBOOKING } from './interface/pegas.interface';
+import { iHotelSearch, iBOOKING } from './interface/pegas.interface';
+
 import { LocalService } from './local.service';
+
+// This import loads the firebase namespace along with all its type information.
+import * as firebase from 'firebase/app';
+
+// These imports load individual services into the firebase namespace.
+// import 'firebase/auth';
+import 'firebase/database';
+import { iProfile } from './interface/profile.interface';
 @Injectable({
     providedIn: 'root'
 })
@@ -433,6 +442,17 @@ export class PegasService {
         })
         console.log(object);
         return this.httpClient.post(url, body)
+    }
+
+    profileCreate_FB(PRO: iProfile){
+        return firebase.firestore().doc('PROFILES/'+ PRO.UID).set(PRO)
+    }
+
+    profileGet_FB(ID){
+        return firebase.firestore().doc('PROFILES/'+ID).get()
+        // .then((res)=>{
+        //     console.log(res.data())
+        // })
     }
 
     policyGet() {

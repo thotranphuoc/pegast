@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      DEAL
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main" *ngIf="DEALINFO">
+    <div class="title">{{DEALINFO?.data.title_en}}</div>
+    <div class="img">
+      <img src="https://cluboto.net/upload/{{DEALINFO.data.feature_img}}" alt="">
+    </div>
+  </div>
+  <div id="content">
+    <div id="myHTML"></div>
+    <button class="btn-red" (click)="doProcessBooking()"><span>BOOK NOW</span></button>
+
+  </div>
+</ion-content>

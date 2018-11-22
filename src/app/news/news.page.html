@@ -22,8 +22,8 @@
       </p>
     </ion-card-content>
   </ion-card> -->
-    <div *ngFor="let NEWSSPECIAL of NEWSSPECIALS" (click)="go2NewsSpecialDetail(NEWSSPECIAL)">
-      <img src="https://cluboto.net/upload/{{NEWSSPECIAL.feature_img}}" />
+    <div *ngFor="let DEAL of DEALS" (click)="go2HotdealDeail(DEAL)">
+      <img src="https://cluboto.net/upload/{{DEAL.feature_img}}" />
       <!-- <div [innerHTML]="NEWSSPECIAL.content_en"></div> -->
     </div>
   </div>

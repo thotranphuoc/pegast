@@ -9,8 +9,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content >
-  <div class="main" text-center >
+<ion-content>
+  <div class="main" text-center>
     <!-- <ion-item>
       <ion-input #email required type="text" placeholder="Email"></ion-input>
     </ion-item>
@@ -29,9 +29,10 @@
 
     <div class="login-tittle-or">Or login with</div>
     <div class="social-btn">
-      <a href="#" class="icon-facebook" style="height:10px;"><img src="../../assets/imgs/icon-facebook.png"/></a> 
-      <a href="#" class="icon-twitter"> <img src="../../assets/imgs/icon-twitter.png"/></a> 
-      <a href="#" class="icon-email"><img src="../../assets/imgs/icon-email.png"/></a></div>
+      <a class="icon-facebook" (click)="loginWithFb()" style="height:10px;"><img src="../../assets/imgs/icon-facebook.png" /></a>
+      <a href="#" class="icon-twitter"> <img src="../../assets/imgs/icon-twitter.png" /></a>
+      <a class="icon-email" (click)="loginWithGg()"><img src="../../assets/imgs/icon-email.png" /></a>
+    </div>
   </div>
 
 </ion-content>

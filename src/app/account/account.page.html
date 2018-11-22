@@ -10,23 +10,25 @@
 </ion-header>
 
 <ion-content>
-  <div class="main" text-center> 
+  <div class="main" text-center>
     <div class="content">
-      <div class="message" *ngIf="!this.ACCOUNT.isSigned">
+      <div class="message" *ngIf="!isSigned">
         <p>Please <br> LOGIN or REGISTER <br> an account to continue</p>
       </div>
-      <div class="message" *ngIf="this.ACCOUNT.isSigned">
-          Hi, {{this.localService.ACCOUNT.profile.firstname}} {{this.ACCOUNT.profile.lastname}}
+      <div class="message" *ngIf="isSigned">
+        Hi, {{this.localService.ACCOUNT.profile.firstname}} {{this.ACCOUNT.profile.lastname}}
       </div>
       <div id="btn-group">
-        <div *ngIf="this.ACCOUNT.isSigned">
+        <div *ngIf="isSigned">
           <button color="secondary" expand="block" (click)="logout()">Logout</button>
         </div>
-        <div *ngIf="!this.ACCOUNT.isSigned">
+        <div *ngIf="!isSigned">
           <button color="secondary" expand="block" (click)="go2Page('login')">Login</button>
           <button color="primary" expand="block" (click)="go2Page('register')">Register</button>
         </div>
       </div>
     </div>
   </div>
+
+  
 </ion-content>
