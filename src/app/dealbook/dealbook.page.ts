@@ -80,7 +80,7 @@ export class DealbookPage implements OnInit {
       * Adult: `+ this.BOOKING.Adults + `<br>
       * Child: `+ this.BOOKING.Childs + `<br>
       * Note: <i>"`+ this.BOOKING.Note + `"</i><br>
-      * Deal Link: <a href="https://pegast-app.firebaseapp.com/hotdeal/`+ this.BOOKING.DEAL_ID + `">https://pegast-app.firebaseapp.com/deal/` + this.BOOKING.DEAL_ID + `</a><br>
+      * Deal Link: <a href="https://pegast-app.firebaseapp.com/deal/`+ this.BOOKING.DEAL_ID + `">https://pegast-app.firebaseapp.com/deal/` + this.BOOKING.DEAL_ID + `</a><br>
       <br>
       Thanks for choosing us<br>
       <strong>Pegas Team</strong>
@@ -99,7 +99,7 @@ export class DealbookPage implements OnInit {
       * Adult: `+ this.BOOKING.Adults + `<br>
       * Child: `+ this.BOOKING.Childs + `<br>
       * Note: <i>"`+ this.BOOKING.Note + `"</i><br>
-      * Deal Link: <a href="https://pegast-app.firebaseapp.com/deal/`+ this.BOOKING.DEAL_ID + `">https://pegast-app.firebaseapp.com/hotdeal/` + this.BOOKING.DEAL_ID + `</a><br>
+      * Deal Link: <a href="https://pegast-app.firebaseapp.com/deal/`+ this.BOOKING.DEAL_ID + `">https://pegast-app.firebaseapp.com/deal/` + this.BOOKING.DEAL_ID + `</a><br>
       <br>
       Please contact customer soon. Thanks<br>
       <strong>Pegas Touristik App</strong>

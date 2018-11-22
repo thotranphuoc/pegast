@@ -34,7 +34,9 @@ export class ProfilePage implements OnInit {
     // this.checkIfLogin();
     // let id = this.localService.ACCOUNT.id;
     // this.getProfile(id);
-    this.getProfileFB();
+    setTimeout(() => {
+      this.getProfileFB();
+    }, 1000);
   }
 
   ionViewWillEnter() {
@@ -42,13 +44,22 @@ export class ProfilePage implements OnInit {
     // this.checkIfLogin();
   }
 
-  getProfileFB(){
-    setTimeout(() => {
-      this.UID = this.authService.getCurrentUser().uid;
-      this.pegasService.profileGet_FB(this.UID).then((res)=>{
-        this.PROFILE = <iProfile>res.data();
+  getProfileFB() {
+    // setTimeout(() => {
+    //   this.UID = this.authService.getCurrentUser().uid;
+    //   this.pegasService.profileGet_FB(this.UID).then((res)=>{
+    //     this.PROFILE = <iProfile>res.data();
+    //   })
+    // }, 1000);
+    this.authService.profileGet()
+      .then((res: any) => {
+        if (res.PROFILE) {
+          this.PROFILE = res.PROFILE;
+        }
       })
-    }, 1000);
+      .catch((err) => {
+        console.log(err);
+      })
   }
   // checkIfLogin() {
   //   // let ID = '17';
@@ -117,7 +128,7 @@ export class ProfilePage implements OnInit {
     console.log(this.localService.ACCOUNT);
     let UID = this.authService.accoutnCurrentUser().uid;
     this.PROFILE.UID = UID;
-    this.PROFILE.OTHER = { ID: '17'};
+    this.PROFILE.OTHER = { ID: '17' };
     console.log(this.PROFILE)
     this.pegasService.profileCreate_FB(this.PROFILE)
       .then((res) => {

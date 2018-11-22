@@ -31,7 +31,7 @@ export class AuthService {
     return this.httpClient.post(url, body).toPromise()
   }
 
-  
+
 
   accountLogin(email: string, pw: string) {
     let url = this.WEBSERVICE_URL;;
@@ -45,16 +45,16 @@ export class AuthService {
     return this.httpClient.post(url, body).toPromise();
   }
 
-  accountSignUpWithGmail(){
+  accountSignUpWithGmail() {
     var provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider).then(function(result: any) {
+    firebase.auth().signInWithPopup(provider).then(function (result: any) {
       // This gives you a Google Access Token. You can use it to access the Google API.
       var token = result.credential.accessToken;
       // The signed-in user info.
       var user = result.user;
       console.log(token, user)
       // ...
-    }).catch(function(error) {
+    }).catch(function (error) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -66,16 +66,16 @@ export class AuthService {
     });
   }
 
-  accountLoginWithFacebook(){
+  accountLoginWithFacebook() {
     var provider = new firebase.auth.FacebookAuthProvider();
-    firebase.auth().signInWithPopup(provider).then(function(result: any) {
+    firebase.auth().signInWithPopup(provider).then(function (result: any) {
       // This gives you a Facebook Access Token. You can use it to access the Facebook API.
       var token = result.credential.accessToken;
       // The signed-in user info.
       var user = result.user;
       // ...
       console.log(result);
-    }).catch(function(error) {
+    }).catch(function (error) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -114,9 +114,13 @@ export class AuthService {
     return new Promise((resolve, reject) => {
       firebase.firestore().doc('PROFILES/' + ID).get()
         .then((res) => {
-          let PRO = <iProfile>res.data();
-          this.localService.PROFILE = PRO;
-          resolve({ PROFILE: PRO })
+          if (res.exists) {
+            let PRO = <iProfile>res.data();
+            this.localService.PROFILE = PRO;
+            resolve({ PROFILE: PRO })
+          }else{
+            resolve({PROFILE: null})
+          }
         })
         .catch((err) => {
           reject(err);
