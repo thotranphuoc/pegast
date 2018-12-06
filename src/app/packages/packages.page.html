@@ -5,5 +5,11 @@
 </ion-header>
 
 <ion-content padding>
-<div id="myHtml"></div>
+  <div *ngIf="DIRECTIONS.length>0">
+    <div *ngFor="let DIRECTION of DIRECTIONS" class="direction" (click)="go2PackageDirectionPage(DIRECTION)">
+      <p>Departure: {{DIRECTION._DepartureLocationId.Name}}</p>
+      <p>Destination: {{DIRECTION._DestinationCountryId.Name}}</p>
+      <p>Return: {{DIRECTION._ReturnLocationId.Name}}</p>
+    </div>
+  </div>
 </ion-content>

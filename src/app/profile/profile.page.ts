@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { PegasService } from '../pegas.service';
-import { LocalService } from '../local.service';
+import { PegasService } from '../services/pegas.service';
+import { LocalService } from '../services/local.service';
 // import { iProfile } from '../interface/pegas.interface';
 import { ModalController, NavController, AlertController, Thumbnail } from '@ionic/angular';
 import { LoginPage } from '../login/login.page';
 import { iProfile } from '../interface/profile.interface';
-import { AuthService } from '../auth.service';
-import { AppService } from '../app.service';
+import { AuthService } from '../services/auth.service';
+import { AppService } from '../services/app.service';
 
 @Component({
   selector: 'app-profile',

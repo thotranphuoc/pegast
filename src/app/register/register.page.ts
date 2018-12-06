@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from '../app.service';
-import { PegasService } from '../pegas.service';
-import { AuthService } from '../auth.service';
+import { AppService } from '../services/app.service';
+import { PegasService } from '../services/pegas.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-register',

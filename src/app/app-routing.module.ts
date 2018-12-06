@@ -49,8 +49,8 @@ const routes: Routes = [
   { path: 'news', loadChildren: './news/news.module#NewsPageModule' },
   { path: 'notifications', loadChildren: './notifications/notifications.module#NotificationsPageModule' },
   { path: 'dealbook/:id', loadChildren: './dealbook/dealbook.module#DealbookPageModule' },
+  { path: 'packages-of-direction', loadChildren: './packages-of-direction/packages-of-direction.module#PackagesOfDirectionPageModule' },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
-  
 ];
 
 @NgModule({

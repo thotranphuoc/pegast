@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { iDeal } from '../interface/pegas.interface';
 import { NavController } from '@ionic/angular';
-import { PegasService } from '../pegas.service';
-import { NavParService } from '../nav-par.service';
+import { PegasService } from '../services/pegas.service';
+import { NavParService } from '../services/nav-par.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

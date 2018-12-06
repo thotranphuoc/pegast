@@ -7,7 +7,7 @@ import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
 import { LocalService } from './local.service';
-import { iProfile } from './interface/profile.interface';
+import { iProfile } from '../interface/profile.interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -45,7 +45,7 @@ export class AuthService {
     return this.httpClient.post(url, body).toPromise();
   }
 
-  accountSignUpWithGmail() {
+  accountSignInWithGmail() {
     var provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider).then(function (result: any) {
       // This gives you a Google Access Token. You can use it to access the Google API.
@@ -68,23 +68,27 @@ export class AuthService {
 
   accountLoginWithFacebook() {
     var provider = new firebase.auth.FacebookAuthProvider();
-    firebase.auth().signInWithPopup(provider).then(function (result: any) {
-      // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-      var token = result.credential.accessToken;
-      // The signed-in user info.
-      var user = result.user;
-      // ...
-      console.log(result);
-    }).catch(function (error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // The email of the user's account used.
-      var email = error.email;
-      // The firebase.auth.AuthCredential type that was used.
-      var credential = error.credential;
-      // ...
-    });
+    return new Promise((resolve, reject)=>{
+      firebase.auth().signInWithPopup(provider).then(function (result: any) {
+        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+        var token = result.credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
+        // ...
+        console.log(result);
+        resolve({token: token, user: user, result: result })
+      }).catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        // ...
+        reject({errorCode: errorCode, errorMessage: errorMessage,email: email, credential: credential })
+      });
+    })
   }
 
   accountSignUp(username, password) {

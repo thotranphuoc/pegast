@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { iHotelSearch, iBOOKING } from './interface/pegas.interface';
+import { iHotelSearch, iBOOKING } from '../interface/pegas.interface';
 
 import { LocalService } from './local.service';
 
@@ -12,7 +12,7 @@ import * as firebase from 'firebase/app';
 // These imports load individual services into the firebase namespace.
 // import 'firebase/auth';
 import 'firebase/database';
-import { iProfile } from './interface/profile.interface';
+import { iProfile } from '../interface/profile.interface';
 @Injectable({
     providedIn: 'root'
 })

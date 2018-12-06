@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PegasService } from '../pegas.service';
+import { PegasService } from '../services/pegas.service';
 
 @Component({
   selector: 'app-itinerary',

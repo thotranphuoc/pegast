@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingService } from '../loading.service';
+import { LoadingService } from '../services/loading.service';
 import { iPosition } from '../interface/position.interface';
-import { GmapService } from '../gmap.service';
-import { PegasService } from '../pegas.service';
+import { GmapService } from '../services/gmap.service';
+import { PegasService } from '../services/pegas.service';
 import { NavController } from '@ionic/angular';
 declare var google: any;
 @Component({

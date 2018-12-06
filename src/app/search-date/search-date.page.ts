@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PegasService } from '../pegas.service';
+import { PegasService } from '../services/pegas.service';
 import { NavController } from '@ionic/angular';
-import { NavParService } from '../nav-par.service';
-import { AppService } from '../app.service';
+import { NavParService } from '../services/nav-par.service';
+import { AppService } from '../services/app.service';
 
 @Component({
   selector: 'app-search-date',

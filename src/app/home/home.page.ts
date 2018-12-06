@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { updateStyleProp } from '@angular/core/src/render3/styling';
-import { LocalService } from '../local.service';
+import { LocalService } from '../services/local.service';
 // import { url } from 'inspector';
 
 @Component({

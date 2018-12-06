@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { NavParService } from '../nav-par.service';
-import { PegasService } from '../pegas.service';
-import { LocalService } from '../local.service';
+import { NavParService } from '../services/nav-par.service';
+import { PegasService } from '../services/pegas.service';
+import { LocalService } from '../services/local.service';
 import { AlertController, NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { iProfile } from '../interface/profile.interface';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-deal',

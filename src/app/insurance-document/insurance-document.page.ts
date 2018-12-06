@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
-import { PegasService } from '../pegas.service';
+import { PegasService } from '../services/pegas.service';
 @Component({
   selector: 'app-insurance-document',
   templateUrl: './insurance-document.page.html',

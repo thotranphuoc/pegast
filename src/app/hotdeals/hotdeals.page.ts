@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PegasService } from '../pegas.service';
-import { NavParService } from '../nav-par.service';
+import { PegasService } from '../services/pegas.service';
+import { NavParService } from '../services/nav-par.service';
 import { NavController } from '@ionic/angular';
 
 @Component({

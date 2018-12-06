@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { NavParService } from '../nav-par.service';
-import { LocalService } from '../local.service';
+import { NavParService } from '../services/nav-par.service';
+import { LocalService } from '../services/local.service';
 import { iDEALBOOKING } from '../interface/pegas.interface';
-import { PegasService } from '../pegas.service';
+import { PegasService } from '../services/pegas.service';
 import { NavController } from '@ionic/angular';
-import { LoadingService } from '../loading.service';
-import { AppService } from '../app.service';
+import { LoadingService } from '../services/loading.service';
+import { AppService } from '../services/app.service';
 import { iProfile } from '../interface/profile.interface';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-dealbook',
   templateUrl: './dealbook.page.html',

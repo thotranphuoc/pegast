@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PegastService } from '../pegast.service';
+import { PegastService } from '../services/pegast.service';
 import { iHotelCountry, iHotel } from '../interface/hotel.interface';
 
 @Component({

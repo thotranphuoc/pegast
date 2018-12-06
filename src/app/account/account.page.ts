@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { LocalService } from '../local.service';
-import { AuthService } from '../auth.service';
+import { LocalService } from '../services/local.service';
+import { AuthService } from '../services/auth.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 @Component({

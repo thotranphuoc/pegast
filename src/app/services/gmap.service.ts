@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
-import { iPosition } from './interface/position.interface';
+import { iPosition } from '../interface/position.interface';
 // // import { Geolocation } from '@ionic-native/geolocation';
 
 // // import firebase from 'firebase';

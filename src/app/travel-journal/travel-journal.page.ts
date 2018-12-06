@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingService } from '../loading.service';
+import { LoadingService } from '../services/loading.service';
 import { iPosition } from '../interface/position.interface';
-import { GmapService } from '../gmap.service';
-import { PegasService } from '../pegas.service';
-import { LocalService } from '../local.service';
-import { AppService } from '../app.service';
+import { GmapService } from '../services/gmap.service';
+import { PegasService } from '../services/pegas.service';
+import { LocalService } from '../services/local.service';
+import { AppService } from '../services/app.service';
 import { NavController, AlertController } from '@ionic/angular';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth.service';
 import { iProfile } from '../interface/profile.interface';
 declare var google: any;
 

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PegasService } from '../pegas.service';
-import { NavParService } from '../nav-par.service';
+import { PegasService } from '../services/pegas.service';
+import { NavParService } from '../services/nav-par.service';
 import { NavController } from '@ionic/angular';
-import { LoadingService } from '../loading.service';
+import { LoadingService } from '../services/loading.service';
 
 @Component({
   selector: 'app-search-destination',

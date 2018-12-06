@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PegasService } from '../pegas.service';
-import { LocalService } from '../local.service';
+import { PegasService } from '../services/pegas.service';
+import { LocalService } from '../services/local.service';
 import { NavController } from '@ionic/angular';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth.service';
 import { throwIfEmpty } from 'rxjs/operators';
 
 @Component({
@@ -97,11 +97,18 @@ export class LoginPage implements OnInit {
   }
 
   loginWithGg(){
-    this.authService.accountSignUpWithGmail();
+    this.authService.accountSignInWithGmail()
   }
 
   loginWithFb(){
-    this.authService.accountLoginWithFacebook();
+    this.authService.accountLoginWithFacebook()
+    .then((res)=>{
+      console.log(res);
+      this.navCtrl.navigateRoot('/home');
+    })
+    .catch(err=>{
+      console.log(err);
+    })
   }
 
 }

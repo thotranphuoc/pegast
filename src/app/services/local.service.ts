@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { iHotelSearch, iDEALBOOKING } from './interface/pegas.interface';
-import { iProfile } from './interface/profile.interface';
+import { iHotelSearch, iDEALBOOKING } from '../interface/pegas.interface';
+import { iProfile } from '../interface/profile.interface';
 
 @Injectable({
   providedIn: 'root'

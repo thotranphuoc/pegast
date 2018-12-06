@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { iHotelSearch } from '../interface/pegas.interface';
-import { LocalService } from '../local.service';
-import { PegasService } from '../pegas.service';
+import { LocalService } from '../services/local.service';
+import { PegasService } from '../services/pegas.service';
 import { NavController } from '@ionic/angular';
-import { NavParService } from '../nav-par.service';
+import { NavParService } from '../services/nav-par.service';
 
 @Component({
   selector: 'app-hotels-search',
