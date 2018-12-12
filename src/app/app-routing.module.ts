@@ -50,6 +50,7 @@ const routes: Routes = [
   { path: 'notifications', loadChildren: './notifications/notifications.module#NotificationsPageModule' },
   { path: 'dealbook/:id', loadChildren: './dealbook/dealbook.module#DealbookPageModule' },
   { path: 'packages-of-direction', loadChildren: './packages-of-direction/packages-of-direction.module#PackagesOfDirectionPageModule' },
+  { path: 'packagesx', loadChildren: './packagesx/packagesx.module#PackagesxPageModule' },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
 

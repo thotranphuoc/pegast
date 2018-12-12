@@ -102,30 +102,93 @@ export class PegastService {
   }
 
   packagesSearchPost(DepartureLocationId, DestinationCountryId, ReturnLocationId, DateArray) {
-    let url = 'http://pegas-smart-app.enablecode.com.vn/pegas/Package_Search.php';
+    let url = 'http://pegas-smart-app.enablecode.com.vn/pegas/PackageSearch.php';
     let body = new HttpParams({
       fromObject: {
-        DepartureLocationId: DepartureLocationId,
-        DestinationCountryId: DestinationCountryId,
-        ReturnLocationId: ReturnLocationId,
-        DateArray: DateArray
+        DepartureLocationId: '76',
+        // DestinationCountryId: DestinationCountryId,
+        ReturnLocationId: '76',
+        DurationsInNights: '6,7,8,9,10',
+        MainHotelCountryIds: '73',
+        MaxResultItems: '10',
+        OutgoingFlightClassId: '94',
+        StartDates: '2018-12-13T00:00:00Z;2018-12-14T00:00:00Z',
+        PersonAges: '35,36',
+        ReturnFlightClassId: '94',
       }
     });
-    console.log(body, url);
+
+   
+    console.log(body, url, DateArray);
     return this.httpClient.post(url, body)
     .pipe(
       map( (results: any)=>{
+        console.log(results);
         return {
           PKGS: results.Items.PackageSearchResultItem,
           REF: results.ReferenceDescription
         }
-      })
+      }),
     )
+    // .toPromise()
+    // .then(res=>{
+    //   console.log(res);
+    // })
+    // .catch(err=>{
+    //   console.log(err);
+    // })
+  }
+
+
+  packagesSearchItemDetailPost(PaymentCurrencyId,SearchResultItemId) {
+    let url = 'http://pegas-smart-app.enablecode.com.vn/pegas/PackageSearchItem.php';
+    let body = new HttpParams({
+      fromObject: {
+        PaymentCurrencyId: PaymentCurrencyId,
+        SearchResultItemId: SearchResultItemId
+        // SearchResultItemId: "cNa/zK3Mv8zOw7/MCxgmzUzbv8yC3L/Mmd2/zPDev8xn1L/MS+G/zLfiv8zH+L/MAuW/zKxV3sxw57/Mp4gozb7pv8wX67/Mx4wozdvtv8y87r/M8++/zCjxv8x/6L/Mhum/zA==",
+        
+      }
+    });
+    console.log(url, body);
+    return this.httpClient.post(url, body)
+    .pipe(
+      map( (results: any)=>{
+        console.log(results);
+        // return {
+        //   PKGS: results.Items.PackageSearchResultItem,
+        //   REF: results.ReferenceDescription
+        // }
+      }),
+    )
+    // .toPromise()
+    // .then(res=>{
+    //   console.log(res);
+    // })
+    // .catch(err=>{
+    //   console.log(err);
+    // })
+
+    // let URL = 'http://pegas-smart-app.enablecode.com.vn/pegas/PackageSearchItem.php?PaymentCurrencyId='+PaymentCurrencyId+'&SearchResultItemId='+SearchResultItemId;
+    // console.log(URL);
+    // return this.httpClient.get(URL)
+    // // .subscribe(result=>{
+    // //   console.log(result);
+    // // })
   }
 
   packagesSearchOptionsGet(GROUP) {
-    let url = 'http://pegas-smart-app.enablecode.com.vn/pegas/PackageSearchOptions.php&GROUP=' + GROUP;
+    // let url = 'http://pegas-smart-app.enablecode.com.vn/pegas/PackageSearchOptions.php&GROUP=' + GROUP;
+    let url = 'http://pegas-smart-app.enablecode.com.vn/pegas/PackageSearchOptions.php';
     return this.httpClient.get(url)
+  }
+
+  packageDirectionsGet(){
+    return this.packagesSearchOptionsPost('Directions')
+    .pipe(
+      map(result => 
+        { return result.PackageSearchDirectionOption })
+    )
   }
 
   packagesSearchOptionsPost(GROUP) {

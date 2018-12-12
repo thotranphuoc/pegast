@@ -13,7 +13,7 @@ export class AppService {
     private toastController: ToastController,
     private pegasService: PegasService,
     private localService: LocalService
-    ) { }
+  ) { }
 
   async presentAlert(HEADER, SUBTITLE, MSG, BTN) {
     const alert = await this.alertController.create({
@@ -84,15 +84,15 @@ export class AppService {
           handler: (data) => {
             console.log('Confirm Ok', data);
             this.pegasService.accountLogin(data.username, data.password)
-            .subscribe((res: any)=>{
-              console.log(res);
-              this.localService.ACCOUNT.id = res.data.id;
-              this.pegasService.profileGet(res.data.id)
-              .subscribe((res1: any)=>{
-                console.log(res1);
-                this.localService.ACCOUNT.profile = res1.data;
+              .subscribe((res: any) => {
+                console.log(res);
+                this.localService.ACCOUNT.id = res.data.id;
+                this.pegasService.profileGet(res.data.id)
+                  .subscribe((res1: any) => {
+                    console.log(res1);
+                    this.localService.ACCOUNT.profile = res1.data;
+                  })
               })
-            })
           }
         }
       ]
@@ -109,4 +109,31 @@ export class AppService {
     });
     toast.present();
   }
+
+
+  removeDuplicate(arr1: string[]) {
+    let array = [];
+    array.push(arr1[0]);
+    arr1.forEach(item => {
+      let index = array.indexOf(item);
+      if (index < 0) {
+        array.push(item);
+      }
+    })
+    return array;
+  }
+
+  uniqArrayWithKey(arr1: any[], KEY: string){
+    let array = [];
+    let keys = arr1.map(item => item[KEY]);
+    let uniqKeys = this.removeDuplicate(keys);
+    uniqKeys.forEach(key=>{
+      let item = arr1.find(it=> it[KEY]== key);
+      array.push(item);
+    })
+    console.log(array);
+    return array;
+  }
+
+
 }

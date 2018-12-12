@@ -1,0 +1,124 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>packagesx</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="main">
+    <div class="content" text-center>
+      <ion-item>
+        <ion-label>From</ion-label>
+        <ion-select #froma (ionChange)="selectFrom(froma.value)">
+          <ion-select-option *ngFor="let From of FROMs" [value]="From">{{From._DepartureLocationId.Name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>To</ion-label>
+        <ion-select #toa (ionChange)="selectTo(toa.value)">
+          <ion-select-option *ngFor="let TO of TOs" [value]="TO">{{TO._DestinationCountryId.Name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Departure Date</ion-label>
+        <ion-datetime display-format="MM/DD/YYYY"  [(ngModel)]="departureDate" name="departureDate"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Return Date</ion-label>
+        <ion-datetime display-format="MM/DD/YYYY" [(ngModel)]="returnDate" name="returnDate" (ionChange)="search()"></ion-datetime>
+      </ion-item>
+      <!-- <ion-item>
+        <ion-label>Departure Date</ion-label>
+        <ion-select #from (ionChange)="selectFrom(from.value)">
+          <ion-select-option *ngFor="let ROUTE of DEALFROMs" [value]="ROUTE">{{ROUTE.city_name_from}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Return Date</ion-label>
+        <ion-select #to (ionChange)="selectTo(to.value)">
+          <ion-select-option *ngFor="let ROUTE of uniqRoutesDest" [value]="ROUTE">{{ROUTE.city_name_to}}</ion-select-option>
+        </ion-select>
+      </ion-item> -->
+      <ion-item>
+        <ion-label>Choose Package</ion-label>
+        <ion-select #package (ionChange)="selectTo(package.value)">
+          <ion-select-option *ngFor="let PKG of PKGS" [value]="PKG">{{PKG._PackageId.Name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Choose Fare</ion-label>
+        <ion-select #package (ionChange)="selectTo(package.value)">
+          <ion-select-option *ngFor="let ROUTE of uniqRoutesDest" [value]="ROUTE">{{ROUTE.city_name_to}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Choose Location</ion-label>
+        <ion-select #package (ionChange)="selectTo(package.value)">
+          <ion-select-option *ngFor="let ROUTE of uniqRoutesDest" [value]="ROUTE">{{ROUTE.city_name_to}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Hotel Option</ion-label>
+        <ion-select #package (ionChange)="selectTo(package.value)">
+          <ion-select-option *ngFor="let ROUTE of uniqRoutesDest" [value]="ROUTE">{{ROUTE.city_name_to}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Hotel By Name</ion-label>
+        <ion-select #package (ionChange)="selectTo(package.value)">
+          <ion-select-option *ngFor="let ROUTE of uniqRoutesDest" [value]="ROUTE">{{ROUTE.city_name_to}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Category</ion-label>
+        <ion-select #package (ionChange)="selectTo(package.value)">
+          <ion-select-option *ngFor="let ROUTE of uniqRoutesDest" [value]="ROUTE">{{ROUTE.city_name_to}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Meal</ion-label>
+        <ion-select #package (ionChange)="selectTo(package.value)">
+          <ion-select-option *ngFor="let ROUTE of uniqRoutesDest" [value]="ROUTE">{{ROUTE.city_name_to}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Airlines</ion-label>
+        <ion-select #package (ionChange)="selectTo(package.value)">
+          <ion-select-option *ngFor="let ROUTE of uniqRoutesDest" [value]="ROUTE">{{ROUTE.city_name_to}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Departure Flight Class</ion-label>
+        <ion-select #package (ionChange)="selectTo(package.value)">
+          <ion-select-option *ngFor="let ROUTE of uniqRoutesDest" [value]="ROUTE">{{ROUTE.city_name_to}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Arrival Flight Class</ion-label>
+        <ion-select #package (ionChange)="selectTo(package.value)">
+          <ion-select-option *ngFor="let ROUTE of uniqRoutesDest" [value]="ROUTE">{{ROUTE.city_name_to}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Adults</ion-label>
+        <ion-select #package (ionChange)="selectTo(package.value)">
+          <ion-select-option *ngFor="let ROUTE of uniqRoutesDest" [value]="ROUTE">{{ROUTE.city_name_to}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Children</ion-label>
+        <ion-select #package (ionChange)="selectTo(package.value)">
+          <ion-select-option *ngFor="let ROUTE of uniqRoutesDest" [value]="ROUTE">{{ROUTE.city_name_to}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-button expand="block" (click)="search()">SEARCH</ion-button>
+    </div>
+  </div>
+<!-- 
+  <div id="datePicker" style="visibility: none">
+    <ion-datetime #datePicker1 pickerFormat="DD/MM/YYYY" min="{{minYear}}" max="{{maxYear}}" (ionChange)="changeDate1($event)"
+      placeholder="Date"></ion-datetime>
+    <ion-datetime #datePicker2 pickerFormat="DD/MM/YYYY" min="{{minYear}}" max="{{maxYear}}" (ionChange)="changeDate2($event)"
+      placeholder="Date"></ion-datetime>
+  </div> -->
+</ion-content>

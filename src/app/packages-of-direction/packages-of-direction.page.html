@@ -1,17 +1,29 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>packages-of-direction</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Package Search</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-<div *ngFor="let PKG of PKGS" class="package" (click)="selectPackage(PKG)">
-  <p>Name: {{PKG._PackageId.Name}}</p>
-  <p>Type: {{PKG._PackageId.StructureType}}</p>
-  <p>Price: {{PKG.Price | currency }} {{PKG._CurrencyId.Code}}</p>
-  <div *ngFor="let HOTEL of PKG._HOTELS">
-    {{HOTEL._HotelId.Name}} - {{HOTEL._RoomCategoryId.Name}}
+  <ion-item>
+    <ion-label position="fixed">From:</ion-label>
+    <ion-input type="date" #DateFrom></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="fixed">To:</ion-label>
+    <ion-input type="date" #DateTo></ion-input>
+  </ion-item>
+  <ion-button block color="secondary" (click)="search(DateFrom.value, DateTo.value)">Search</ion-button>
+  <div *ngFor="let PKG of PKGS" class="package" (click)="selectPackage(PKG)">
+    <p>Name: {{PKG._PackageId.Name}}</p>
+    <p>Type: {{PKG._PackageId.StructureType}}</p>
+    <p>Price: {{PKG.Price | currency }} {{PKG._CurrencyId.Code}}</p>
+    <div *ngFor="let HOTEL of PKG._HOTELS">
+      {{HOTEL._HotelId.Name}} - {{HOTEL._RoomCategoryId.Name}}
+    </div>
+    <ion-button color="primary">BOOK</ion-button>
   </div>
-  <ion-button color="primary" >BOOK</ion-button>
-</div>
 </ion-content>
