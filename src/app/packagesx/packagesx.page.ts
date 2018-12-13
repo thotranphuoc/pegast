@@ -11,6 +11,15 @@ import { LoadingService } from '../services/loading.service';
 export class PackagesxPage implements OnInit {
   Directions: any[] = [];
   FROMs = [];
+  MEALS = [];
+  PACKAGES = [];
+  HOTELS = [];
+  DEPFLIGHTS = [];
+  ARRFLIGHTS = [];
+  ADULTS = [];
+  CHILDREN = [];
+  ROOMCATEGORIES = [];
+  HOTELSTARS = [];
   TOs: any[] = [];
   returnDate;
   departureDate;
@@ -72,6 +81,30 @@ export class PackagesxPage implements OnInit {
     console.log(pkg);
   }
 
+  selectMeal(meal){
+    console.log(meal);
+  }
+
+  selectHotel(H){
+    console.log(H);
+  }
+
+  selectDepFlight(D){
+    console.log(D);
+  }
+
+  selectArrFlight(D){
+    console.log(D);
+  }
+
+  selectHotelStar(D){
+    console.log(D);
+  }
+
+  selectRoomCategory(D){
+    console.log(D);
+  }
+
 
   getPackagesFromDirection(DIR, FROM, TO) {
     this.loadingService.startLoading();
@@ -90,7 +123,17 @@ export class PackagesxPage implements OnInit {
           PKG['_MEAL'] = this.REF.Meals.Meal.find(p => p.Id == PKG.HotelServices.PackageSearchResultHotelService[0].MealId)
         });
         console.log(this.PKGS);
-      
+        this.HOTELS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG._HOTELS[0]._HotelId),'Id');
+        this.MEALS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG._MEAL),'Id');
+        this.PACKAGES = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG._PackageId),'Id');
+        this.ADULTS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG._HOTELS[0]),'Adults');
+        this.CHILDREN = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG._HOTELS[0]),'Children');
+        this.HOTELSTARS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG=> PKG._HOTELS[0]._HotelStar),'Name');
+        this.ROOMCATEGORIES = this.appService.uniqArrayWithKey(this.PKGS.map(PKG=> PKG._HOTELS[0]._RoomCategoryId),'Name');
+        this.DEPFLIGHTS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG=>PKG.FlightServices.PackageSearchResultFlightService[0]),'ClassId');
+        this.ARRFLIGHTS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG=>PKG.FlightServices.PackageSearchResultFlightService[1]),'ClassId');
+
+        console.log(this.MEALS);
       }, err => {
         this.loadingService.hideLoading();
       })
@@ -117,7 +160,9 @@ export class PackagesxPage implements OnInit {
     let HOTELS = PKG.HotelServices.PackageSearchResultHotelService;
     HOTELS.forEach(HOTEL => {
       HOTEL['_HotelId'] = this.REF.Hotels.Hotel.find(item => item.Id == HOTEL.HotelId);
-      HOTEL['_RoomCategoryId'] = this.REF.RoomCategories.RoomCategory.find(item => item.Id == HOTEL.RoomCategoryId)
+      HOTEL['_HotelStar'] = this.REF.HotelCategories.HotelCategory.find(item => item.Id == HOTEL._HotelId.CategoryId);
+      HOTEL['_RoomCategoryId'] = this.REF.RoomCategories.RoomCategory.find(item => item.Id == HOTEL.RoomCategoryId);
+      // HOTEL['_HotelStar'] = 
     })
     // console.log(HOTELS);
     return HOTELS;
