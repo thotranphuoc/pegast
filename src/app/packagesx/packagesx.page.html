@@ -20,12 +20,12 @@
         </ion-select>
       </ion-item>
       <ion-item>
-        <ion-label>Departure Date</ion-label>
-        <ion-datetime display-format="MM/DD/YYYY"  [(ngModel)]="departureDate" name="departureDate"></ion-datetime>
+        <ion-label>Departure From</ion-label>
+        <ion-datetime display-format="MM/DD/YYYY"  min="{{minYear}}" max="{{maxYear}}"   [(ngModel)]="departureDate" name="departureDate"></ion-datetime>
       </ion-item>
       <ion-item>
-        <ion-label>Return Date</ion-label>
-        <ion-datetime display-format="MM/DD/YYYY" [(ngModel)]="returnDate" name="returnDate" (ionChange)="search()"></ion-datetime>
+        <ion-label>Departure To</ion-label>
+        <ion-datetime display-format="MM/DD/YYYY"  min="{{minYear}}" max="{{maxYear}}"  [(ngModel)]="returnDate" name="returnDate" (ionChange)="search()"></ion-datetime>
       </ion-item>
       <!-- <ion-item>
         <ion-label>Departure Date</ion-label>
@@ -41,7 +41,7 @@
       </ion-item> -->
       <ion-item>
         <ion-label>Choose Package</ion-label>
-        <ion-select #package (ionChange)="selectTo(package.value)">
+        <ion-select #pkg (ionChange)="selectPkg(pkg.value)">
           <ion-select-option *ngFor="let PKG of PKGS" [value]="PKG">{{PKG._PackageId.Name}}</ion-select-option>
         </ion-select>
       </ion-item>
@@ -59,14 +59,14 @@
       </ion-item>
       <ion-item>
         <ion-label>Hotel Option</ion-label>
-        <ion-select #package (ionChange)="selectTo(package.value)">
-          <ion-select-option *ngFor="let ROUTE of uniqRoutesDest" [value]="ROUTE">{{ROUTE.city_name_to}}</ion-select-option>
+        <ion-select #roomType (ionChange)="selectTo(package.value)">
+          <ion-select-option *ngFor="let PKG of PKGS" [value]="PKG">{{PKG.city_name_to}}</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label>Hotel By Name</ion-label>
-        <ion-select #package (ionChange)="selectTo(package.value)">
-          <ion-select-option *ngFor="let ROUTE of uniqRoutesDest" [value]="ROUTE">{{ROUTE.city_name_to}}</ion-select-option>
+        <ion-select #hotelName (ionChange)="selectTo(hotelName.value)">
+          <ion-select-option *ngFor="let PKG of PKGS" [value]="PKG">{{PKG._HOTELS[0]._HotelId.Name}}</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>

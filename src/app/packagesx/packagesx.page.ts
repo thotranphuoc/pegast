@@ -19,6 +19,8 @@ export class PackagesxPage implements OnInit {
   SelectedDirection;
   Packages = [];
   Package;
+  minYear;
+  maxYear;
   constructor(
     private pegastService: PegastService,
     private appService: AppService,
@@ -27,6 +29,15 @@ export class PackagesxPage implements OnInit {
 
   ngOnInit() {
     this.getLocations();
+    this.getYears();
+  }
+
+  getYears(){
+    let date = new Date();
+    let YEAR = date.getFullYear();
+    console.log(YEAR);
+    this.minYear = YEAR;
+    this.maxYear = this.minYear + 2;
   }
 
   getLocations() {
@@ -57,6 +68,10 @@ export class PackagesxPage implements OnInit {
     this.getPackagesFromDirection(this.SelectedDirection, this.departureDate, this.returnDate );
   }
 
+  selectPkg(pkg){
+    console.log(pkg);
+  }
+
 
   getPackagesFromDirection(DIR, FROM, TO) {
     this.loadingService.startLoading();
@@ -72,6 +87,7 @@ export class PackagesxPage implements OnInit {
           PKG['_PackageId'] = this.REF.Packages.Package.find(p => p.Id == PKG.PackageId);
           PKG['_CurrencyId'] = this.REF.Currencies.Currency.find(p => p.Id == PKG.CurrencyId);
           PKG['_HOTELS'] = this.convertPKG(PKG);
+          PKG['_MEAL'] = this.REF.Meals.Meal.find(p => p.Id == PKG.HotelServices.PackageSearchResultHotelService[0].MealId)
         });
         console.log(this.PKGS);
       
