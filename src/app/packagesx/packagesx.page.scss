@@ -1,0 +1,76 @@
+.in-item .hydrated
+{
+   display: none !important;
+}
+
+.inputs {
+    background: transparent;
+    background-image: url('../../assets/imgs/bg_pk_full.png') !important;
+    background-size: 100% 100% !important;
+    width: 100% !important;
+    //height: 50px !important;
+    border: none;
+    margin: 5px 0;
+    //padding: 10px 0;
+    text-align: left;
+    //font-size: 26px;
+    color: black;
+}
+.sc-ion-label-ios-h {
+    margin: 0 !important;
+}
+ion-select {
+   .select-icon, .select-text {
+       display: none !important;  /* hidden triangle icon and selected text */
+   }
+}
+.inputs_harf {
+    background: transparent;
+    background-image: url('../../assets/imgs/bg_pk_harf.png') !important;
+    background-size: 100% 100% !important;
+    width: 100% !important;
+    //height: 50px !important;
+    border: none;
+    margin:0;
+    //padding: 10px 0;
+    text-align: left;
+    //font-size: 26px;
+    color: black;
+}
+
+.inputs_header{
+    background: transparent;
+    background-image: url('../../assets/imgs/bg_tittle_pk.png') !important;
+    background-size: 100% 100% !important;
+    width: 100% !important;
+    //height: 50px !important;
+    border: none;
+    //margin: 5px 0;
+    //padding: 10px 0;
+    text-align: left;
+    //font-size: 26px;
+    color: white;
+}
+
+
+.select-icon {
+    display: none !important;
+}
+
+.btn{
+    padding-top: 5vh;
+}
+
+.btn button{
+    background: transparent;
+    background-image: url('../../assets/imgs/bg_login.png');
+    background-size: 100% 100%;
+    width: 80%;
+    height: 50px;
+    border: none;
+    margin: 10px 0;
+    padding: 10px 0;
+    color: #ffffff;
+    font-size: 26px;
+    
+}
