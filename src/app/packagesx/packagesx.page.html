@@ -4,25 +4,25 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <div class="main">
     <div class="content" text-center>
-        <ion-grid>
+        <ion-grid> 
             <ion-row>
               <ion-col col-6>
-                  <ion-item lines="none" class="inputs_header">
-                      <ion-label>From</ion-label>
-                      <ion-select #froma (ionChange)="selectFrom(froma.value)">
-                        <ion-select-option *ngFor="let From of FROMs" [value]="From">{{From._DepartureLocationId.Name}}</ion-select-option>
-                      </ion-select>
+                  <ion-item lines="none" class="inputs_harf">
+                      <!--<ion-label>From</ion-label>-->
+                      <select #froma (ionChange)="selectFrom(froma.value)" placeholder="From" style="width:100%;">
+                        <option *ngFor="let From of FROMs" [value]="From">{{From._DepartureLocationId.Name}}</option>
+                      </select>
                     </ion-item>
               </ion-col>
               <ion-col col-6>
-                  <ion-item lines="none" class="inputs_header">
-                      <ion-label>To</ion-label>
-                      <ion-select #toa (ionChange)="selectTo(toa.value)">
-                        <ion-select-option *ngFor="let TO of TOs" [value]="TO">{{TO._DestinationCountryId.Name}}</ion-select-option>
-                      </ion-select>
+                  <ion-item lines="none" class="inputs_harf">
+                      <!--ion-label>To</ion-label>-->
+                      <select #toa (ionChange)="selectTo(toa.value)" placeholder="To">
+                        <option *ngFor="let TO of TOs" [value]="TO">{{TO._DestinationCountryId.Name}}</option>
+                      </select>
                     </ion-item>
               </ion-col>
             </ion-row>
@@ -97,7 +97,7 @@
           <ion-col col-6>
             <ion-item lines="none" class="inputs_harf">
               <ion-label>Hotel Option</ion-label>
-              <ion-select #roomCategory (ionChange)="selectRoomCategory(roomCategory.value)">
+              <ion-select #roomCategory (ionChange)="selectRoomCategory(roomCategory.value)" >
                 <ion-select-option *ngFor="let ROOMCATEGORY of ROOMCATEGORIES" [value]="ROOMCATEGORY">{{ROOMCATEGORY.Name}}</ion-select-option>
               </ion-select>
             </ion-item>
