@@ -19,11 +19,11 @@
 .sc-ion-label-ios-h {
     margin: 0 !important;
 }
-ion-select {
-   .select-icon, .select-text {
-       display: none !important;  /* hidden triangle icon and selected text */
-   }
+
+.select-icon-inner, .select-icon, .select-text {
+    display: none !important;  /* hidden triangle icon and selected text */
 }
+
 .inputs_harf {
     background: transparent;
     background-image: url('../../assets/imgs/bg_pk_harf.png') !important;
@@ -52,10 +52,6 @@ ion-select {
     color: white;
 }
 
-
-.select-icon {
-    display: none !important;
-}
 
 .btn{
     padding-top: 5vh;
