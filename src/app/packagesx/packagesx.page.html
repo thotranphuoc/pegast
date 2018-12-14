@@ -53,18 +53,18 @@
           <ion-select-option *ngFor="let PKG of PACKAGES" [value]="PKG">{{PKG.Name}}</ion-select-option>
         </ion-select>
       </ion-item>
-      <ion-item lines="none" class="inputs">
+      <!-- <ion-item lines="none" class="inputs">
         <ion-label>Choose Fare</ion-label>
         <ion-select #package (ionChange)="selectTo(package.value)">
           <ion-select-option *ngFor="let ROUTE of uniqRoutesDest" [value]="ROUTE">{{ROUTE.city_name_to}}</ion-select-option>
         </ion-select>
-      </ion-item>
-      <ion-item lines="none" class="inputs">
+      </ion-item> -->
+      <!-- <ion-item lines="none" class="inputs">
         <ion-label>Choose Location</ion-label>
         <ion-select #package (ionChange)="selectTo(package.value)">
           <ion-select-option *ngFor="let ROUTE of uniqRoutesDest" [value]="ROUTE">{{ROUTE.city_name_to}}</ion-select-option>
         </ion-select>
-      </ion-item>
+      </ion-item> -->
 
       <!-- 
 
@@ -131,14 +131,14 @@
             </ion-item>
           </ion-col>
         </ion-row>
-      </ion-
+      </ion-grid>
 
-      <ion-item lines="none" class="inputs">
+      <!-- <ion-item lines="none" class="inputs">
         <ion-label>Airlines</ion-label>
         <ion-select #package (ionChange)="selectTo(package.value)">
           <ion-select-option *ngFor="let ROUTE of uniqRoutesDest" [value]="ROUTE">{{ROUTE.city_name_to}}</ion-select-option>
         </ion-select>
-      </ion-item>
+      </ion-item> -->
       <ion-item lines="none" class="inputs">
         <ion-label>Departure Flight Class</ion-label>
         <ion-select #depFlight (ionChange)="selectDepFlight(depFlight.value)">
