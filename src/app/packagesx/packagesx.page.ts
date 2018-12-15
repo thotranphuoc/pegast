@@ -116,24 +116,28 @@ export class PackagesxPage implements OnInit {
         console.log(res);
         this.PKGS = res.PKGS;
         this.REF = res.REF;
-        this.PKGS.forEach(PKG => {
-          PKG['_PackageId'] = this.REF.Packages.Package.find(p => p.Id == PKG.PackageId);
-          PKG['_CurrencyId'] = this.REF.Currencies.Currency.find(p => p.Id == PKG.CurrencyId);
-          PKG['_HOTELS'] = this.convertPKG(PKG);
-          PKG['_MEAL'] = this.REF.Meals.Meal.find(p => p.Id == PKG.HotelServices.PackageSearchResultHotelService[0].MealId)
-        });
-        console.log(this.PKGS);
-        this.HOTELS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG._HOTELS[0]._HotelId),'Id');
-        this.MEALS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG._MEAL),'Id');
-        this.PACKAGES = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG._PackageId),'Id');
-        this.ADULTS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG._HOTELS[0]),'Adults');
-        this.CHILDREN = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG._HOTELS[0]),'Children');
-        this.HOTELSTARS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG=> PKG._HOTELS[0]._HotelStar),'Name');
-        this.ROOMCATEGORIES = this.appService.uniqArrayWithKey(this.PKGS.map(PKG=> PKG._HOTELS[0]._RoomCategoryId),'Name');
-        this.DEPFLIGHTS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG=>PKG.FlightServices.PackageSearchResultFlightService[0]),'ClassId');
-        this.ARRFLIGHTS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG=>PKG.FlightServices.PackageSearchResultFlightService[1]),'ClassId');
-
-        console.log(this.MEALS);
+        if(this.PKGS.length>0){
+          this.PKGS.forEach(PKG => {
+            PKG['_PackageId'] = this.REF.Packages.Package.find(p => p.Id == PKG.PackageId);
+            PKG['_CurrencyId'] = this.REF.Currencies.Currency.find(p => p.Id == PKG.CurrencyId);
+            PKG['_HOTELS'] = this.convertPKG(PKG);
+            PKG['_MEAL'] = this.REF.Meals.Meal.find(p => p.Id == PKG.HotelServices.PackageSearchResultHotelService[0].MealId)
+          });
+          console.log(this.PKGS);
+          this.HOTELS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG._HOTELS[0]._HotelId),'Id');
+          this.MEALS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG._MEAL),'Id');
+          this.PACKAGES = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG._PackageId),'Id');
+          this.ADULTS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG._HOTELS[0]),'Adults');
+          this.CHILDREN = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG._HOTELS[0]),'Children');
+          this.HOTELSTARS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG=> PKG._HOTELS[0]._HotelStar),'Name');
+          this.ROOMCATEGORIES = this.appService.uniqArrayWithKey(this.PKGS.map(PKG=> PKG._HOTELS[0]._RoomCategoryId),'Name');
+          this.DEPFLIGHTS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG=>PKG.FlightServices.PackageSearchResultFlightService[0]),'ClassId');
+          this.ARRFLIGHTS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG=>PKG.FlightServices.PackageSearchResultFlightService[1]),'ClassId');
+  
+          console.log(this.MEALS);
+        }else{
+          this.appService.presentAlert('Oops',null,'There is no result','OK')
+        }
       }, err => {
         this.loadingService.hideLoading();
       })
