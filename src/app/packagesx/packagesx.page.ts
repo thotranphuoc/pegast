@@ -21,15 +21,27 @@ export class PackagesxPage implements OnInit {
   ROOMCATEGORIES = [];
   HOTELSTARS = [];
   TOs: any[] = [];
-  returnDate;
-  departureDate;
+  returnDate: any;
+  departureDate: any;
   REF: any;
-  PKGS: any[] =[];
-  SelectedDirection;
+  PKGS: any[] = [];
+  filter_PKGS = [];
+  SelectedDirection: any;
   Packages = [];
-  Package;
-  minYear;
-  maxYear;
+  Package: any;
+  minYear: any;
+  maxYear: any;
+
+  A: any = null;
+  B: any = null;
+  C: any = null;
+  D: any = null;
+  E: any = null;
+  F: any = null;
+  G: any = null;
+  H: any = null;
+  I: any = null;
+
   constructor(
     private pegastService: PegastService,
     private appService: AppService,
@@ -41,7 +53,7 @@ export class PackagesxPage implements OnInit {
     this.getYears();
   }
 
-  getYears(){
+  getYears() {
     let date = new Date();
     let YEAR = date.getFullYear();
     console.log(YEAR);
@@ -74,35 +86,143 @@ export class PackagesxPage implements OnInit {
 
   search() {
     console.log(this.returnDate, this.departureDate);
-    this.getPackagesFromDirection(this.SelectedDirection, this.departureDate, this.returnDate );
+    this.getPackagesFromDirection(this.SelectedDirection, this.departureDate, this.returnDate);
   }
 
-  selectPkg(pkg){
+  selectPkg(pkg) {
     console.log(pkg);
+    if (pkg !== 'All') {
+      this.C = pkg
+    } else {
+      this.C = null;
+    }
+    this.doFilter();
   }
 
-  selectMeal(meal){
+  selectMeal(meal) {
     console.log(meal);
+    if (meal !== 'All') {
+      this.E = meal
+    } else {
+      this.E = null;
+    }
+    this.doFilter();
   }
 
-  selectHotel(H){
-    console.log(H);
+  selectHotel(hotelName) {
+    console.log(hotelName);
+    if (hotelName !== 'All') {
+      this.A = hotelName
+    } else {
+      this.A = null;
+    }
+
+    this.doFilter();
+    // this.filter_PKGS = this.filter_PKGS.filter(PKG => PKG._HOTELS[0].HotelId ==D.Id )
   }
 
-  selectDepFlight(D){
+  selectDepFlight(DepF) {
+    console.log(DepF);
+    if (DepF !== 'All') {
+      this.F = DepF
+    } else {
+      this.F = null;
+    }
+
+    this.doFilter();
+  }
+
+  selectArrFlight(ArrF) {
+    console.log(ArrF);
+    if (ArrF !== 'All') {
+      this.G = ArrF
+    } else {
+      this.G = null;
+    }
+
+    this.doFilter();
+  }
+
+  selectAdult(adult) {
+    console.log(adult);
+    if (adult !== 'All') {
+      this.H = adult
+    } else {
+      this.H = null;
+    }
+
+    this.doFilter();
+  }
+
+
+  selectChild(Child) {
+    console.log(Child);
+    if (Child !== 'All') {
+      this.I = Child
+    } else {
+      this.I = null;
+    }
+
+    this.doFilter();
+  }
+
+
+  selectHotelStar(star) {
+    console.log(star);
+    if (star !== 'All') {
+      this.D = star
+    } else {
+      this.D = null;
+    }
+
+    this.doFilter();
+
+  }
+
+  selectRoomCategory(D) {
     console.log(D);
+    if (D !== 'All') {
+      this.B = D
+    } else {
+      this.B = null;
+    }
+    this.doFilter();
+
   }
 
-  selectArrFlight(D){
-    console.log(D);
-  }
+  doFilter() {
+    this.filter_PKGS = this.PKGS;
+    if (this.A) {
+      this.filter_PKGS = this.filter_PKGS.filter(PKG => PKG._HOTELS[0]._HotelId.Id == this.A.Id)
+    }
+    if (this.B) {
+      this.filter_PKGS = this.filter_PKGS.filter(PKG => PKG._HOTELS[0]._RoomCategoryId.Id == this.B.Id)
+    }
 
-  selectHotelStar(D){
-    console.log(D);
-  }
+    if (this.C) {
+      this.filter_PKGS = this.filter_PKGS.filter(PKG => PKG._PackageId.Id == this.C.Id)
+    }
 
-  selectRoomCategory(D){
-    console.log(D);
+    if (this.D) {
+      this.filter_PKGS = this.filter_PKGS.filter(PKG => PKG._HOTELS[0]._HotelStar.Name == this.D.Name)
+    }
+    if (this.E) {
+      this.filter_PKGS = this.filter_PKGS.filter(PKG => PKG._MEAL.Id == this.E.Id)
+    }
+    if (this.F) {
+      this.filter_PKGS = this.filter_PKGS.filter(PKG => PKG.FlightServices.PackageSearchResultFlightService[0].ClassId == this.F.ClassId)
+    }
+
+    if (this.G) {
+      this.filter_PKGS = this.filter_PKGS.filter(PKG => PKG.FlightServices.PackageSearchResultFlightService[1].ClassId == this.G.ClassId)
+    }
+    if (this.H) {
+      this.filter_PKGS = this.filter_PKGS.filter(PKG => PKG._HOTELS[0].Adults == this.H.Adults)
+    }
+    if (this.I) {
+      this.filter_PKGS = this.filter_PKGS.filter(PKG => PKG._HOTELS[0].Child == this.I.Child)
+    }
+
   }
 
 
@@ -116,7 +236,7 @@ export class PackagesxPage implements OnInit {
         console.log(res);
         this.PKGS = res.PKGS;
         this.REF = res.REF;
-        if(this.PKGS.length>0){
+        if (this.PKGS) {
           this.PKGS.forEach(PKG => {
             PKG['_PackageId'] = this.REF.Packages.Package.find(p => p.Id == PKG.PackageId);
             PKG['_CurrencyId'] = this.REF.Currencies.Currency.find(p => p.Id == PKG.CurrencyId);
@@ -124,19 +244,20 @@ export class PackagesxPage implements OnInit {
             PKG['_MEAL'] = this.REF.Meals.Meal.find(p => p.Id == PKG.HotelServices.PackageSearchResultHotelService[0].MealId)
           });
           console.log(this.PKGS);
-          this.HOTELS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG._HOTELS[0]._HotelId),'Id');
-          this.MEALS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG._MEAL),'Id');
-          this.PACKAGES = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG._PackageId),'Id');
-          this.ADULTS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG._HOTELS[0]),'Adults');
-          this.CHILDREN = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG._HOTELS[0]),'Children');
-          this.HOTELSTARS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG=> PKG._HOTELS[0]._HotelStar),'Name');
-          this.ROOMCATEGORIES = this.appService.uniqArrayWithKey(this.PKGS.map(PKG=> PKG._HOTELS[0]._RoomCategoryId),'Name');
-          this.DEPFLIGHTS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG=>PKG.FlightServices.PackageSearchResultFlightService[0]),'ClassId');
-          this.ARRFLIGHTS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG=>PKG.FlightServices.PackageSearchResultFlightService[1]),'ClassId');
-  
+          this.HOTELS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG._HOTELS[0]._HotelId), 'Id');
+          this.MEALS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG._MEAL), 'Id');
+          this.PACKAGES = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG._PackageId), 'Id');
+          this.ADULTS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG._HOTELS[0]), 'Adults');
+          this.CHILDREN = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG._HOTELS[0]), 'Children');
+          this.HOTELSTARS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG._HOTELS[0]._HotelStar), 'Name');
+          this.ROOMCATEGORIES = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG._HOTELS[0]._RoomCategoryId), 'Name');
+          this.DEPFLIGHTS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG.FlightServices.PackageSearchResultFlightService[0]), 'ClassId');
+          this.ARRFLIGHTS = this.appService.uniqArrayWithKey(this.PKGS.map(PKG => PKG.FlightServices.PackageSearchResultFlightService[1]), 'ClassId');
+
           console.log(this.MEALS);
-        }else{
-          this.appService.presentAlert('Oops',null,'There is no result','OK')
+          this.filter_PKGS = this.PKGS.slice();
+        } else {
+          this.appService.presentAlert('Oops', null, 'There is no result', 'OK')
         }
       }, err => {
         this.loadingService.hideLoading();
