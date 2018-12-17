@@ -95,51 +95,41 @@
       -->
 
 
-      <ion-grid>
-        <ion-row>
-          <ion-col col-6>
-            <ion-item lines="none" class="inputs_harf">
+      
+            <ion-item lines="none" class="inputs">
               <ion-label>Hotel Option</ion-label>
               <ion-select #roomCategory (ionChange)="selectRoomCategory(roomCategory.value)">
                 <ion-select-option>All</ion-select-option>
                 <ion-select-option *ngFor="let ROOMCATEGORY of ROOMCATEGORIES" [value]="ROOMCATEGORY">{{ROOMCATEGORY.Name}}</ion-select-option>
               </ion-select>
             </ion-item>
-          </ion-col>
-          <ion-col col-6>
-            <ion-item lines="none" class="inputs_harf">
+          
+            <ion-item lines="none" class="inputs">
               <ion-label>Hotel Name</ion-label>
               <ion-select #hotelName (ionChange)="selectHotel(hotelName.value)">
                 <ion-select-option>All</ion-select-option>
                 <ion-select-option *ngFor="let PKG of HOTELS" [value]="PKG">{{PKG.Name}}</ion-select-option>
               </ion-select>
             </ion-item>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+         
 
-      <ion-grid>
-        <ion-row>
-          <ion-col col-6>
-            <ion-item lines="none" class="inputs_harf">
+     
+            <ion-item lines="none" class="inputs">
               <ion-label>Category</ion-label>
               <ion-select #hotelStar (ionChange)="selectHotelStar(hotelStar.value)">
                 <ion-select-option>All</ion-select-option>
                 <ion-select-option *ngFor="let HOTELSTAR of HOTELSTARS" [value]="HOTELSTAR">{{HOTELSTAR.Name}}</ion-select-option>
               </ion-select>
             </ion-item>
-          </ion-col>
-          <ion-col col-6>
-            <ion-item lines="none" class="inputs_harf">
+          
+            <ion-item lines="none" class="inputs">
               <ion-label>Meal</ion-label>
               <ion-select #meal (ionChange)="selectMeal(meal.value)">
                 <ion-select-option>All</ion-select-option>
                 <ion-select-option *ngFor="let MEAL of MEALS" [value]="MEAL">{{MEAL.Name}}</ion-select-option>
               </ion-select>
             </ion-item>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+         
 
       <!-- <ion-item lines="none" class="inputs">
         <ion-label>Airlines</ion-label>
