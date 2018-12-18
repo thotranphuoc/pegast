@@ -95,7 +95,8 @@ ion-grid
 
 
 .btn{
-    padding-top: 5vh;
+    padding-top: 4vh;
+    padding-bottom: 2vh;
 }
 
 .btn button{
@@ -116,8 +117,14 @@ ion-grid
     max-width: 100% !important;
 }
 .filterPackage{
-    background: lightgrey;
+    //background: #eeeeee;
     border-radius: 5px;
-    margin: 10px 0;
+    border: 1px solid lightgray;
+    margin-bottom: 10px;
+    text-align: left;
     padding: 10px;
+}
+.packageName{
+    text-align: center;
+    font-weight: bold;
 }

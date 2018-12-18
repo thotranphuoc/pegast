@@ -37,18 +37,6 @@
         <ion-datetime display-format="MM/DD/YYYY" min="{{minYear}}" max="{{maxYear}}" [(ngModel)]="returnDate" name="returnDate"
           (ionChange)="search()"></ion-datetime>
       </ion-item>
-      <!-- <ion-item lines="none" class="inputs">
-        <ion-label>Departure Date</ion-label>
-        <ion-select #from (ionChange)="selectFrom(from.value)">
-          <ion-select-option *ngFor="let ROUTE of DEALFROMs" [value]="ROUTE">{{ROUTE.city_name_from}}</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item lines="none" class="inputs">
-        <ion-label>Return Date</ion-label>
-        <ion-select #to (ionChange)="selectTo(to.value)">
-          <ion-select-option *ngFor="let ROUTE of uniqRoutesDest" [value]="ROUTE">{{ROUTE.city_name_to}}</ion-select-option>
-        </ion-select>
-      </ion-item> -->
       <ion-item lines="none" class="inputs">
         <ion-label>Choose Package</ion-label>
         <ion-select #pkg (ionChange)="selectPkg(pkg.value)">
@@ -56,91 +44,39 @@
           <ion-select-option *ngFor="let PKG of PACKAGES" [value]="PKG">{{PKG.Name}}</ion-select-option>
         </ion-select>
       </ion-item>
-      <!-- <ion-item lines="none" class="inputs">
-        <ion-label>Choose Fare</ion-label>
-        <ion-select #package (ionChange)="selectTo(package.value)">
-          <ion-select-option *ngFor="let ROUTE of uniqRoutesDest" [value]="ROUTE">{{ROUTE.city_name_to}}</ion-select-option>
+      <ion-item lines="none" class="inputs">
+        <ion-label>Hotel Option</ion-label>
+        <ion-select #roomCategory (ionChange)="selectRoomCategory(roomCategory.value)">
+          <ion-select-option>All</ion-select-option>
+          <ion-select-option *ngFor="let ROOMCATEGORY of ROOMCATEGORIES" [value]="ROOMCATEGORY">{{ROOMCATEGORY.Name}}</ion-select-option>
         </ion-select>
-      </ion-item> -->
-      <!-- <ion-item lines="none" class="inputs">
-        <ion-label>Choose Location</ion-label>
-        <ion-select #package (ionChange)="selectTo(package.value)">
-          <ion-select-option *ngFor="let ROUTE of uniqRoutesDest" [value]="ROUTE">{{ROUTE.city_name_to}}</ion-select-option>
+      </ion-item>
+      <ion-item lines="none" class="inputs">
+        <ion-label>Hotel Name</ion-label>
+        <ion-select #hotelName (ionChange)="selectHotel(hotelName.value)">
+          <ion-select-option>All</ion-select-option>
+          <ion-select-option *ngFor="let PKG of HOTELS" [value]="PKG">{{PKG.Name}}</ion-select-option>
         </ion-select>
-      </ion-item> -->
-
-      <!-- 
-
-<ion-grid>
-        <ion-row>
-          <ion-col col-6>
-            <ion-item lines="none" class="inputs_harf">
-              <ion-label>Hotel Option</ion-label>
-              <ion-select #roomType (ionChange)="selectTo(package.value)">
-                <ion-select-option *ngFor="let PKG of PKGS" [value]="PKG">{{PKG.city_name_to}}</ion-select-option>
-              </ion-select>
-            </ion-item>
-          </ion-col>
-          <ion-col col-6>
-            <ion-item lines="none" class="inputs_harf">
-              <ion-label>Hotel By Name</ion-label>
-              <ion-select #hotelName (ionChange)="selectTo(hotelName.value)">
-                <ion-select-option *ngFor="let PKG of PKGS" [value]="PKG">{{PKG._HOTELS[0]._HotelId.Name}}</ion-select-option>
-              </ion-select>
-            </ion-item>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-
-      -->
-
-
-      
-            <ion-item lines="none" class="inputs">
-              <ion-label>Hotel Option</ion-label>
-              <ion-select #roomCategory (ionChange)="selectRoomCategory(roomCategory.value)">
-                <ion-select-option>All</ion-select-option>
-                <ion-select-option *ngFor="let ROOMCATEGORY of ROOMCATEGORIES" [value]="ROOMCATEGORY">{{ROOMCATEGORY.Name}}</ion-select-option>
-              </ion-select>
-            </ion-item>
-          
-            <ion-item lines="none" class="inputs">
-              <ion-label>Hotel Name</ion-label>
-              <ion-select #hotelName (ionChange)="selectHotel(hotelName.value)">
-                <ion-select-option>All</ion-select-option>
-                <ion-select-option *ngFor="let PKG of HOTELS" [value]="PKG">{{PKG.Name}}</ion-select-option>
-              </ion-select>
-            </ion-item>
-         
-
-     
-            <ion-item lines="none" class="inputs">
-              <ion-label>Category</ion-label>
-              <ion-select #hotelStar (ionChange)="selectHotelStar(hotelStar.value)">
-                <ion-select-option>All</ion-select-option>
-                <ion-select-option *ngFor="let HOTELSTAR of HOTELSTARS" [value]="HOTELSTAR">{{HOTELSTAR.Name}}</ion-select-option>
-              </ion-select>
-            </ion-item>
-          
-            <ion-item lines="none" class="inputs">
-              <ion-label>Meal</ion-label>
-              <ion-select #meal (ionChange)="selectMeal(meal.value)">
-                <ion-select-option>All</ion-select-option>
-                <ion-select-option *ngFor="let MEAL of MEALS" [value]="MEAL">{{MEAL.Name}}</ion-select-option>
-              </ion-select>
-            </ion-item>
-         
-
-      <!-- <ion-item lines="none" class="inputs">
-        <ion-label>Airlines</ion-label>
-        <ion-select #package (ionChange)="selectTo(package.value)">
-          <ion-select-option *ngFor="let ROUTE of uniqRoutesDest" [value]="ROUTE">{{ROUTE.city_name_to}}</ion-select-option>
+      </ion-item>
+      <ion-item lines="none" class="inputs">
+        <ion-label>Category</ion-label>
+        <ion-select #hotelStar (ionChange)="selectHotelStar(hotelStar.value)">
+          <ion-select-option>All</ion-select-option>
+          <ion-select-option *ngFor="let HOTELSTAR of HOTELSTARS" [value]="HOTELSTAR">{{HOTELSTAR.Name}}</ion-select-option>
         </ion-select>
-      </ion-item> -->
+      </ion-item>
+
+      <ion-item lines="none" class="inputs">
+        <ion-label>Meal</ion-label>
+        <ion-select #meal (ionChange)="selectMeal(meal.value)">
+          <ion-select-option>All</ion-select-option>
+          <ion-select-option *ngFor="let MEAL of MEALS" [value]="MEAL">{{MEAL.Name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
       <ion-item lines="none" class="inputs">
         <ion-label>Departure Flight Class</ion-label>
-        <ion-select #depFlight (ionChange)="selectDepFlight(depFlight.value)"> 
-            <ion-select-option>All</ion-select-option>
+        <ion-select #depFlight (ionChange)="selectDepFlight(depFlight.value)">
+          <ion-select-option>All</ion-select-option>
           <ion-select-option *ngFor="let DEPFLIGHT of DEPFLIGHTS" [value]="DEPFLIGHT">{{DEPFLIGHT.FlightClassType}}</ion-select-option>
         </ion-select>
       </ion-item>
@@ -158,7 +94,7 @@
             <ion-item lines="none" class="inputs_harf">
               <ion-label>Adults</ion-label>
               <ion-select #adult (ionChange)="selectAdult(adult.value)">
-                  <ion-select-option>All</ion-select-option>
+                <ion-select-option>All</ion-select-option>
                 <ion-select-option *ngFor="let ADULT of ADULTS" [value]="ADULT">{{ADULT.Adults}}</ion-select-option>
               </ion-select>
             </ion-item>
@@ -167,7 +103,7 @@
             <ion-item lines="none" class="inputs_harf">
               <ion-label>Children</ion-label>
               <ion-select #child (ionChange)="selectChild(child.value)">
-                  <ion-select-option>All</ion-select-option>
+                <ion-select-option>All</ion-select-option>
                 <ion-select-option *ngFor="let CHILD of CHILDREN" [value]="CHILD">{{CHILD.Children}}</ion-select-option>
               </ion-select>
             </ion-item>
@@ -178,22 +114,24 @@
         <button expand="block" (click)="search()">SEARCH</button>
       </div>
 
+      <div *ngFor="let PKG of filter_PKGS; let id = index" class="filterPackage">
+        <p>{{i}}</p>
+        <p class="packageName">{{PKG._PackageId.Name}}</p>
+        <p>{{PKG._PackageId.StructureType}}</p>
+        <p>{{PKG._HOTELS[0]._HotelId.Name}}</p>
+        <p>Star: {{PKG._HOTELS[0]._HotelStar.Name}}</p>
+        <p>Room: {{PKG._HOTELS[0]._RoomCategoryId.Name}}</p>
+        <p>Adults: {{PKG._HOTELS[0].Adults}}</p>
+        <p>Children: {{PKG._HOTELS[0].Children}}</p>
+        <p>Meal: {{PKG._MEAL.Name}}</p>
+        <p>Departure Flight Class {{PKG.FlightServices.PackageSearchResultFlightService[0].FlightClassType}}</p>
+        <p>Return Flight Class {{PKG.FlightServices.PackageSearchResultFlightService[1].FlightClassType}}</p>
+      </div>
+
     </div>
   </div>
 
-  <div *ngFor="let PKG of filter_PKGS; let id = index" class="filterPackage">
-    <p>{{i}}</p>
-    <p>{{PKG._PackageId.Name}}</p>
-    <p>{{PKG._PackageId.StructureType}}</p>
-    <p>{{PKG._HOTELS[0]._HotelId.Name}}</p>
-    <p>Star: {{PKG._HOTELS[0]._HotelStar.Name}}</p>
-    <p>Room: {{PKG._HOTELS[0]._RoomCategoryId.Name}}</p>
-    <p>Adults: {{PKG._HOTELS[0].Adults}}</p>
-    <p>Children: {{PKG._HOTELS[0].Children}}</p>
-    <p>Meal: {{PKG._MEAL.Name}}</p>
-    <p>Departure Flight Class {{PKG.FlightServices.PackageSearchResultFlightService[0].FlightClassType}}</p>
-    <p>Return Flight Class {{PKG.FlightServices.PackageSearchResultFlightService[1].FlightClassType}}</p>
-  </div>
+  
   <!-- 
   <div id="datePicker" style="visibility: none">
     <ion-datetime #datePicker1 pickerFormat="DD/MM/YYYY" min="{{minYear}}" max="{{maxYear}}" (ionChange)="changeDate1($event)"
