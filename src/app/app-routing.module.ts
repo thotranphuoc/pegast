@@ -51,7 +51,9 @@ const routes: Routes = [
   { path: 'dealbook/:id', loadChildren: './dealbook/dealbook.module#DealbookPageModule' },
   { path: 'packages-of-direction', loadChildren: './packages-of-direction/packages-of-direction.module#PackagesOfDirectionPageModule' },
   { path: 'packagesx', loadChildren: './packagesx/packagesx.module#PackagesxPageModule' },
+  { path: 'package-book', loadChildren: './package-book/package-book.module#PackageBookPageModule' },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
+  
 ];
 
 @NgModule({

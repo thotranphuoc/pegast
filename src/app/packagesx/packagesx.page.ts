@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PegastService } from '../services/pegast.service';
 import { AppService } from '../services/app.service';
 import { LoadingService } from '../services/loading.service';
+import { NavParService } from '../services/nav-par.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-packagesx',
@@ -46,6 +48,8 @@ export class PackagesxPage implements OnInit {
     private pegastService: PegastService,
     private appService: AppService,
     private loadingService: LoadingService,
+    private navParService: NavParService,
+    private navCtrl: NavController
   ) { }
 
   ngOnInit() {
@@ -291,6 +295,12 @@ export class PackagesxPage implements OnInit {
     })
     // console.log(HOTELS);
     return HOTELS;
+  }
+
+  bookPkg(PKG){
+    console.log(PKG);
+    this.navParService.setter(PKG);
+    this.navCtrl.navigateForward('/package-book');
   }
 
 }

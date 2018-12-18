@@ -237,4 +237,68 @@ export class PegastService {
     // // })
   }
 
+  packageBook(){
+    let url = this.WSURL + '/PackageBooking.php';
+    let body = new HttpParams({
+      fromObject: {
+        AdultMinAge : '0',
+        AgencyCommission : '0',
+        AgencyCommissionPercent : '0',
+        AgencyDiscount : '0',
+        AgencyDiscountPercent : '0',
+        AgencyUserId : '26838991',
+        BookingCurrencyId : '',
+        DefaultPaymentCurrencyId : '',
+        EndDate : '',
+        MarketId: '',
+        PackageId : '',
+        Address : '',
+        Cellphone : '',
+        DateOfBirth : '',
+        CitizenshipId : '',
+        Email : '',
+        ExpectedAge : '',
+        FirstName: '',
+        Guid : '',
+        LastName: '',
+        IsInfant : '',
+        Phone: '',
+        TravelDocumentExpirationDate : '',
+        TravelDocumentIssueDate: '',
+        TravelDocumentIssuer: '',
+        TravelDocumentNotProvided:'',
+        TravelDocumentNumber: '',
+        TravelDocumentTypeId : '',
+        Price: '',
+        PriceValidityDateTime: '',
+        OffsetMinutes: '',
+        OutgoingClassId: '',
+        OutgoingSegmentId: '',
+        OutgoingServiceGuid: '',
+        OutgoingStatus: '',
+        PersonGuid: '',
+        Seats: '',
+        ReturnClassId: '',
+        ReturnSegmentId: '',
+        ReturnServiceGuid: '',
+        ReturnStatus: '',
+        StartDate:'',
+        ToBePaid: '',
+        VerificationCode: '',
+      }
+    });
+
+    //console.log(body, url, DateArray);
+    return this.httpClient.post(url, body)
+      .pipe(
+        map((results: any) => {
+          console.log(results);
+          return {
+            //PKGS: results.Items.PackageSearchResultItem,
+            //REF: results.ReferenceDescription
+          
+          }
+        }),
+      )
+  }
 }

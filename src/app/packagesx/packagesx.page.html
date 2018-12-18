@@ -126,6 +126,11 @@
         <p>Meal: {{PKG._MEAL.Name}}</p>
         <p>Departure Flight Class {{PKG.FlightServices.PackageSearchResultFlightService[0].FlightClassType}}</p>
         <p>Return Flight Class {{PKG.FlightServices.PackageSearchResultFlightService[1].FlightClassType}}</p>
+
+        <div class="btn">
+          <button (click)="bookPkg(PKG)">BOOK</button>
+        </div>
+        
       </div>
 
     </div>

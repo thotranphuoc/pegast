@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>PACKAGE BOOKING</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div class="main">
+        <div class="content" text-center>
+            <ion-item lines="none" class="inputs">
+                <ion-input placeholder="First Name"></ion-input>
+            </ion-item>
+            <ion-item lines="none" class="inputs">
+                <ion-input placeholder="Last Name"></ion-input>
+            </ion-item>
+            <ion-item lines="none" class="inputs">
+                <ion-label>Date Of Birth</ion-label>
+                <ion-datetime display-format="MM/DD/YYYY" min="1970" max="{{maxYear}}"  name="returnDate"></ion-datetime>
+            </ion-item>
+            <ion-item lines="none" class="inputs">
+                <ion-input type="email" placeholder="Email"></ion-input>
+            </ion-item>
+            <ion-item lines="none" class="inputs">
+                <ion-input type="number" placeholder="Phone"></ion-input>
+            </ion-item>
+            <ion-item lines="none" class="inputs">
+                <ion-input type="number" placeholder="Cell Phone"></ion-input>
+            </ion-item>
+          <ion-item lines="none" class="inputs">
+              <ion-input placeholder="Address"></ion-input>
+          </ion-item>
+          <ion-item lines="none" class="inputs">
+              <ion-label>Start Date</ion-label>
+              <ion-datetime display-format="MM/DD/YYYY" min="{{minYear}}" max="{{maxYear}}" name="returnDate"></ion-datetime>
+          </ion-item>
+         
+          <ion-item lines="none" class="inputs">
+              <ion-input placeholder="Seats"></ion-input>
+          </ion-item>
+          <ion-item lines="none" class="inputs">
+              <ion-label>Infant</ion-label>
+              <ion-select #infant>
+                <ion-select-option>No</ion-select-option>
+                <ion-select-option>Yes</ion-select-option>
+              </ion-select>
+            </ion-item>
+          <ion-item lines="none" class="inputs">
+              <ion-input placeholder="Expected Age"></ion-input>
+          </ion-item>
+          <ion-item lines="none" class="inputs">
+              <ion-input placeholder="Citizenship Id"></ion-input>
+          </ion-item>
+          <ion-item lines="none" class="inputs">
+              <ion-input placeholder="Guid"></ion-input>
+          </ion-item>
+          <ion-item lines="none" class="inputs">
+              <ion-input placeholder="To Be Paid"></ion-input>
+          </ion-item>
+          <ion-item lines="none" class="inputs">
+              <ion-input placeholder="Verification Code"></ion-input>
+          </ion-item>
+
+          <div class="btn">
+            <button expand="block">BOOKING</button>
+          </div>
+        </div>
+      </div>
+
+</ion-content>
