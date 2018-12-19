@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PegastService } from '../services/pegast.service';
 import { AppService } from '../services/app.service';
 import { NavParService } from '../services/nav-par.service';
-import { NavController } from '@ionic/angular';
+import { NavController, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-package-book',
@@ -28,11 +28,13 @@ export class PackageBookPage implements OnInit {
   GUID: any='';
   TOBEPAID: any='';
   VERIFICATIONCODE: any='';
+
   constructor(
     private pegastService: PegastService,
     private appService: AppService,
     private navParService: NavParService,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private alertCtrl: AlertController
   ) { }
 
   ngOnInit() {
@@ -50,10 +52,47 @@ export class PackageBookPage implements OnInit {
   }
 
   bookingPkg(){
-    console.log('Chay vào click first name ' + this.FIRSTNAME)
-    console.log('Chay vào click Infant ' + this.INFANT)
+
 
     
+    let result = this.pegastService.packageBook(this.PKG, this.FIRSTNAME, this.LASTNAME, this.BIRTHDAY, this.EMAIL, this.PHONE, this.CELLPHONE, this.ADDRESS, this.STARTDAY, this.SEATS, this.INFANT, this.EXPECTEDAGE, this.CITIZENSHIPID, this.GUID, this.TOBEPAID, this.VERIFICATIONCODE);
+    result.subscribe((res:any)=>{
+      console.log(res.IsSucceeded);
+      if(res.IsSucceeded=="true")
+      {
+          this.appService.presentAlert(null,"Success","Booking successfull!!","OK");
+      }
+      else
+      {
+        this.appService.presentAlert(null,"Fail","Booking fail!! " + res.AgencyAccessDeniedReason,"OK");
+      }
+    })
+    
   }
+
+    async bookingAlertConfirm() {
+      const alert = await this.alertCtrl.create({
+        header: 'Confirm!',
+        message: 'Are you sure booking!!',
+        buttons: [
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: (blah) => {
+              console.log('Confirm Cancel');
+            }
+          }, {
+            text: 'Ok',
+            handler: () => {
+              //console.log('Confirm Okay');
+              this.bookingPkg();
+            }
+          }
+        ]
+      });
+  
+      await alert.present();
+    }
 
 }

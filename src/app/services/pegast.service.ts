@@ -236,12 +236,11 @@ export class PegastService {
     // //   console.log(result);
     // // })
   }
+  
+  packageBook(PKG, FIRSTNAME, LASTNAME, BIRTHDAY, EMAIL, PHONE, CELLPHONE,ADDRESS, STARTDAY, SEATS, INFANT, EXPECTEDAGE, CITIZENSHIPID, GUID, TOBEPAID, VERIFICATIONCODE){
+    let url = this.WSURL + 'PackageBooking.php';
 
-  ADDRESS: any='';
-  STARTDAY: any='';
-  GUID: any='';
-  packageBook(FIRSTNAME, LASTNAME, BIRTHDAY, EMAIL, PHONE, CELLPHONE,ADDRESS, STARTDAY, SEATS, INFANT, EXPECTEDAGE, CITIZENSHIPID, GUID, TOBEPAID, VERIFICATIONCODE){
-    let url = this.WSURL + '/PackageBooking.php';
+    console.log('url: ' + url);
     if(INFANT=="Yes")
     {
       INFANT=true;
@@ -252,20 +251,20 @@ export class PegastService {
     }
     let body = new HttpParams({
       fromObject: {
-        AdultMinAge : '0',
-        AgencyCommission : '0',
+        AdultMinAge : '10',
+        AgencyCommission : '0.0',
         AgencyCommissionPercent : '0',
-        AgencyDiscount : '0',
-        AgencyDiscountPercent : '0',
+        AgencyDiscount : '30.0',
+        AgencyDiscountPercent : '0.1',
         AgencyUserId : '26838991',
-        BookingCurrencyId : '',
+        BookingCurrencyId : PKG.CurrencyId,
         DefaultPaymentCurrencyId : '',
         EndDate : '',
-        MarketId: '',
-        PackageId : '',
+        MarketId: '3686',
+        PackageId : PKG.PackageId,
         Address : ADDRESS,
         Cellphone : CELLPHONE,
-        DateOfBirth : BIRTHDAY,
+        DateOfBirth : BIRTHDAY + 'T00:00:00Z;',
         CitizenshipId : CITIZENSHIPID,
         Email : EMAIL,
         ExpectedAge : EXPECTEDAGE,
@@ -280,9 +279,9 @@ export class PegastService {
         TravelDocumentNotProvided:'',
         TravelDocumentNumber: '',
         TravelDocumentTypeId : '',
-        Price: '',
+        Price: PKG.Price,
         PriceValidityDateTime: '',
-        OffsetMinutes: '',
+        OffsetMinutes: '180',
         OutgoingClassId: '',
         OutgoingSegmentId: '',
         OutgoingServiceGuid: '',
@@ -293,23 +292,14 @@ export class PegastService {
         ReturnSegmentId: '',
         ReturnServiceGuid: '',
         ReturnStatus: '',
-        StartDate: STARTDAY,
+        StartDate: STARTDAY + 'T00:00:00Z;',
         ToBePaid: TOBEPAID,
         VerificationCode: VERIFICATIONCODE,
       }
     });
 
-    //console.log(body, url, DateArray);
+    console.log(body, url);
     return this.httpClient.post(url, body)
-      .pipe(
-        map((results: any) => {
-          console.log(results);
-          return {
-            //PKGS: results.Items.PackageSearchResultItem,
-            //REF: results.ReferenceDescription
-          
-          }
-        }),
-      )
+
   }
 }
