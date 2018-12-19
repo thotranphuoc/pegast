@@ -13,6 +13,21 @@ export class PackageBookPage implements OnInit {
   minYear: any;
   maxYear: any;
   PKG: any[] = [];
+  FIRSTNAME: any='';
+  LASTNAME: any='';
+  BIRTHDAY: any='';
+  EMAIL: any='';
+  PHONE: any='';
+  CELLPHONE: any='';
+  ADDRESS: any='';
+  STARTDAY: any='';
+  SEATS: any='';
+  INFANT: any='';
+  EXPECTEDAGE: any='';
+  CITIZENSHIPID: any='';
+  GUID: any='';
+  TOBEPAID: any='';
+  VERIFICATIONCODE: any='';
   constructor(
     private pegastService: PegastService,
     private appService: AppService,
@@ -23,7 +38,6 @@ export class PackageBookPage implements OnInit {
   ngOnInit() {
     this.getYears();
     this.PKG=this.navParService.getter();
-
     console.log(this.PKG);
   }
 
@@ -33,6 +47,13 @@ export class PackageBookPage implements OnInit {
     console.log(YEAR);
     this.minYear = YEAR;
     this.maxYear = this.minYear + 2;
+  }
+
+  bookingPkg(){
+    console.log('Chay vào click first name ' + this.FIRSTNAME)
+    console.log('Chay vào click Infant ' + this.INFANT)
+
+    
   }
 
 }

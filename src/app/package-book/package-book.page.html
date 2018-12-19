@@ -7,60 +7,60 @@
     <div class="main">
         <div class="content" text-center>
             <ion-item lines="none" class="inputs">
-                <ion-input placeholder="First Name"></ion-input>
+              <ion-input placeholder="First Name" [(ngModel)]="FIRSTNAME"></ion-input>
             </ion-item>
             <ion-item lines="none" class="inputs">
-                <ion-input placeholder="Last Name"></ion-input>
+                <ion-input placeholder="Last Name" [(ngModel)]="LASTNAME"></ion-input>
             </ion-item>
             <ion-item lines="none" class="inputs">
                 <ion-label>Date Of Birth</ion-label>
-                <ion-datetime display-format="MM/DD/YYYY" min="1970" max="{{maxYear}}"  name="returnDate"></ion-datetime>
+                <ion-datetime display-format="MM/DD/YYYY" min="1970" max="{{maxYear}}"  name="returnDate" [(ngModel)]="BIRTHDAY"></ion-datetime>
             </ion-item>
             <ion-item lines="none" class="inputs">
-                <ion-input type="email" placeholder="Email"></ion-input>
+                <ion-input type="email" placeholder="Email" [(ngModel)]="EMAIL"></ion-input>
             </ion-item>
             <ion-item lines="none" class="inputs">
-                <ion-input type="number" placeholder="Phone"></ion-input>
+                <ion-input type="number" placeholder="Phone" [(ngModel)]="PHONE"></ion-input>
             </ion-item>
             <ion-item lines="none" class="inputs">
-                <ion-input type="number" placeholder="Cell Phone"></ion-input>
+                <ion-input type="number" placeholder="Cell Phone" [(ngModel)]="CELLPHONE"></ion-input>
             </ion-item>
           <ion-item lines="none" class="inputs">
-              <ion-input placeholder="Address"></ion-input>
+              <ion-input placeholder="Address" [(ngModel)]="ADDRESS"></ion-input>
           </ion-item>
           <ion-item lines="none" class="inputs">
               <ion-label>Start Date</ion-label>
-              <ion-datetime display-format="MM/DD/YYYY" min="{{minYear}}" max="{{maxYear}}" name="returnDate"></ion-datetime>
+              <ion-datetime display-format="MM/DD/YYYY" min="{{minYear}}" max="{{maxYear}}" name="returnDate" [(ngModel)]="STARTDATE"></ion-datetime>
           </ion-item>
          
           <ion-item lines="none" class="inputs">
-              <ion-input placeholder="Seats"></ion-input>
+              <ion-input placeholder="Seats" [(ngModel)]="SEATS"></ion-input>
           </ion-item>
           <ion-item lines="none" class="inputs">
               <ion-label>Infant</ion-label>
-              <ion-select #infant>
+              <ion-select #infant [(ngModel)]="INFANT">
                 <ion-select-option>No</ion-select-option>
                 <ion-select-option>Yes</ion-select-option>
               </ion-select>
             </ion-item>
           <ion-item lines="none" class="inputs">
-              <ion-input placeholder="Expected Age"></ion-input>
+              <ion-input placeholder="Expected Age" [(ngModel)]="EXPECTEDAGE"></ion-input>
           </ion-item>
           <ion-item lines="none" class="inputs">
-              <ion-input placeholder="Citizenship Id"></ion-input>
+              <ion-input placeholder="Citizenship Id" [(ngModel)]="CITIZENSHIPID"></ion-input>
           </ion-item>
           <ion-item lines="none" class="inputs">
-              <ion-input placeholder="Guid"></ion-input>
+              <ion-input placeholder="Guid" [(ngModel)]="GUID"></ion-input>
           </ion-item>
           <ion-item lines="none" class="inputs">
-              <ion-input placeholder="To Be Paid"></ion-input>
+              <ion-input placeholder="To Be Paid" [(ngModel)]="TOBEPAID"></ion-input>
           </ion-item>
           <ion-item lines="none" class="inputs">
-              <ion-input placeholder="Verification Code"></ion-input>
+              <ion-input placeholder="Verification Code" [(ngModel)]="VERIFICATIONCODE"></ion-input>
           </ion-item>
 
           <div class="btn">
-            <button expand="block">BOOKING</button>
+            <button expand="block" (click) = "bookingPkg()">BOOKING</button>
           </div>
         </div>
       </div>

@@ -237,8 +237,19 @@ export class PegastService {
     // // })
   }
 
-  packageBook(){
+  ADDRESS: any='';
+  STARTDAY: any='';
+  GUID: any='';
+  packageBook(FIRSTNAME, LASTNAME, BIRTHDAY, EMAIL, PHONE, CELLPHONE,ADDRESS, STARTDAY, SEATS, INFANT, EXPECTEDAGE, CITIZENSHIPID, GUID, TOBEPAID, VERIFICATIONCODE){
     let url = this.WSURL + '/PackageBooking.php';
+    if(INFANT=="Yes")
+    {
+      INFANT=true;
+    }
+    else
+    {
+      INFANT=false;
+    }
     let body = new HttpParams({
       fromObject: {
         AdultMinAge : '0',
@@ -252,17 +263,17 @@ export class PegastService {
         EndDate : '',
         MarketId: '',
         PackageId : '',
-        Address : '',
-        Cellphone : '',
-        DateOfBirth : '',
-        CitizenshipId : '',
-        Email : '',
-        ExpectedAge : '',
-        FirstName: '',
-        Guid : '',
-        LastName: '',
-        IsInfant : '',
-        Phone: '',
+        Address : ADDRESS,
+        Cellphone : CELLPHONE,
+        DateOfBirth : BIRTHDAY,
+        CitizenshipId : CITIZENSHIPID,
+        Email : EMAIL,
+        ExpectedAge : EXPECTEDAGE,
+        FirstName: FIRSTNAME,
+        Guid : GUID,
+        LastName: LASTNAME,
+        IsInfant : INFANT,
+        Phone: PHONE,
         TravelDocumentExpirationDate : '',
         TravelDocumentIssueDate: '',
         TravelDocumentIssuer: '',
@@ -277,14 +288,14 @@ export class PegastService {
         OutgoingServiceGuid: '',
         OutgoingStatus: '',
         PersonGuid: '',
-        Seats: '',
+        Seats: SEATS,
         ReturnClassId: '',
         ReturnSegmentId: '',
         ReturnServiceGuid: '',
         ReturnStatus: '',
-        StartDate:'',
-        ToBePaid: '',
-        VerificationCode: '',
+        StartDate: STARTDAY,
+        ToBePaid: TOBEPAID,
+        VerificationCode: VERIFICATIONCODE,
       }
     });
 
