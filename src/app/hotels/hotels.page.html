@@ -57,8 +57,7 @@
   </ion-item>
   <ion-button color="primary" expand="block" (click)="searchHotels()">Search</ion-button>
 
-  <ion-card *ngFor="let HOTEL of HOTELS" (click)="do">
-    <!-- <ion-img src="/assets/myImg.png"></ion-img> -->
+  <!-- <ion-card *ngFor="let HOTEL of HOTELS" (click)="do">
     <ion-card-header>
       <ion-card-title>{{HOTEL.Hotel.Name}}</ion-card-title>
     </ion-card-header>
@@ -71,7 +70,16 @@
       <p>Accomodation: {{HOTEL.Combinations[0].AccommodationsDescription}}</p>
       <p>Price: {{HOTEL.Combinations[0].Price}} {{HOTEL.Combinations[0].PriceCurrencySymbolOrCode}} </p>
     </ion-card-content>
-  </ion-card>
+  </ion-card> -->
 
-  
+  <div *ngIf="HOTELS.length>0" >
+    <div class="hotel" *ngFor="let HOTEL of HOTELS">
+      <p>Name: {{HOTEL.DETAIL.Name}}</p>
+      <p>Star: {{HOTEL.DETAIL._CategoryId?.Name}}</p>
+      <p>Location: {{HOTEL.DETAIL._LocationId?.Name}}</p>
+      <p>Area: {{HOTEL.DETAIL._LocationAreaId?.Name}}</p>
+      <p>Meal: {{HOTEL._MEALS[0]?.Name}}</p>
+    </div>
+  </div>
+
 </ion-content>
