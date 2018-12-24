@@ -30,7 +30,7 @@
           </ion-item>
           <ion-item lines="none" class="inputs">
               <ion-label>Start Date</ion-label>
-              <ion-datetime display-format="MM/DD/YYYY" min="{{minYear}}" max="{{maxYear}}" name="returnDate" [(ngModel)]="STARTDATE"></ion-datetime>
+              <ion-datetime display-format="MM/DD/YYYY" min="{{minYear}}" max="{{maxYear}}" name="returnDate" [(ngModel)]="STARTDAY"></ion-datetime>
           </ion-item>
          
           <ion-item lines="none" class="inputs">
@@ -49,15 +49,20 @@
           <ion-item lines="none" class="inputs">
               <ion-input placeholder="Citizenship Id" [(ngModel)]="CITIZENSHIPID"></ion-input>
           </ion-item>
-          <ion-item lines="none" class="inputs">
-              <ion-input placeholder="Guid" [(ngModel)]="GUID"></ion-input>
-          </ion-item>
-          <ion-item lines="none" class="inputs">
-              <ion-input placeholder="To Be Paid" [(ngModel)]="TOBEPAID"></ion-input>
-          </ion-item>
-          <ion-item lines="none" class="inputs">
-              <ion-input placeholder="Verification Code" [(ngModel)]="VERIFICATIONCODE"></ion-input>
-          </ion-item>
+
+          <!--
+            <ion-item lines="none" class="inputs">
+                <ion-input placeholder="Guid" [(ngModel)]="GUID"></ion-input>
+            </ion-item>
+            <ion-item lines="none" class="inputs">
+                <ion-input placeholder="To Be Paid" [(ngModel)]="TOBEPAID"></ion-input>
+            </ion-item>
+            <ion-item lines="none" class="inputs">
+                <ion-input placeholder="Verification Code" [(ngModel)]="VERIFICATIONCODE"></ion-input>
+            </ion-item>
+
+          -->
+          
 
           <div class="btn">
             <button expand="block" (click) = "bookingAlertConfirm()">BOOKING</button>
