@@ -10,6 +10,8 @@ import { iHotelCountry, iHotel } from '../interface/hotel.interface';
 export class HotelsPage implements OnInit {
   HOTEL_REFS: iHotel;;
   HOTELS: any[];
+  REFS: any;
+  isReady = false;
   countries: iHotelCountry[] = [
     { ISO: "TH", TimeZone: '7', OptionalLanguageNames: [], Id: '164', Name: "Thái Lan", Groups: '66' },
     { ISO: "VN", TimeZone: '7', OptionalLanguageNames: [], Id: '156', Name: "Việt Nam", Groups: '64' }
@@ -42,7 +44,66 @@ export class HotelsPage implements OnInit {
   ngOnInit() {
     // this.pegastService.getHotelSearchOptions();
     this.getHotelSearchOptions();
+    this.searchHotelOptions();
+    this.searchHotelsx();
   }
+
+  searchHotelOptions(){
+    this.pegastService.hotelSearchOptionsGet()
+    .subscribe((data: any)=>{
+      console.log(data);
+
+      let HOTELS: any[] = data.HOTELS;
+      this.REFS = data.REFS;
+      HOTELS.forEach(HOTEL=>{
+        HOTEL['DETAIL'] = this.convertHotel(HOTEL.HotelId);
+        HOTEL['_MEALS'] = this.convertMeals(HOTEL.MealIds.int);
+      })
+      console.log(HOTELS);
+      this.HOTELS = HOTELS;
+      setTimeout(() => {
+        this.isReady = true;
+      }, 1000);
+    })
+  }
+
+  convertMeals(MEAL_IDS: any[]){
+    let RESULTS = [];
+    if(MEAL_IDS.length>0){
+      MEAL_IDS.forEach(MEAL => {
+        RESULTS.push(this.REFS.Meals.Meal.find(item => item.Id == MEAL ))
+      })
+    }
+    return RESULTS;
+  }
+
+  convertHotel(HOTELID){
+    let HOTEL = this.REFS.Hotels.Hotel.find(item=> item.Id == HOTELID);
+    console.log(HOTEL);
+    HOTEL['_CategoryId'] = this.REFS.HotelCategories.HotelCategory.find(item => item.Id == HOTEL.CategoryId );
+    HOTEL['_LocationAreaId'] = this.REFS.LocationAreas.LocationArea.find(item => item.Id == HOTEL.LocationAreaId );
+    HOTEL['_LocationId'] = this.REFS.Locations.Location.find(item => item.Id == HOTEL.LocationId );
+    
+    // for AttributeIds
+    if(HOTEL.AttributeIds.int){
+      let ATTs = [];
+      HOTEL.AttributeIds.int.forEach(ItemId => {
+        ATTs.push(this.REFS.HotelAttributes.HotelAttribute.find(item=> item.Id == ItemId))
+      });
+      HOTEL['_AttributeIds'] = ATTs;
+    }else{
+      HOTEL['_AttributeIds'] = [];
+    }
+    return HOTEL;
+  }
+
+  searchHotelsx(){
+    this.pegastService.hotelsSearch()
+    .subscribe((data)=>{
+      console.log(data);
+    })
+  }
+
 
   getHotelSearchOptions() {
     this.HOTELS = [];

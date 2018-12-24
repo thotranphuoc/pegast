@@ -103,10 +103,10 @@ export class PegastService {
       })
   }
 
-  
 
 
-  
+
+
 
   packagesSearchOptionsGet(GROUP) {
     // let url = 'http://pegas-smart-app.enablecode.com.vn/pegas/PackageSearchOptions.php&GROUP=' + GROUP;
@@ -136,8 +136,8 @@ export class PegastService {
         let PackageSearchDirectionOption: any[] = data.SearchOptions.Directions.PackageSearchDirectionOption;
         PackageSearchDirectionOption.map(dir => {
           dir['_DepartureLocationId'] = REF.Locations.Location.find(item => item.Id == dir.DepartureLocationId),
-          dir['_ReturnLocationId'] = REF.Locations.Location.find(item => item.Id == dir.ReturnLocationId),
-          dir['_DestinationCountryId'] = REF.Countries.Country.find(item => item.Id == dir.DestinationCountryId)
+            dir['_ReturnLocationId'] = REF.Locations.Location.find(item => item.Id == dir.ReturnLocationId),
+            dir['_DestinationCountryId'] = REF.Countries.Country.find(item => item.Id == dir.DestinationCountryId)
         })
         return {
           PackageSearchDirectionOption: PackageSearchDirectionOption,
@@ -236,49 +236,47 @@ export class PegastService {
     // //   console.log(result);
     // // })
   }
-  
-  packageBook(PKG, FIRSTNAME, LASTNAME, BIRTHDAY, EMAIL, PHONE, CELLPHONE,ADDRESS, STARTDAY, SEATS, INFANT, EXPECTEDAGE, CITIZENSHIPID, GUID, TOBEPAID, VERIFICATIONCODE){
+
+  packageBook(PKG, FIRSTNAME, LASTNAME, BIRTHDAY, EMAIL, PHONE, CELLPHONE, ADDRESS, STARTDAY, SEATS, INFANT, EXPECTEDAGE, CITIZENSHIPID, GUID, TOBEPAID, VERIFICATIONCODE) {
     let url = this.WSURL + 'PackageBooking.php';
 
     console.log('url: ' + url);
-    if(INFANT=="Yes")
-    {
-      INFANT=true;
+    if (INFANT == "Yes") {
+      INFANT = true;
     }
-    else
-    {
-      INFANT=false;
+    else {
+      INFANT = false;
     }
     let body = new HttpParams({
       fromObject: {
-        AdultMinAge : '10',
-        AgencyCommission : '0.0',
-        AgencyCommissionPercent : '0',
-        AgencyDiscount : '30.0',
-        AgencyDiscountPercent : '0.1',
-        AgencyUserId : '26838991',
-        BookingCurrencyId : PKG.CurrencyId,
-        DefaultPaymentCurrencyId : '',
-        EndDate : '',
+        AdultMinAge: '10',
+        AgencyCommission: '0.0',
+        AgencyCommissionPercent: '0',
+        AgencyDiscount: '30.0',
+        AgencyDiscountPercent: '0.1',
+        AgencyUserId: '26838991',
+        BookingCurrencyId: PKG.CurrencyId,
+        DefaultPaymentCurrencyId: '',
+        EndDate: '',
         MarketId: '3686',
-        PackageId : PKG.PackageId,
-        Address : ADDRESS,
-        Cellphone : CELLPHONE,
-        DateOfBirth : BIRTHDAY + 'T00:00:00Z;',
-        CitizenshipId : CITIZENSHIPID,
-        Email : EMAIL,
-        ExpectedAge : EXPECTEDAGE,
+        PackageId: PKG.PackageId,
+        Address: ADDRESS,
+        Cellphone: CELLPHONE,
+        DateOfBirth: BIRTHDAY + 'T00:00:00Z;',
+        CitizenshipId: CITIZENSHIPID,
+        Email: EMAIL,
+        ExpectedAge: EXPECTEDAGE,
         FirstName: FIRSTNAME,
-        Guid : GUID,
+        Guid: GUID,
         LastName: LASTNAME,
-        IsInfant : INFANT,
+        IsInfant: INFANT,
         Phone: PHONE,
-        TravelDocumentExpirationDate : '',
+        TravelDocumentExpirationDate: '',
         TravelDocumentIssueDate: '',
         TravelDocumentIssuer: '',
-        TravelDocumentNotProvided:'',
+        TravelDocumentNotProvided: '',
         TravelDocumentNumber: '',
-        TravelDocumentTypeId : '',
+        TravelDocumentTypeId: '',
         Price: PKG.Price,
         PriceValidityDateTime: '',
         OffsetMinutes: '180',
@@ -301,5 +299,24 @@ export class PegastService {
     console.log(body, url);
     return this.httpClient.post(url, body)
 
+  }
+
+  hotelSearchOptionsGet() {
+    // let url = 'http://pegas-smart-app.enablecode.com.vn/pegas/PackageSearchOptions.php&GROUP=' + GROUP;
+    let url = this.WSURL + 'HotelSearchOptions.php';
+    return this.httpClient.get(url)
+      .pipe(
+        map((data: any) => {
+          return {
+            HOTELS: data.SearchOptions.HotelOptions.HotelSearchHotelOption,
+            REFS: data.ReferenceDescription
+          }
+        })
+      )
+  }
+
+  hotelsSearch() {
+    let url = this.WSURL + 'HotelSearch.php';
+    return this.httpClient.get(url);
   }
 }
