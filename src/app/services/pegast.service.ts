@@ -238,9 +238,10 @@ export class PegastService {
   }
 
   packageBook(PKG, FIRSTNAME, LASTNAME, BIRTHDAY, EMAIL, PHONE, CELLPHONE, ADDRESS, STARTDAY, SEATS, INFANT, EXPECTEDAGE, CITIZENSHIPID, GUID, TOBEPAID, VERIFICATIONCODE) {
-    let url = this.WSURL + 'PackageBooking.php';
+    let url = this.WSURL + 'BookingPackage.php';
 
     console.log('url: ' + url);
+    console.log('PKG: ' , PKG);
     if (INFANT == "Yes") {
       INFANT = true;
     }
@@ -291,8 +292,8 @@ export class PegastService {
         ReturnServiceGuid: '',
         ReturnStatus: '',
         StartDate: STARTDAY + 'T00:00:00Z;',
-        ToBePaid: TOBEPAID,
-        VerificationCode: VERIFICATIONCODE,
+        //ToBePaid: TOBEPAID,
+        //VerificationCode: VERIFICATIONCODE,
       }
     });
 
