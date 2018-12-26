@@ -12,7 +12,11 @@ import { NavController, AlertController } from '@ionic/angular';
 export class PackageBookPage implements OnInit {
   minYear: any;
   maxYear: any;
+<<<<<<< HEAD
   PKG;
+=======
+  PKG: any;
+>>>>>>> 9ed1f3d720478995865cd448e249e00d6563deae
   FIRSTNAME: any='';
   LASTNAME: any='';
   BIRTHDAY: any='';
@@ -28,19 +32,22 @@ export class PackageBookPage implements OnInit {
   GUID: any='';
   TOBEPAID: any='';
   VERIFICATIONCODE: any='';
-
+  STARTDATE: any='';
   constructor(
     private pegastService: PegastService,
     private appService: AppService,
     private navParService: NavParService,
     private navCtrl: NavController,
     private alertCtrl: AlertController
-  ) { }
+  ) { 
+    this.PKG=this.navParService.getter();
+    console.log(this.PKG);
+  }
 
   ngOnInit() {
     this.getYears();
-    this.PKG=this.navParService.getter();
-    console.log(this.PKG);
+    // this.PKG=this.navParService.getter();
+    // console.log(this.PKG);
   }
 
   getYears() {
@@ -64,6 +71,8 @@ export class PackageBookPage implements OnInit {
       {
         this.appService.presentAlert(null,"Fail","Booking fail!! " + res.InvalidBookingReason,"OK");
       }
+    },err=>{
+      console.log(err);
     })
     
   }
