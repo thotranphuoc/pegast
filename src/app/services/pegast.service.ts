@@ -241,6 +241,7 @@ export class PegastService {
     let url = this.WSURL + 'PackageBooking.php';
 
     console.log('url: ' + url);
+    console.log(PKG);
     if (INFANT == "Yes") {
       INFANT = true;
     }
