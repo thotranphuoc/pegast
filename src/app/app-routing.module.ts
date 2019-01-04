@@ -53,6 +53,7 @@ const routes: Routes = [
   { path: 'packagesx', loadChildren: './packagesx/packagesx.module#PackagesxPageModule' },
   { path: 'package-book', loadChildren: './package-book/package-book.module#PackageBookPageModule' },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
+  { path: '*/*', redirectTo: 'home', pathMatch: 'full' },
   
 ];
 
