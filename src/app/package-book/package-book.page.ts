@@ -55,9 +55,7 @@ export class PackageBookPage implements OnInit {
   }
 
   bookingPkg(){
-
-
-    
+    console.log("booking "  + this.PKG);
     let result = this.pegastService.packageBook(this.PKG, this.FIRSTNAME, this.LASTNAME, this.BIRTHDAY, this.EMAIL, this.PHONE, this.CELLPHONE, this.ADDRESS, this.STARTDAY, this.SEATS, this.INFANT, this.EXPECTEDAGE, this.CITIZENSHIPID, this.GUID, this.TOBEPAID, this.VERIFICATIONCODE);
     result.subscribe((res:any)=>{
       console.log(res.IsSucceeded);
@@ -67,7 +65,7 @@ export class PackageBookPage implements OnInit {
       }
       else
       {
-        this.appService.presentAlert(null,"Fail","Booking fail!! " + res.AgencyAccessDeniedReason,"OK");
+        this.appService.presentAlert(null,"Fail","Booking fail!! " + res.InvalidBookingReason,"OK");
       }
     },err=>{
       console.log(err);
