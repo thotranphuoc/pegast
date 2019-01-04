@@ -58,7 +58,7 @@ export class PackageBookPage implements OnInit {
     console.log("booking "  + this.PKG);
     let result = this.pegastService.packageBook(this.PKG, this.FIRSTNAME, this.LASTNAME, this.BIRTHDAY, this.EMAIL, this.PHONE, this.CELLPHONE, this.ADDRESS, this.STARTDAY, this.SEATS, this.INFANT, this.EXPECTEDAGE, this.CITIZENSHIPID, this.GUID, this.TOBEPAID, this.VERIFICATIONCODE);
     result.subscribe((res:any)=>{
-      console.log(res.IsSucceeded);
+      console.log(res);
       if(res.IsSucceeded=="true")
       {
           this.appService.presentAlert(null,"Success","Booking successfull!!","OK");
@@ -67,8 +67,8 @@ export class PackageBookPage implements OnInit {
       {
         this.appService.presentAlert(null,"Fail","Booking fail!! " + res.InvalidBookingReason,"OK");
       }
-    },err=>{
-      console.log(err);
+    },(err: any)=>{
+      console.log(err.error.text);
     })
     
   }
