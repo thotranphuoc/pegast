@@ -241,11 +241,8 @@ export class PegastService {
     let url = this.WSURL + 'BookingPackage.php';
 
     console.log('url: ' + url);
-<<<<<<< HEAD
-    console.log('PKG: ' , PKG);
-=======
-    console.log(PKG);
->>>>>>> 9ed1f3d720478995865cd448e249e00d6563deae
+    console.log("ngay sih " + BIRTHDAY);
+
     if (INFANT == "Yes") {
       INFANT = true;
     }
@@ -254,50 +251,20 @@ export class PegastService {
     }
     let body = new HttpParams({
       fromObject: {
-        AdultMinAge: '10',
-        AgencyCommission: '0.0',
-        AgencyCommissionPercent: '0',
-        AgencyDiscount: '30.0',
-        AgencyDiscountPercent: '0.1',
-        AgencyUserId: '26838991',
+        AgencyUserId: '26838992',
+        SearchResultItemId: PKG.Id,
         BookingCurrencyId: PKG.CurrencyId,
-        DefaultPaymentCurrencyId: '',
-        EndDate: '',
-        MarketId: '3686',
         PackageId: PKG.PackageId,
         Address: ADDRESS,
         Cellphone: CELLPHONE,
-        DateOfBirth: BIRTHDAY + 'T00:00:00Z;',
+        //DateOfBirth: BIRTHDAY + 'T00:00:00Z;',
         CitizenshipId: CITIZENSHIPID,
         Email: EMAIL,
         ExpectedAge: EXPECTEDAGE,
         FirstName: FIRSTNAME,
-        Guid: GUID,
         LastName: LASTNAME,
         IsInfant: INFANT,
         Phone: PHONE,
-        TravelDocumentExpirationDate: '',
-        TravelDocumentIssueDate: '',
-        TravelDocumentIssuer: '',
-        TravelDocumentNotProvided: '',
-        TravelDocumentNumber: '',
-        TravelDocumentTypeId: '',
-        Price: PKG.Price,
-        PriceValidityDateTime: '',
-        OffsetMinutes: '180',
-        OutgoingClassId: '',
-        OutgoingSegmentId: '',
-        OutgoingServiceGuid: '',
-        OutgoingStatus: '',
-        PersonGuid: '',
-        Seats: SEATS,
-        ReturnClassId: '',
-        ReturnSegmentId: '',
-        ReturnServiceGuid: '',
-        ReturnStatus: '',
-        StartDate: STARTDAY + 'T00:00:00Z;',
-        //ToBePaid: TOBEPAID,
-        //VerificationCode: VERIFICATIONCODE,
       }
     });
 
