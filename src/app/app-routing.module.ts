@@ -52,8 +52,10 @@ const routes: Routes = [
   { path: 'packages-of-direction', loadChildren: './packages-of-direction/packages-of-direction.module#PackagesOfDirectionPageModule' },
   { path: 'packagesx', loadChildren: './packagesx/packagesx.module#PackagesxPageModule' },
   { path: 'package-book', loadChildren: './package-book/package-book.module#PackageBookPageModule' },
+  { path: 'about-us', loadChildren: './about-us/about-us.module#AboutUsPageModule' },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
   { path: '*/*', redirectTo: 'home', pathMatch: 'full' },
+  
   
 ];
 

@@ -1,33 +1,37 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>packagesx</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>PACKAGES</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="main">
-    <ion-grid class="inputs_header">
-      <ion-row>
-        <ion-col col-6>
-          <ion-item lines="none">
-            <ion-label>From</ion-label>
-            <ion-select #froma (ionChange)="selectFrom(froma.value)">
-              <ion-select-option *ngFor="let FROM of FROMs" [value]="FROM">{{FROM._DepartureLocationId.Name}}</ion-select-option>
-            </ion-select>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 style="border-left: 2px solid #ffffff;">
-          <ion-item lines="none">
-            <ion-label>To</ion-label>
-            <ion-select #toa (ionChange)="selectTo(toa.value)">
-              <ion-select-option *ngFor="let TO of TOs" [value]="TO">{{TO._DestinationCountryId.Name}}</ion-select-option>
-            </ion-select>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+    <div>
+      <ion-grid class="inputs_header">
+        <ion-row>
+          <ion-col col-6>
+            <ion-item lines="none">
+              <ion-label position="floating">From</ion-label>
+              <ion-select #froma (ionChange)="selectFrom(froma.value)">
+                <ion-select-option *ngFor="let FROM of FROMs" [value]="FROM">{{FROM._DepartureLocationId.Name}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+          <ion-col col-6 style="border-left: 2px solid #ffffff;">
+            <ion-item lines="none">
+              <ion-label position="floating">To</ion-label>
+              <ion-select #toa (ionChange)="selectTo(toa.value)">
+                <ion-select-option *ngFor="let TO of TOs" [value]="TO">{{TO._DestinationCountryId.Name}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
     <div class="content" text-center>
-
       <ion-item lines="none" class="inputs">
         <ion-label>Departure From</ion-label>
         <ion-datetime display-format="MM/DD/YYYY" min="{{minYear}}" max="{{maxYear}}" [(ngModel)]="departureDate" name="departureDate"></ion-datetime>
@@ -110,38 +114,36 @@
           </ion-col>
         </ion-row>
       </ion-grid>
+    </div>
+    <div class="btn">
+      <button expand="block" (click)="search()">SEARCH</button>
+    </div>
+
+    <!-- 
+        <div id="datePicker" style="visibility: none">
+          <ion-datetime #datePicker1 pickerFormat="DD/MM/YYYY" min="{{minYear}}" max="{{maxYear}}" (ionChange)="changeDate1($event)"
+            placeholder="Date"></ion-datetime>
+          <ion-datetime #datePicker2 pickerFormat="DD/MM/YYYY" min="{{minYear}}" max="{{maxYear}}" (ionChange)="changeDate2($event)"
+            placeholder="Date"></ion-datetime>
+        </div> -->
+    <div *ngFor="let PKG of filter_PKGS; let id = index" class="filterPackage">
+      <p>{{i}}</p>
+      <p class="packageName">{{PKG._PackageId.Name}}</p>
+      <p>{{PKG._PackageId.StructureType}}</p>
+      <p>{{PKG._HOTELS[0]._HotelId.Name}}</p>
+      <p>Star: {{PKG._HOTELS[0]._HotelStar.Name}}</p>
+      <p>Room: {{PKG._HOTELS[0]._RoomCategoryId.Name}}</p>
+      <p>Adults: {{PKG._HOTELS[0].Adults}}</p>
+      <p>Children: {{PKG._HOTELS[0].Children}}</p>
+      <p>Meal: {{PKG._MEAL.Name}}</p>
+      <p>Departure Flight Class {{PKG.FlightServices.PackageSearchResultFlightService[0].FlightClassType}}</p>
+      <p>Return Flight Class {{PKG.FlightServices.PackageSearchResultFlightService[1].FlightClassType}}</p>
+
       <div class="btn">
-        <button expand="block" (click)="search()">SEARCH</button>
-      </div>
-
-      <div *ngFor="let PKG of filter_PKGS; let id = index" class="filterPackage">
-        <p>{{i}}</p>
-        <p class="packageName">{{PKG._PackageId.Name}}</p>
-        <p>{{PKG._PackageId.StructureType}}</p>
-        <p>{{PKG._HOTELS[0]._HotelId.Name}}</p>
-        <p>Star: {{PKG._HOTELS[0]._HotelStar.Name}}</p>
-        <p>Room: {{PKG._HOTELS[0]._RoomCategoryId.Name}}</p>
-        <p>Adults: {{PKG._HOTELS[0].Adults}}</p>
-        <p>Children: {{PKG._HOTELS[0].Children}}</p>
-        <p>Meal: {{PKG._MEAL.Name}}</p>
-        <p>Departure Flight Class {{PKG.FlightServices.PackageSearchResultFlightService[0].FlightClassType}}</p>
-        <p>Return Flight Class {{PKG.FlightServices.PackageSearchResultFlightService[1].FlightClassType}}</p>
-
-        <div class="btn">
-          <button (click)="bookPkg(PKG)">BOOK</button>
-        </div>
-        
+        <button (click)="bookPkg(PKG)">BOOK</button>
       </div>
 
     </div>
   </div>
 
-  
-  <!-- 
-  <div id="datePicker" style="visibility: none">
-    <ion-datetime #datePicker1 pickerFormat="DD/MM/YYYY" min="{{minYear}}" max="{{maxYear}}" (ionChange)="changeDate1($event)"
-      placeholder="Date"></ion-datetime>
-    <ion-datetime #datePicker2 pickerFormat="DD/MM/YYYY" min="{{minYear}}" max="{{maxYear}}" (ionChange)="changeDate2($event)"
-      placeholder="Date"></ion-datetime>
-  </div> -->
 </ion-content>

@@ -21,7 +21,7 @@ export class AppComponent {
     { title: 'News', url: '/news', icon: 'home' },
     // { title: 'Language', url: '/language', icon: 'home' },
     { title: 'Booking Policy', url: '/booking-policy', icon: 'home' },
-    // { title: 'List', url: '/list', icon: 'list' },
+    { title: 'About us', url: '/about-us', icon: 'info' },
     // { title: 'Hot Deals', url: '/deals', icon: 'list' },
     // { title: 'Login/Register', url: '/account', icon: 'list' },
     // { title: 'For Test', url: '/test', icon: 'list' },

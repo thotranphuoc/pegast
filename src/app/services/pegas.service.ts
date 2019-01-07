@@ -465,6 +465,16 @@ export class PegasService {
         return this.httpClient.post(url, body)
     }
 
+    aboutUsGet() {
+        let url = this.WEBSERVICE_URL;;
+        let body = new HttpParams({
+            fromObject: {
+                act: 'about',
+            }
+        })
+        return this.httpClient.post(url, body)
+    }
+
     voucherWalletGet() {
         let url = this.WEBSERVICE_URL;;
         let body = new HttpParams({
