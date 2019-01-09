@@ -22,7 +22,7 @@ export class BookingPolicyPage implements OnInit {
       this.myHTML_EN = res.data.content_en;
       this.myHTML_VN = res.data.content_vn;
       document.getElementById('myHTML_EN').innerHTML=this.myHTML_EN;
-      document.getElementById('myHTML_VN').innerHTML=this.myHTML_VN;
+      // document.getElementById('myHTML_VN').innerHTML=this.myHTML_VN;
     })
   }
 

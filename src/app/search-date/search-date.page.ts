@@ -38,21 +38,21 @@ export class SearchDatePage implements OnInit {
     this.maxYear = this.minYear + 2;
   }
 
-  // changeDate1(ev){
-  //   console.log(ev);
-  //   let date = ev.detail.value;
-  //   console.log(date);
-  //   this.date1 = date;
-  //   this.checkinDate = date.toString().substr(8,2)+'/'+date.toString().substr(5,2)+'/'+date.toString().substr(0,4)
-  // }
+  changeDate1(ev){
+    console.log(ev);
+    let date = ev.detail.value;
+    console.log(date);
+    this.date1 = date;
+    this.checkinDate = date.toString().substr(8,2)+'/'+date.toString().substr(5,2)+'/'+date.toString().substr(0,4)
+  }
 
-  // changeDate2(ev){
-  //   console.log(ev);
-  //   let date = ev.detail.value;
-  //   console.log(date);
-  //   this.date2 = date;
-  //   this.checkoutDate = date.toString().substr(8,2)+'/'+date.toString().substr(5,2)+'/'+date.toString().substr(0,4)
-  // }
+  changeDate2(ev){
+    console.log(ev);
+    let date = ev.detail.value;
+    console.log(date);
+    this.date2 = date;
+    this.checkoutDate = date.toString().substr(8,2)+'/'+date.toString().substr(5,2)+'/'+date.toString().substr(0,4)
+  }
 
   shortDate(date: string) {
     return date.substr(0, 5);

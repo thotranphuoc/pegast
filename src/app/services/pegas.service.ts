@@ -469,7 +469,7 @@ export class PegasService {
         let url = this.WEBSERVICE_URL;;
         let body = new HttpParams({
             fromObject: {
-                act: 'about',
+                act: 'about_us',
             }
         })
         return this.httpClient.post(url, body)
