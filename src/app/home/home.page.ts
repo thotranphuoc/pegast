@@ -1,6 +1,5 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
-import { NavController, Slides } from '@ionic/angular';
-import { updateStyleProp } from '@angular/core/src/render3/styling';
+import { NavController } from '@ionic/angular';
 import { LocalService } from '../services/local.service';
 import { PegasService } from '../services/pegas.service';
 // import { url } from 'inspector';
@@ -94,7 +93,7 @@ export class HomePage implements OnInit {
       })
   }
 
-  slidesDidLoad(slides: Slides) {
+  slidesDidLoad(slides) {
     slides.startAutoplay();
   }
 }

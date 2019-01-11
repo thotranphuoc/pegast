@@ -44,7 +44,16 @@
     </div>
   </div>
   <div id="datePicker">
-    <ion-datetime #datePicker1 pickerFormat="DD/MM/YYYY"  min="{{minYear}}" max="{{maxYear}}" (ionChange)="changeDate1($event)" placeholder="Date"></ion-datetime>
-    <ion-datetime #datePicker2 pickerFormat="DD/MM/YYYY"  min="{{minYear}}" max="{{maxYear}}" (ionChange)="changeDate2($event)" placeholder="Date"></ion-datetime>
+    <ion-datetime #datePicker1 pickerFormat="DD/MM/YYYY" min="{{minYear}}" max="{{maxYear}}" (ionChange)="changeDate1($event)"
+      placeholder="Date"></ion-datetime>
+    <ion-datetime #datePicker2 pickerFormat="DD/MM/YYYY" min="{{minYear}}" max="{{maxYear}}" (ionChange)="changeDate2($event)"
+      placeholder="Date"></ion-datetime>
   </div>
+
+  <!-- <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="myDate" name="myDate">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker touchUi #picker></mat-datepicker>
+  </mat-form-field>
+  <p>{{myDate}}</p> -->
 </ion-content>

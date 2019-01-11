@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Slides } from '@ionic/angular';
+// import { Slides } from '@ionic/angular';
 import { PegasService } from '../../services/pegas.service';
 
 @Component({
@@ -31,8 +31,8 @@ export class HotdealSliderComponent implements OnInit {
       })
   }
 
-  slidesDidLoad(slides: Slides) {
-    slides.startAutoplay();
-  }
+  // slidesDidLoad(slides: Slides) {
+  //   slides.startAutoplay();
+  // }
 
 }

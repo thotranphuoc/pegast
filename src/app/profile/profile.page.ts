@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PegasService } from '../services/pegas.service';
 import { LocalService } from '../services/local.service';
 // import { iProfile } from '../interface/pegas.interface';
-import { ModalController, NavController, AlertController, Thumbnail } from '@ionic/angular';
+import { ModalController, NavController, AlertController } from '@ionic/angular';
 import { LoginPage } from '../login/login.page';
 import { iProfile } from '../interface/profile.interface';
 import { AuthService } from '../services/auth.service';

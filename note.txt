@@ -1,0 +1,6 @@
+// install dependencies for material
+npm install --save @angular/material @angular/cdk 
+@angular/animations
+
+// install 
+

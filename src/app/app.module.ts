@@ -9,7 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { ServiceWorkerModule } from '@angular/service-worker';
+// import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
 import { LoginPage } from './login/login.page';
@@ -23,6 +23,13 @@ import * as firebase from 'firebase';
 // import { HotdealSliderComponent } from './components/hotdeal-slider/hotdeal-slider.component';
 import { CustomComponentsModule } from './components/components.module';
 import { CommonModule } from '@angular/common';
+import { MatNativeDateModule } from '@angular/material';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
+// for material
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 firebase.initializeApp(firebaseConfig);
 @NgModule({
   declarations: [AppComponent
@@ -36,10 +43,15 @@ firebase.initializeApp(firebaseConfig);
     HttpClientModule,
     FormsModule,
     CommonModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     // PdfViewerModule,
     // PdfViewerComponent
-    CustomComponentsModule
+    CustomComponentsModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatFormFieldModule
   ],
   providers: [
     StatusBar,

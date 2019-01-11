@@ -114,7 +114,7 @@ export class TravelJournalPage implements OnInit {
           text: 'OK',
           handler: () => {
             console.log('Confirm OK');
-            this.navCtrl.navigateForward('/login',true);
+            this.navCtrl.navigateForward('/login');
           }
         }
       ]

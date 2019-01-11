@@ -3,6 +3,10 @@ import { PegasService } from '../services/pegas.service';
 import { NavController, ModalController } from '@ionic/angular';
 import { NavParService } from '../services/nav-par.service';
 import { AppService } from '../services/app.service';
+import { MatNativeDateModule } from '@angular/material';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-search-date',
@@ -18,6 +22,7 @@ export class SearchDatePage implements OnInit {
   FINAL_DEALS = [];
   minYear;
   maxYear;
+  myDate;
   constructor(
     private navCtrl: NavController,
     private pegasService: PegasService,
@@ -28,6 +33,7 @@ export class SearchDatePage implements OnInit {
 
   ngOnInit() {
     this.getYears();
+    this.myDate = new Date();
   }
 
   getYears() {
@@ -97,6 +103,5 @@ export class SearchDatePage implements OnInit {
     this.navCtrl.navigateForward('/deal/' + DEAL.id);
     this.navPar.setter(DEAL);
   }
-
   
 }

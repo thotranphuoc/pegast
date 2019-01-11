@@ -60,8 +60,10 @@ export class AppComponent {
     console.log('menuOpen');
     // this.isSigned = this.localService.ACCOUNT.isSigned;
     setTimeout(() => {
-      this.isSigned = this.authService.isSigned()
+      this.isSigned = this.authService.isSigned();
+      console.log(this.isSigned);
     }, 500);
   }
 
 }
+

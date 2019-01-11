@@ -24,7 +24,7 @@ export class LoadingService {
 
   async presentLoadingWithOptions() {
     this.loading = await this.loadingCtrl.create({
-      spinner: 'hide',
+      spinner: 'lines',
       duration: 5000,
       message: 'Please wait...',
       translucent: true,
