@@ -20,9 +20,12 @@ import { LoginPageModule } from './login/login.module';
 // import firebase from 'firebase/app';
 import { firebaseConfig } from '../config/firebase.config';
 import * as firebase from 'firebase';
+// import { HotdealSliderComponent } from './components/hotdeal-slider/hotdeal-slider.component';
+import { CustomComponentsModule } from './components/components.module';
+import { CommonModule } from '@angular/common';
 firebase.initializeApp(firebaseConfig);
 @NgModule({
-  declarations: [AppComponent,
+  declarations: [AppComponent
     //  PdfViewerComponent
   ],
   entryComponents: [],
@@ -32,9 +35,11 @@ firebase.initializeApp(firebaseConfig);
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    CommonModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     // PdfViewerModule,
     // PdfViewerComponent
+    CustomComponentsModule
   ],
   providers: [
     StatusBar,

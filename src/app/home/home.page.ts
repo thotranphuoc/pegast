@@ -1,7 +1,8 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, Slides } from '@ionic/angular';
 import { updateStyleProp } from '@angular/core/src/render3/styling';
 import { LocalService } from '../services/local.service';
+import { PegasService } from '../services/pegas.service';
 // import { url } from 'inspector';
 
 @Component({
@@ -14,10 +15,12 @@ export class HomePage implements OnInit {
   n: number = 0;
   isActivated: boolean = false;
   isSigned: boolean = false;
+  DEALS = [];
   constructor(
     private navCtrl: NavController,
-    private localService: LocalService
-    ) {
+    private localService: LocalService,
+    private pegasService: PegasService
+  ) {
     // setTimeout(() => {
     //   this.listPro();
     // }, 2000);
@@ -31,11 +34,12 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this.isActivated = true;
     // this.changeImages4Background();
-    
+    this.getHotDeal();
+
   }
 
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.isActivated = false;
     console.log('onDestroy');
   }
@@ -46,7 +50,7 @@ export class HomePage implements OnInit {
     }, 5000);
   }
 
-  
+
 
   changeBackGroundImage() {
     if (this.n < 3) {
@@ -55,7 +59,7 @@ export class HomePage implements OnInit {
       this.n = 0;
     }
     let URL = '../../assets/imgs/bg' + this.n.toString() + '.jpg';
-    let url = "url(\"https://cluboto.net/upload/1542277286img1.jpg"+this.n.toString()+".jpg\")";
+    let url = "url(\"https://cluboto.net/upload/1542277286img1.jpg" + this.n.toString() + ".jpg\")";
     console.log(URL);
     console.log(url);
     let docEl: HTMLElement = document.getElementById('body');
@@ -76,4 +80,21 @@ export class HomePage implements OnInit {
   //   }
   //   console.log(out)
   // }
+
+
+  getHotDeal() {
+    this.pegasService.hotDealsGetWithPostMethod()
+      .subscribe((res: any) => {
+        console.log(res);
+        this.DEALS = [];
+        this.DEALS = res.data;
+
+        this.DEALS = this.DEALS.filter(deal => deal.addtohotdeal == '1')
+        console.log(this.DEALS);
+      })
+  }
+
+  slidesDidLoad(slides: Slides) {
+    slides.startAutoplay();
+  }
 }

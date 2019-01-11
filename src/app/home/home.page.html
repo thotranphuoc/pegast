@@ -4,10 +4,10 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-    
+
     </ion-title>
     <ion-buttons slot="primary">
-      <ion-button [routerLink]="['/notifications']" >
+      <ion-button [routerLink]="['/notifications']">
         <ion-icon slot="icon-only" name="md-notifications"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -67,7 +67,18 @@
       <!-- <button class="btn-red" (click)="go2Page('packages')"><span>PACKAGES</span></button> -->
       <button class="btn-red" (click)="go2Page('packagesx')"><span>PACKAGES</span></button>
       <button class="btn-red" (click)="go2Page('hotels')"><span>HOTELS</span></button>
-
+      <div id='space'></div>
+      <ion-slides pager="true" [options]="slideOpts" #mySlider (ionSlidesDidLoad)="slidesDidLoad(mySlider)">
+        <ion-slide *ngFor="let DEAL of DEALS" (click)="go2HotdealDeail(DEAL)" class="hotdeal">
+          <div>
+            <img src="https://cluboto.net/upload/{{DEAL.feature_img}}" class="image-hotdeals" />
+          </div>
+        </ion-slide>
+      </ion-slides>
     </div>
+
   </div>
+
+
+
 </ion-content>
