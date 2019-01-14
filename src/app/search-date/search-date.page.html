@@ -11,6 +11,16 @@
 
   <div class="main" text-center>
     <div class="content">
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker1" placeholder="Choose a date" [(ngModel)]="myDate.From" name="From">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #picker1></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker2" placeholder="Choose a date" [(ngModel)]="myDate.To" name="To">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #picker2></mat-datepicker>
+      </mat-form-field>
       <ion-grid>
         <ion-row>
           <ion-col>
@@ -50,10 +60,10 @@
       placeholder="Date"></ion-datetime>
   </div>
 
-  <!-- <mat-form-field>
+  <mat-form-field>
     <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="myDate" name="myDate">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker touchUi #picker></mat-datepicker>
   </mat-form-field>
-  <p>{{myDate}}</p> -->
+  <p>{{myDate}}</p>
 </ion-content>

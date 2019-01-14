@@ -5,6 +5,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
 import { PackagesxPage } from './packagesx.page';
 
 const routes: Routes = [
@@ -19,6 +23,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
     RouterModule.forChild(routes)
   ],
   declarations: [PackagesxPage]

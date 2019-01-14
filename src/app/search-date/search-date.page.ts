@@ -22,7 +22,7 @@ export class SearchDatePage implements OnInit {
   FINAL_DEALS = [];
   minYear;
   maxYear;
-  myDate;
+  myDate: any;
   constructor(
     private navCtrl: NavController,
     private pegasService: PegasService,
@@ -33,7 +33,10 @@ export class SearchDatePage implements OnInit {
 
   ngOnInit() {
     this.getYears();
-    this.myDate = new Date();
+    this.myDate = {
+      From: new Date(),
+      To: new Date()
+    }
   }
 
   getYears() {
@@ -65,6 +68,7 @@ export class SearchDatePage implements OnInit {
   }
 
   getDeals() {
+    console.log(this.myDate);
     this.pegasService.dealsGet().toPromise()
       .then((res: any) => {
         console.log(res);

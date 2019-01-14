@@ -136,7 +136,13 @@ ion-grid
     ion-content {
       --background: url('../../assets/imgs/bg-profile.png') center;
     //   background-repeat:repeat;
-    //   background-size: 100% 100%;
-    //   background-attachment: fixed;
+      background-size: 100% 100%;
+      background-attachment: fixed;
     }
+}
+
+mat-form-field{
+    visibility: hidden;
+    background: white;
+    width: 100%;
 }

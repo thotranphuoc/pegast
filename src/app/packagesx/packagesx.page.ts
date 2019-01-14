@@ -33,7 +33,7 @@ export class PackagesxPage implements OnInit {
   Package: any;
   minYear: any;
   maxYear: any;
-
+  myDate: any;
   A: any = null;
   B: any = null;
   C: any = null;
@@ -55,6 +55,10 @@ export class PackagesxPage implements OnInit {
   ngOnInit() {
     this.getLocations();
     this.getYears();
+    this.myDate = {
+      From: new Date(),
+      To: new Date()
+    }
   }
 
   getYears() {
@@ -89,6 +93,7 @@ export class PackagesxPage implements OnInit {
   }
 
   search() {
+    console.log(this.myDate);
     console.log(this.returnDate, this.departureDate);
     this.getPackagesFromDirection(this.SelectedDirection, this.departureDate, this.returnDate);
   }
